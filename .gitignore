@@ -1,0 +1,25 @@
+# Thư mục node_modules
+node_modules/
+
+# Tệp .env
+.env
+
+# Thư mục cache
+.cache/
+
+# Thư mục log và file log
+logs/
+*.log
+
+# Thư mục build
+build/
+
+# Thư mục dist
+dist/
+
+# Các tệp thường được tạo bởi IDEs hoặc trình biên dịch
+.idea/
+.vscode/
+*.swp
+*.swo
+*.log

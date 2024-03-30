@@ -1,0 +1,140 @@
+import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import userService from "../../services/userService";
+
+// Trang Đăng Nhập
+export default function ResetPasswordPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // State cho dữ liệu đăng nhập
+  const [formData, setFormData] = useState({
+    email: new URLSearchParams(location.search).get("email") || "",
+    otp: "",
+    password: "",
+    password2: "",
+  });
+
+  // Xử lý sự kiện thay đổi giá trị của input
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  // Xử lý sự kiện
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.otp || !formData.password || !formData.password2) {
+      toast.warning("Bạn chưa nhập đủ thông tin");
+      return;
+    }
+
+    try {
+      // Kiểm tra xem mật khẩu mới và mật khẩu nhập lại có khớp nhau không
+      if (formData.password !== formData.password2) {
+        toast.error("Mật khẩu mới không khớp");
+        return;
+      }
+
+      // Kiểm tra mật khẩu: ít nhất 6 kí tự và không chứa kí tự đặc biệt
+      const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
+      if (!passwordRegex.test(formData.password)) {
+        toast.warning(
+          "Mật khẩu phải có ít nhất 6 kí tự và không chứa kí tự đặc biệt"
+        );
+        return;
+      }
+      // Kiểm tra OTP có khớp với OTP đã gửi đi không
+      const otpMatch = await userService.verifyOTP(
+        formData.email,
+        formData.otp
+      );
+
+      if (!otpMatch) {
+        toast.error("Mã OTP không hợp lệ");
+        return;
+      }
+
+      // Thực hiện yêu cầu đặt lại mật khẩu
+      const response = await userService.resetPassword(
+        formData.email,
+        formData.otp,
+        formData.password,
+        formData.password2
+      );
+
+      // Hiển thị thông báo thành công và chuyển hướng
+      toast.success(response.message);
+      navigate("/dang-nhap");
+    } catch (error) {
+      console.error("Error resetting password:", error);
+      toast.error("Có lỗi xảy ra khi đặt lại mật khẩu");
+    }
+  };
+
+  return (
+    <>
+      <section>
+        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
+          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
+            <Link to="/" className="ml-[60px]">
+              TRANG CHỦ
+            </Link>
+            <span> /TÀI KHOẢN</span>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="w-[1330px] h-[420px] mx-auto">
+          <div className="w-[443px] h-[350px] mx-auto">
+            <h1 className="text-[32px] font-bold text-center mb-10 mr-10">
+              ĐẶT LẠI MẬT KHẨU
+            </h1>
+            <div className="w-[413px] h-[100px]">
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="email"
+                  placeholder="Nhập email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                />
+                <input
+                  type="text"
+                  name="otp"
+                  placeholder="Nhập mã OTP"
+                  onChange={handleChange}
+                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                />
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Nhập mật khẩu mới"
+                  onChange={handleChange}
+                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                />
+                <input
+                  type="password"
+                  name="password2"
+                  placeholder="Nhập lại mật khẩu mới"
+                  onChange={handleChange}
+                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                />
+                <button className="w-[413px] h-[42px] mx-auto border bg-[#070707] text-white hover:opacity-80 duration-300 ease-in-out">
+                  XÁC NHẬN
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
