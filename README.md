@@ -3,6 +3,7 @@
 Welcome to the MERN Stack Project Ecommerce!
 
 ## Getting Started
+
 To run this project, you need to have the following software installed on your machine:
 
 - Node.js
@@ -11,7 +12,7 @@ To run this project, you need to have the following software installed on your m
 
 ### Installation
 
-1. Clone the repository to your local machine:
+Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/LuanDHV/MERN-Stack-Project-Ecommerce.git
