@@ -2,7 +2,7 @@
 node_modules/
 
 # Tệp .env
-.env
+# .env
 
 # Thư mục cache
 .cache/
