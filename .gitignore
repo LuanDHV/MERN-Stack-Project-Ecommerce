@@ -13,9 +13,15 @@ logs/
 
 # Thư mục build
 build/
+!build/.gitkeep
 
 # Thư mục dist
 dist/
+!dist/.gitkeep
+
+# Thư mục khác
+netlify.toml
+!netlify.toml/.gitkeep
 
 # Các tệp thường được tạo bởi IDEs hoặc trình biên dịch
 .idea/
