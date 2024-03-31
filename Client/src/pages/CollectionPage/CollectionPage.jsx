@@ -4,7 +4,7 @@ export default function CollectionPage() {
   return (
     <>
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
+        <div className="w-full h-auto mx-auto mt-[92px] border-t border-[#EFEFF4]">
           <div className="text-[14px] leading-[49px] font-light px-[60px] ">
             <Link to="/" className="ml-[60px]">
               TRANG CHỦ
@@ -12,8 +12,8 @@ export default function CollectionPage() {
             <span> / BỘ SƯU TẬP</span>
           </div>
         </div>
-        <div className="w-full h-[514px]">
-          <div className="w-[1360px] h-[514px] mx-auto px-[30px]">
+        <div className="w-full h-auto">
+          <div className="w-[1360px] h-auto mx-auto px-[30px]">
             <img
               src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_1.png?v=1068"
               alt=""
@@ -24,12 +24,12 @@ export default function CollectionPage() {
       </section>
 
       <section>
-        <div className="w-[1300px] h-[1500px] mx-auto grid grid-flow-col mt-10">
-          <div className="w-[800px] h-[580px] grid grid-flow-row">
-            <div className="h-[580px] grid grid-cols-2">
+        <div className="w-[1300px] h-auto mx-auto grid grid-flow-col mt-10">
+          <div className="w-[800px] h-auto grid grid-flow-row">
+            <div className="h-auto grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/4_20ac203e48fb4464b82ee87b41571b62_1024x1024.jpg"
@@ -54,7 +54,7 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/3_f02eb31f50c3463b954640386db404cd_1024x1024.jpg"
@@ -78,10 +78,10 @@ export default function CollectionPage() {
                 </div>
               </div>
             </div>
-            <div className="h-[580px] grid grid-cols-2">
+            <div className="h-auto grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/2_db50e4abbbe24fa8ad634f028279e51b_1024x1024.jpg"
@@ -106,7 +106,7 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/3_fe057eb4cf8140288675fe69c1836721_1024x1024.jpg"
@@ -128,11 +128,11 @@ export default function CollectionPage() {
                 </div>
               </div>
             </div>
-            <div className="w-[750px] h-[270px] mt-10">
-              <h1 className="w-[750px] h-[40px] mb-[20px] font-extrabold text-[36px]">
+            <div className="w-[750px] h-auto mt-10">
+              <h1 className="w-[750px] h-auto mb-[20px] font-extrabold text-[36px]">
                 SẮC MÀU NGÀY TẾT
               </h1>
-              <p className="w-[750px] h-[126px] mb-[20px] text-[16px] leading-[21px] text-justify">
+              <p className="w-[750px] h-auto mb-[20px] text-[16px] leading-[21px] text-justify">
                 Tết đến - Xuân về luôn là thời điểm thích hợp để phái đẹp lựa
                 chọn khoác lên mình những bộ trang phục có màu sắc thật rạng rỡ
                 để mang tới may mắn cho năm mới. Và bộ sưu tập &#34;Sắc màu ngày
@@ -144,13 +144,13 @@ export default function CollectionPage() {
                 cách điệu, “Sắc Màu Ngày Tết” vẫn tự tin đem đến những trang
                 phục đẹp nhất cho mọi quý cô.
               </p>
-              <button className="w-[340px] h-[36px] mb-[20px] border border-black bg-[#f8f8f9] hover:bg-[#070707] hover:text-white duration-500 ease-in-out rounded">
+              <button className="w-[340px] h-[40px] mb-[20px] border border-black bg-[#f8f8f9] hover:bg-[#070707] hover:text-white duration-500 ease-in-out rounded">
                 <p className="font-bold">XEM THÊM</p>
               </button>
             </div>
           </div>
-          <div className="w-[500px] h-[1500px] pl-[20px] grid grid-rows-1">
-            <div className="w-[480px] h-[716px] grid grid-flow-row">
+          <div className="w-[500px] h-auto pl-[20px] grid grid-rows-1">
+            <div className="w-[480px] h-auto grid grid-flow-row">
               <img
                 src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_2_1.png?v=1068"
                 alt=""
@@ -167,8 +167,8 @@ export default function CollectionPage() {
         <div className="w-[760px] h-[0.8px] my-[100px] mx-auto border border-[#e7e7e7]">
           <hr className=""></hr>
         </div>
-        <div className="w-full h-[514px] mt-10">
-          <div className="w-[1360px] h-[514px] mx-auto px-[30px]">
+        <div className="w-full h-auto mt-10">
+          <div className="w-[1360px] h-auto mx-auto px-[30px]">
             <img
               src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_3.png?v=1068"
               alt=""
@@ -177,9 +177,9 @@ export default function CollectionPage() {
           </div>
         </div>
 
-        <div className="w-[1300px] h-[1500px] mx-auto grid grid-flow-col mt-10">
-          <div className="w-[500px] h-[1500px] grid grid-rows-1">
-            <div className="w-[480px] h-[716px] grid grid-flow-row">
+        <div className="w-[1300px] h-auto mx-auto grid grid-flow-col mt-10">
+          <div className="w-[500px] h-auto grid grid-rows-1">
+            <div className="w-[480px] h-auto grid grid-flow-row">
               <img
                 src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_4_1.png?v=1068"
                 alt=""
@@ -193,11 +193,11 @@ export default function CollectionPage() {
             </div>
           </div>
 
-          <div className="w-[800px] h-[580px] grid grid-flow-row">
-            <div className="h-[580px] grid grid-cols-2">
+          <div className="w-[800px] h-auto grid grid-flow-row">
+            <div className="h-auto grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/13_1ab099fdcdba4a28b0bb21b2d6510a66_1024x1024.jpg"
@@ -222,7 +222,7 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/5_11d573ff625f4e218d1146c9b6ef2259_1024x1024.jpg"
@@ -246,10 +246,10 @@ export default function CollectionPage() {
                 </div>
               </div>
             </div>
-            <div className="h-[580px] grid grid-cols-2">
+            <div className="h-auto grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/4_00e63d47514642fb861e5ded1ea356aa_1024x1024.jpg"
@@ -274,7 +274,7 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
+                  <div className="w-[371px] h-auto relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/4_d0fc7fb524ab4720acc2ae9a55a1994a_1024x1024.jpg"
@@ -298,11 +298,11 @@ export default function CollectionPage() {
                 </div>
               </div>
             </div>
-            <div className="w-[750px] h-[335px] mt-10">
-              <h1 className="w-[750px] h-[40px] mb-[20px] font-extrabold text-[36px] text-end">
+            <div className="w-[750px] h-auto mt-10">
+              <h1 className="w-[750px] h-auto mb-[20px] font-extrabold text-[36px] text-end">
                 XUÂN THÌ | AO DAI COLLECTION 2024
               </h1>
-              <p className="w-[750px] h-[200px] mb-[20px] text-[16px] leading-[21px] text-justify">
+              <p className="w-[750px] h-auto mb-[20px] text-[16px] leading-[21px] text-justify">
                 &#34;Xuân Thì&#34; - cái tên gợi nhắc tới một thời thanh xuân
                 rạng rỡ, là quãng thời gian đẹp nhất mà ai cũng muốn quay trở
                 lại. Đó cũng là nguồn cảm hứng để NEM chọn &#34;Xuân Thì&#34;
@@ -318,7 +318,7 @@ export default function CollectionPage() {
                 dáng, son sắc của người phụ nữ Việt. Bộ sưu tập Áo Dài &#34;Xuân
                 Thì&#34; đã có mặt tại toàn bộ store của NEM!
               </p>
-              <button className="w-[340px] h-[36px] mb-[20px] float-end border border-black bg-[#f8f8f9] hover:bg-[#070707] hover:text-white duration-500 ease-in-out rounded">
+              <button className="w-[340px] h-[40px] mb-[20px] float-end border border-black bg-[#f8f8f9] hover:bg-[#070707] hover:text-white duration-500 ease-in-out rounded">
                 <p className="font-bold">XEM THÊM</p>
               </button>
             </div>
