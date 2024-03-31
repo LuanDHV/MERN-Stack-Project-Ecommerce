@@ -31,7 +31,7 @@ cd server
 npm install
 npm start
 
-The application will start running. You can now access the client at `http://localhost:3000 and interact with the server at `http://localhost:8000.
+The application will start running. You can now access the client at `http://localhost:3000 and interact with the server at `https://nemfashion-server.onrender.com.
 
 
 ```

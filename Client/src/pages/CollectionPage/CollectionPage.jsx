@@ -17,7 +17,7 @@ export default function CollectionPage() {
             <img
               src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_1.png?v=1068"
               alt=""
-              className="object-center"
+              className="object-center rounded-md"
             />
           </div>
         </div>
@@ -29,12 +29,12 @@ export default function CollectionPage() {
             <div className="h-[580px] grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/4_20ac203e48fb4464b82ee87b41571b62_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -54,12 +54,12 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/3_f02eb31f50c3463b954640386db404cd_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -81,12 +81,12 @@ export default function CollectionPage() {
             <div className="h-[580px] grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/2_db50e4abbbe24fa8ad634f028279e51b_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -106,12 +106,12 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/3_fe057eb4cf8140288675fe69c1836721_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -154,11 +154,12 @@ export default function CollectionPage() {
               <img
                 src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_2_1.png?v=1068"
                 alt=""
-                className="mb-[30px]"
+                className="mb-[30px] rounded-md"
               />
               <img
                 src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_2_2.png?v=1068"
                 alt=""
+                className="rounded-md"
               />
             </div>
           </div>
@@ -171,7 +172,7 @@ export default function CollectionPage() {
             <img
               src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_3.png?v=1068"
               alt=""
-              className="object-center"
+              className="object-center rounded-md"
             />
           </div>
         </div>
@@ -182,11 +183,12 @@ export default function CollectionPage() {
               <img
                 src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_4_1.png?v=1068"
                 alt=""
-                className="mb-[30px]"
+                className="mb-[30px] rounded-md"
               />
               <img
                 src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_4_2.png?v=1068"
                 alt=""
+                className="rounded-md"
               />
             </div>
           </div>
@@ -195,12 +197,12 @@ export default function CollectionPage() {
             <div className="h-[580px] grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/13_1ab099fdcdba4a28b0bb21b2d6510a66_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -220,12 +222,12 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/5_11d573ff625f4e218d1146c9b6ef2259_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -247,12 +249,12 @@ export default function CollectionPage() {
             <div className="h-[580px] grid grid-cols-2">
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/4_00e63d47514642fb861e5ded1ea356aa_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>
@@ -272,12 +274,12 @@ export default function CollectionPage() {
               </div>
               <div className="w-[371px]">
                 <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                  <div className="w-[371px] h-[481px] relative group overflow-hidden">
+                  <div className="w-[371px] h-[480px] relative group overflow-hidden rounded-md">
                     <div className="">
                       <img
                         src="https://product.hstatic.net/200000182297/product/4_d0fc7fb524ab4720acc2ae9a55a1994a_1024x1024.jpg"
                         alt=""
-                        className="hover:opacity-90 object-cover w-full h-full"
+                        className="hover:opacity-90 object-cover w-full h-full rounded-md"
                       />
                     </div>
                     <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center"></div>

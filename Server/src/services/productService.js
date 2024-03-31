@@ -2,7 +2,7 @@
 import Product from '../models/productModel.js';
 import axios from 'axios';  // Thêm dòng này
 
-const API_URL = 'http://localhost:8000/api/products';
+const API_URL = 'https://nemfashion-server.onrender.com/api/products';
 
 //Lấy tất cả các sản phẩm từ cơ sở dữ liệu.
 export const getProducts = async () => {

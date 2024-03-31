@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faUser,
-  faMagnifyingGlass,
   faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
@@ -138,39 +137,11 @@ export default function Header() {
               </ul>
             </div>
 
-            {/* Tìm kiếm, Người dùng, Giỏ hàng */}
+            {/*Người dùng, Giỏ hàng */}
             <div className="place-self-center text-[#070707]">
               <ul className="flex ">
-                {/* Tìm kiếm */}
-                <li className="px-2 relative group">
-                  <a className="block" href="">
-                    <FontAwesomeIcon
-                      icon={faMagnifyingGlass}
-                      className="h-[15px] w-[15px] mr-2"
-                    />
-                  </a>
-                  <ul className="w-[200px] h-[40px] absolute hidden group-hover:block bg-white border border-gray-300 rounded-md">
-                    <form
-                      action=""
-                      className="grid grid-flow-col auto-cols-max"
-                    >
-                      <input
-                        type="search"
-                        placeholder="Tìm kiếm..."
-                        className="w-[200px] h-[40px] px-2 outline-none rounded-bl-md border"
-                      />
-                      <button
-                        type="submit"
-                        className="w-[40px] h-[40px] text-center text-white bg-black"
-                      >
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </button>
-                    </form>
-                  </ul>
-                </li>
-
                 {/* Người dùng */}
-                <li className="border-l border-[#7c7c7c] px-2 relative group cursor-pointer">
+                <li className="px-2 relative group cursor-pointer">
                   {user ? (
                     <>
                       <span className="block">

@@ -61,6 +61,17 @@ export default function HomePage() {
     dispatch(nextSlide(productType));
   };
 
+  // Effect để tự động chuyển slide sau mỗi khoảng thời gian
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextSlide("NewProducts");
+      handleNextSlide("PremiumDresses");
+    }, 3000);
+
+    // Đảm bảo xóa interval khi component unmount hoặc khi useEffect chạy lại.
+    return () => clearInterval(interval);
+  }, []);
+
   // Xử lý khi click vào sản phẩm
   const handleClick = (productId) => {
     dispatch(setSelectedProductId(productId));
@@ -114,7 +125,7 @@ export default function HomePage() {
               onClick={() => handleClick(product._id, product.name)}
               className={`transition-transform transform hover:-translate-y-1 duration-300`}
             >
-              <div className="w-[321px] h-[481px] relative group overflow-hidden">
+              <div className="w-[300px] h-[450px] relative group overflow-hidden">
                 <div className="">
                   <img
                     src={product.images[0]}
@@ -148,6 +159,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Banner2 */}
+      <section>
+        <div className="mt-16">
+          <img
+            src="https://theme.hstatic.net/200000182297/1000887316/14/ms_banner_img3.jpg?v=1068"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </section>
       {/* ÁO DÀI CAO CẤP */}
       <section>
         <div className="w-[1300px] h-[54px] mx-auto mt-28 mb-8 px-[30px]">
@@ -173,7 +194,7 @@ export default function HomePage() {
               onClick={() => handleClick(product._id, product.name)}
               className={`transition-transform transform hover:-translate-y-1 duration-300`}
             >
-              <div className="w-[321px] h-[481px] relative group overflow-hidden">
+              <div className="w-[300px] h-[450px] relative group overflow-hidden">
                 <div className="">
                   <img
                     src={product.images[0]}
@@ -204,72 +225,6 @@ export default function HomePage() {
           >
             <FontAwesomeIcon icon={faCaretRight} className="text-white" />
           </button>
-        </div>
-      </section>
-
-      {/* Banner2 */}
-      <section>
-        <div className="mt-16">
-          <img
-            src="https://theme.hstatic.net/200000182297/1000887316/14/ms_banner_img3.jpg?v=1068"
-            alt=""
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </section>
-
-      {/* Blog */}
-      <section>
-        <div className="w-[1360px] h-[448px] mx-auto mt-28 mb-8 px-[30px]">
-          <h2 className="text-center mb-5">
-            <a href="" className="text-[32px] font-bold">
-              NEM&apos;S BLOG
-              <p className="text-sm">ĐOÁN ĐẦU XU HƯỚNG, ĐỊNH HÌNH PHONG CÁCH</p>
-            </a>
-          </h2>
-          <div className="grid grid-cols-3 gap-8 cursor-pointer">
-            {/* Bài viết 1 */}
-            <div className="w-[435px] h-[343px]">
-              <img
-                src="https://file.hstatic.net/200000182297/article/315854475_2623148267823058_3203710229884569157_n_3baa02b3ee4348339faec98be869be0d_large.jpg"
-                alt=""
-                className="w-[435px] h-[258px] object-cover rounded"
-              />
-              <div className="w-[435px] h-[58px] p-5 text-center">
-                <a href="" className="font-bold">
-                  SUIT - XU HƯỚNG THỜI TRANG CHO QUÝ CÔ QUYỀN LỰC
-                </a>
-              </div>
-            </div>
-
-            {/* Bài viết 2 */}
-            <div className="w-[435px] h-[343px]">
-              <img
-                src="https://file.hstatic.net/200000182297/article/327890757_8735259056545354_6482098786089923519_n_ee711d5e3b9f4541b8c10fed967c16ca_large.jpg"
-                alt=""
-                className="w-[435px] h-[258px] object-cover rounded"
-              />
-              <div className="w-[435px] h-[58px] p-5 text-center">
-                <a href="" className="font-bold">
-                  SUIT - XU HƯỚNG THỜI TRANG CHO QUÝ CÔ QUYỀN LỰC
-                </a>
-              </div>
-            </div>
-
-            {/* Bài viết 3 */}
-            <div className="w-[435px] h-[343px]">
-              <img
-                src="https://file.hstatic.net/200000182297/article/web_6fb6ad7b835f456aba636f2a29c0eaf8_large.jpg"
-                alt=""
-                className="w-[435px] h-[258px] object-cover rounded"
-              />
-              <div className="w-[435px] h-[58px] p-5 text-center">
-                <a href="" className="font-bold">
-                  RẠNG RỠ ĐÓN HÈ CÙNG VÁY HOA
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </>
