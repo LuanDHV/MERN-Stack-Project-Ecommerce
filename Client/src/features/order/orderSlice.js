@@ -105,7 +105,7 @@ const orderSlice = createSlice({
 export const fetchUserOrders = createAsyncThunk('orders/fetchUserOrders', async (_, { getState }) => {
     const userId = getState().user.userId;
     try {
-        const response = await axios.get(`https://nemfashion-server.onrender.com/api/orders?userId=${userId}`);
+        const response = await axios.get(`http://localhost:8000/api/orders?userId=${userId}`);
         return response.data;
     } catch (error) {
         console.error('Error fetching user orders:', error);
@@ -116,7 +116,7 @@ export const fetchUserOrders = createAsyncThunk('orders/fetchUserOrders', async 
 // Async thunk để lấy danh sách đơn hàng của người dùng từ máy chủ
 export const fetchOrders = createAsyncThunk('orders/fetchOrders', async () => {
     try {
-        const response = await axios.get(`https://nemfashion-server.onrender.com/api/orders`);
+        const response = await axios.get(`http://localhost:8000/api/orders`);
         return response.data;
     } catch (error) {
         console.error('Error fetching user orders:', error);
@@ -127,7 +127,7 @@ export const fetchOrders = createAsyncThunk('orders/fetchOrders', async () => {
 // Async thunk để thêm đơn hàng
 export const addOrder = createAsyncThunk('orders/addOrder', async (orderData) => {
     try {
-        const response = await axios.post('https://nemfashion-server.onrender.com/api/orders', orderData);
+        const response = await axios.post('http://localhost:8000/api/orders', orderData);
         return response.data;
     } catch (error) {
         console.error('Error adding order:', error);
@@ -138,7 +138,7 @@ export const addOrder = createAsyncThunk('orders/addOrder', async (orderData) =>
 // Async thunk để cập nhật đơn hàng
 export const updateOrder = createAsyncThunk('orders/updateOrder', async (orderData) => {
     try {
-        const response = await axios.put(`https://nemfashion-server.onrender.com/api/orders/${orderData._id}`, orderData);
+        const response = await axios.put(`http://localhost:8000/api/orders/${orderData._id}`, orderData);
         return response.data;
     } catch (error) {
         console.error('Error updating order:', error);
@@ -149,7 +149,7 @@ export const updateOrder = createAsyncThunk('orders/updateOrder', async (orderDa
 // Async thunk để xóa đơn hàng
 export const deleteOrder = createAsyncThunk('orders/deleteOrder', async (orderId) => {
     try {
-        await axios.delete(`https://nemfashion-server.onrender.com/api/orders/${orderId}`);
+        await axios.delete(`http://localhost:8000/api/orders/${orderId}`);
         return orderId;
     } catch (error) {
         console.error('Error deleting order:', error);
@@ -161,7 +161,7 @@ export const deleteOrder = createAsyncThunk('orders/deleteOrder', async (orderId
 export const postOrderToAPI = createAsyncThunk('orders/postOrderToAPI', async (orderData) => {
     try {
         // Gửi yêu cầu POST đến API để tạo order
-        const response = await axios.post('https://nemfashion-server.onrender.com/api/orders', orderData);
+        const response = await axios.post('http://localhost:8000/api/orders', orderData);
         return response.data;
     } catch (error) {
         console.error('Error posting order to API:', error);

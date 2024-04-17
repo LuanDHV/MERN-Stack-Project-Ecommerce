@@ -1,7 +1,7 @@
 // productService.js
 import axios from 'axios';
 
-const API_URL = 'https://nemfashion-server.onrender.com/api/products';
+const API_URL = 'http://localhost:8000/api/products';
 
 
 

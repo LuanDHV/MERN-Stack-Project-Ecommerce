@@ -1,7 +1,7 @@
 // categoryService.js
 import axios from 'axios';
 
-const API_URL = 'https://nemfashion-server.onrender.com/api/categories';
+const API_URL = 'http://localhost:8000/api/categories';
 
 const categoryService = {
   getCategories: () => axios.get(API_URL),

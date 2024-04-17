@@ -1,7 +1,7 @@
 // emailService.js
 import axios from 'axios';
 
-const API_URL = 'https://nemfashion-server.onrender.com/api/otp';
+const API_URL = 'http://localhost:8000/api/otp';
 
 
 const emailService = {

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async (productId) => {
   try {
-    const response = await axios.get(`https://nemfashion-server.onrender.com/api/products/${productId}`);
+    const response = await axios.get(`http://localhost:8000/api/products/${productId}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching product details for ID ${productId}:`, error);

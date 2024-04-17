@@ -1,7 +1,7 @@
 // orderService.js
 import axios from 'axios';
 
-const API_URL = 'https://nemfashion-server.onrender.com/api/orders';
+const API_URL = 'http://localhost:8000/api/orders';
 
 const orderService = {
   getOrders: () => axios.get(API_URL),

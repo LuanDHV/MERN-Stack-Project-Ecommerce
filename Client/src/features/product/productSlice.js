@@ -85,7 +85,7 @@ const productSlice = createSlice({
 // Async thunk để lấy danh sách sản phẩm từ máy chủ
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
-    const response = await axios.get('https://nemfashion-server.onrender.com/api/products');
+    const response = await axios.get('http://localhost:8000/api/products');
     return response.data;
   } catch (error) {
     console.error('Lỗi khi tải danh sách sản phẩm:', error);
@@ -97,7 +97,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 // Async thunk để thêm sản phẩm
 export const addProduct = createAsyncThunk('products/addProduct', async (productData) => {
   try {
-    const response = await axios.post('https://nemfashion-server.onrender.com/api/products', productData);
+    const response = await axios.post('http://localhost:8000/api/products', productData);
     return response.data;
   } catch (error) {
     console.error('Lỗi khi thêm sản phẩm:', error);
@@ -109,7 +109,7 @@ export const addProduct = createAsyncThunk('products/addProduct', async (product
 // Async thunk để sửa sản phẩm
 export const updateProduct = createAsyncThunk('products/updateProduct', async (productData) => {
   try {
-    const response = await axios.put(`https://nemfashion-server.onrender.com/api/products/${productData._id}`, productData);
+    const response = await axios.put(`http://localhost:8000/api/products/${productData._id}`, productData);
     return response.data;
   } catch (error) {
     console.error('Lỗi khi sửa sản phẩm:', error);
@@ -121,7 +121,7 @@ export const updateProduct = createAsyncThunk('products/updateProduct', async (p
 // Async thunk để xóa sản phẩm
 export const deleteProduct = createAsyncThunk('products/deleteProduct', async (productId) => {
   try {
-    await axios.delete(`https://nemfashion-server.onrender.com/api/products/${productId}`);
+    await axios.delete(`http://localhost:8000/api/products/${productId}`);
     return productId;
   } catch (error) {
     console.error('Lỗi khi xóa sản phẩm:', error);

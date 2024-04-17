@@ -1,7 +1,7 @@
 // userService.js
 import axios from "axios";
 
-const API_URL = "https://nemfashion-server.onrender.com/api/users";
+const API_URL = "http://localhost:8000/api/users";
 
 const userService = {
   getUsers: () => axios.get(API_URL),

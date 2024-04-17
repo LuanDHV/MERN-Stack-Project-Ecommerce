@@ -6,7 +6,7 @@ import axios from 'axios';
 // Action async để lấy danh mục từ máy chủ
 export const fetchCategories = createAsyncThunk('categories/fetchCategories', async () => {
   try {
-    const response = await axios.get('https://nemfashion-server.onrender.com/api/categories');
+    const response = await axios.get('http://localhost:8000/api/categories');
     return response.data;
   } catch (error) {
     console.error('Lỗi khi tải danh mục:', error);
