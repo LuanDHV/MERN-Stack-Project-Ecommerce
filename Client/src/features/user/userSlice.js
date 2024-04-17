@@ -97,7 +97,7 @@ export const userSlice = createSlice({
 // Async thunk để lấy danh sách người dùng từ máy chủ
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
     try {
-        const response = await axios.get('http://localhost:8000/api/users');
+        const response = await axios.get('https://nemfashion-server.onrender.com/api/users');
         return response.data;
     } catch (error) {
         console.error('Lỗi khi tải danh sách user:', error);
@@ -108,7 +108,7 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 // Action async để thêm người dùng
 export const addUser = createAsyncThunk('users/addUser', async (userData) => {
     try {
-        const response = await axios.post('http://localhost:8000/api/users/register', userData);
+        const response = await axios.post('https://nemfashion-server.onrender.com/api/users/register', userData);
         return response.data;
     } catch (error) {
         console.error('Error adding user:', error);
@@ -119,7 +119,7 @@ export const addUser = createAsyncThunk('users/addUser', async (userData) => {
 // Action async để cập nhập người dùng
 export const updateUser = createAsyncThunk('users/updateUser', async (userData) => {
     try {
-        const response = await axios.put(`http://localhost:8000/api/users/${userData._id}`, userData);
+        const response = await axios.put(`https://nemfashion-server.onrender.com/api/users/${userData._id}`, userData);
         return response.data;
     } catch (error) {
         console.error('Error updating user:', error);
@@ -130,7 +130,7 @@ export const updateUser = createAsyncThunk('users/updateUser', async (userData) 
 // Action async để xóa người dùng
 export const deleteUser = createAsyncThunk('users/deleteUser', async (userId) => {
     try {
-        await axios.delete(`http://localhost:8000/api/users/${userId}`);
+        await axios.delete(`https://nemfashion-server.onrender.com/api/users/${userId}`);
         return userId;
     } catch (error) {
         console.error('Error deleting user:', error);
@@ -141,7 +141,7 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (userId) =>
 // Action async để đăng ký người dùng
 export const registerUser = createAsyncThunk('users/register', async (userData, { rejectWithValue }) => {
     try {
-        const response = await axios.post('http://localhost:8000/api/users/register', userData);
+        const response = await axios.post('https://nemfashion-server.onrender.com/api/users/register', userData);
         return response.data;
     } catch (error) {
         console.error("Lỗi từ máy chủ:", error.response.data);
@@ -152,7 +152,7 @@ export const registerUser = createAsyncThunk('users/register', async (userData, 
 // Action async để đăng nhập người dùng
 export const loginUser = createAsyncThunk('users/login', async (loginData, { rejectWithValue }) => {
     try {
-        const response = await axios.post('http://localhost:8000/api/users/login', loginData);
+        const response = await axios.post('https://nemfashion-server.onrender.com/api/users/login', loginData);
         return response.data.loginData;
     } catch (error) {
         console.error("Lỗi từ máy chủ:", error.response.data);
