@@ -1,17 +1,15 @@
 // productSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { setIndex } from './slideShowSlice';
-import * as filterProductActions from './filterProductSlice';
-
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import { setIndex } from "./slideShowSlice";
+import * as filterProductActions from "./filterProductSlice";
 
 // Định nghĩa slice cho sản phẩm
 const productSlice = createSlice({
-  name: 'products',
+  name: "products",
   initialState: {
     items: [],
-    status: 'idle',
+    status: "idle",
     error: null,
     currentIndex: 0,
     selectedProductId: null,
@@ -40,24 +38,26 @@ const productSlice = createSlice({
     },
     updateProduct: (state, action) => {
       const updatedProduct = action.payload;
-      const index = state.items.findIndex(item => item._id === updatedProduct._id);
+      const index = state.items.findIndex(
+        (item) => item._id === updatedProduct._id
+      );
       if (index !== -1) {
         state.items[index] = updatedProduct;
       }
     },
     deleteProduct: (state, action) => {
       const productId = action.payload;
-      state.items = state.items.filter(item => item._id !== productId);
+      state.items = state.items.filter((item) => item._id !== productId);
     },
   },
   extraReducers: (builder) => {
     // Xử lý các action pending, fulfilled, rejected cho fetchProducts và setIndex
     builder
       .addCase(fetchProducts.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         state.items = action.payload;
       })
       .addCase(setIndex, (state, action) => {
@@ -70,69 +70,90 @@ const productSlice = createSlice({
       })
       .addCase(updateProduct.fulfilled, (state, action) => {
         const updatedProduct = action.payload;
-        const index = state.items.findIndex(item => item._id === updatedProduct._id);
+        const index = state.items.findIndex(
+          (item) => item._id === updatedProduct._id
+        );
         if (index !== -1) {
           state.items[index] = updatedProduct;
         }
       })
       .addCase(deleteProduct.fulfilled, (state, action) => {
         const productId = action.payload;
-        state.items = state.items.filter(item => item._id !== productId);
+        state.items = state.items.filter((item) => item._id !== productId);
       });
   },
 });
 
 // Async thunk để lấy danh sách sản phẩm từ máy chủ
-export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
-  try {
-    const response = await axios.get('https://nemfashion-server.onrender.com/api/products');
-    return response.data;
-  } catch (error) {
-    console.error('Lỗi khi tải danh sách sản phẩm:', error);
-    throw error;
+export const fetchProducts = createAsyncThunk(
+  "products/fetchProducts",
+  async () => {
+    try {
+      const response = await axios.get("http://localhost:8000/api/products");
+      return response.data;
+    } catch (error) {
+      console.error("Lỗi khi tải danh sách sản phẩm:", error);
+      throw error;
+    }
   }
-});
-
+);
 
 // Async thunk để thêm sản phẩm
-export const addProduct = createAsyncThunk('products/addProduct', async (productData) => {
-  try {
-    const response = await axios.post('https://nemfashion-server.onrender.com/api/products', productData);
-    return response.data;
-  } catch (error) {
-    console.error('Lỗi khi thêm sản phẩm:', error);
-    throw error;
+export const addProduct = createAsyncThunk(
+  "products/addProduct",
+  async (productData) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/products",
+        productData
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Lỗi khi thêm sản phẩm:", error);
+      throw error;
+    }
   }
-}
 );
 
 // Async thunk để sửa sản phẩm
-export const updateProduct = createAsyncThunk('products/updateProduct', async (productData) => {
-  try {
-    const response = await axios.put(`https://nemfashion-server.onrender.com/api/products/${productData._id}`, productData);
-    return response.data;
-  } catch (error) {
-    console.error('Lỗi khi sửa sản phẩm:', error);
-    throw error;
+export const updateProduct = createAsyncThunk(
+  "products/updateProduct",
+  async (productData) => {
+    try {
+      const response = await axios.put(
+        `http://localhost:8000/api/products/${productData._id}`,
+        productData
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Lỗi khi sửa sản phẩm:", error);
+      throw error;
+    }
   }
-}
 );
 
 // Async thunk để xóa sản phẩm
-export const deleteProduct = createAsyncThunk('products/deleteProduct', async (productId) => {
-  try {
-    await axios.delete(`https://nemfashion-server.onrender.com/api/products/${productId}`);
-    return productId;
-  } catch (error) {
-    console.error('Lỗi khi xóa sản phẩm:', error);
-    throw error;
+export const deleteProduct = createAsyncThunk(
+  "products/deleteProduct",
+  async (productId) => {
+    try {
+      await axios.delete(`http://localhost:8000/api/products/${productId}`);
+      return productId;
+    } catch (error) {
+      console.error("Lỗi khi xóa sản phẩm:", error);
+      throw error;
+    }
   }
-}
 );
 
 // Xuất các action creators và selectors
-export const { setSelectedProductId, setFilterSizes, setFilterColors, setFilterPrice, setFilterKeyword } =
-  productSlice.actions;
+export const {
+  setSelectedProductId,
+  setFilterSizes,
+  setFilterColors,
+  setFilterPrice,
+  setFilterKeyword,
+} = productSlice.actions;
 
 // Xuất reducer lấy ID của sản phẩm được chọn từ trạng thái Redux
 export const selectProductId = (state) => state.products.selectedProductId;

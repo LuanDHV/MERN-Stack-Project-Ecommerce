@@ -1,7 +1,7 @@
 // userService.js
 import axios from "axios";
 
-const API_URL = "https://nemfashion-server.onrender.com/api/users";
+const API_URL = "http://localhost:8000/api/users";
 
 const userService = {
   getUsers: () => axios.get(API_URL),
@@ -32,7 +32,7 @@ const userService = {
   resetPassword: async (email, otp, newPassword, newPassword2) => {
     // Kiểm tra xem mật khẩu mới và mật khẩu nhập lại có khớp nhau không
     if (newPassword !== newPassword2) {
-      throw new Error('Mật khẩu không giống nhau');
+      throw new Error("Mật khẩu không giống nhau");
     }
 
     // Lấy thông tin người dùng từ server bằng email
@@ -41,15 +41,15 @@ const userService = {
 
     // Kiểm tra xem người dùng và OTP
     if (!user || user.otp !== otp) {
-      throw new Error('Email hoặc mã OTP không hợp lệ');
+      throw new Error("Email hoặc mã OTP không hợp lệ");
     }
 
     // Gửi yêu cầu cập nhật mật khẩu mới đến server
-    await userService.updateUser(user._id, { password: newPassword, otp: '' });
+    await userService.updateUser(user._id, { password: newPassword, otp: "" });
 
     // Trả về thông báo thành công nếu mọi thứ diễn ra đúng
-    return { message: 'Mật khẩu đã được đặt lại thành công' };
-  }
+    return { message: "Mật khẩu đã được đặt lại thành công" };
+  },
 };
 
 export default userService;
