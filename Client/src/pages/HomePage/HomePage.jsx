@@ -151,10 +151,10 @@ export default function HomePage() {
 
           {/* Nút chuyển đến slide tiếp theo */}
           <button
-            onClick={() => handlePrevSlide("NewProducts")}
-            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
+            onClick={() => handleNextSlide("NewProducts")}
+            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
-            <FontAwesomeIcon icon={faCaretLeft} className="text-white" />
+            <FontAwesomeIcon icon={faCaretRight} className="text-white" />
           </button>
         </div>
       </section>
@@ -181,7 +181,7 @@ export default function HomePage() {
         <div className="relative mx-auto grid w-5/6 cursor-pointer grid-cols-2 gap-5 md:grid-cols-4">
           {/* Nút chuyển đến slide trước */}
           <button
-            onClick={() => handlePrevSlide("NewProducts")}
+            onClick={() => handlePrevSlide("PremiumDresses")}
             className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
             <FontAwesomeIcon icon={faCaretLeft} className="text-white" />
@@ -220,7 +220,7 @@ export default function HomePage() {
 
           {/* Nút chuyển đến slide tiếp theo */}
           <button
-            onClick={() => handleNextSlide("NewProducts")}
+            onClick={() => handleNextSlide("PremiumDresses")}
             className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
             <FontAwesomeIcon icon={faCaretRight} className="text-white" />
