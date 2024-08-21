@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { publicRoutes } from "./routes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -75,7 +80,7 @@ function AppContent() {
         <button
           id="scrollToTopButton"
           onClick={scrollToTop}
-          className="w-[40px] h-[40px] fixed text-lg bg-black bg-opacity-50 text-white bottom-10 right-5 rounded-full hover:bg-black duration-300 ease-in-out"
+          className="fixed bottom-10 right-5 h-[40px] w-[40px] rounded-full bg-black bg-opacity-50 text-lg text-white duration-300 ease-in-out hover:bg-black"
         >
           <FontAwesomeIcon icon={faArrowUp} />
         </button>

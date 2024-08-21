@@ -32,22 +32,22 @@ export default function HomePage() {
   // Lấy ra 4 sản phẩm hiển thị trên trang (dựa trên currentIndexForNewProducts)
   // Lọc sản phẩm theo danh mục "65de35c832056bb1c72e0d2b"
   const currentIndexForNewProducts = useSelector(
-    (state) => state.slideshow.currentIndexForNewProducts
+    (state) => state.slideshow.currentIndexForNewProducts,
   );
   const visibleNewProducts = products
     .filter((product) =>
-      product.categories.includes("65de35c832056bb1c72e0d2b")
+      product.categories.includes("65de35c832056bb1c72e0d2b"),
     )
     .slice(currentIndexForNewProducts, currentIndexForNewProducts + 4);
 
   // Lấy ra 4 sản phẩm hiển thị trên trang (dựa trên currentIndexForPremiumDresses)
   // Lọc sản phẩm theo danh mục "65c6000ffb866364b3105e24"
   const currentIndexForPremiumDresses = useSelector(
-    (state) => state.slideshow.currentIndexForPremiumDresses
+    (state) => state.slideshow.currentIndexForPremiumDresses,
   );
   const visiblePremiumDresses = products
     .filter((product) =>
-      product.categories.includes("65c6000ffb866364b3105e24")
+      product.categories.includes("65c6000ffb866364b3105e24"),
     )
     .slice(currentIndexForPremiumDresses, currentIndexForPremiumDresses + 4);
 
@@ -95,27 +95,27 @@ export default function HomePage() {
           <img
             src="https://theme.hstatic.net/200000182297/1000887316/14/ms_banner_img2.jpg?v=1068"
             alt=""
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
       </section>
 
       {/* SẢN PHẨM BÁN CHẠY */}
       <section>
-        <div className="w-[1300px] h-[54px] mx-auto my-8 px-[30px]">
+        <div className="mx-auto my-8 h-14 w-full">
           <h2 className="text-center">
-            <Link to="/" className="ml-[60px] font-bold text-[32px]">
+            <Link to="/" className="text-3xl font-bold">
               SẢN PHẨM BÁN CHẠY
             </Link>
           </h2>
         </div>
-        <div className="w-[1350px] mx-auto grid grid-flow-col gap-5 cursor-pointer relative">
+        <div className="relative mx-auto grid w-5/6 cursor-pointer grid-cols-2 gap-5 md:grid-cols-4">
           {/* Nút chuyển đến slide trước */}
           <button
             onClick={() => handlePrevSlide("NewProducts")}
-            className="w-[40px] h-[40px] absolute top-52 left-0 z-10 bg-[#070707B3] rounded-sm"
+            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
-            <FontAwesomeIcon icon={faCaretLeft} className="text-white " />
+            <FontAwesomeIcon icon={faCaretLeft} className="text-white" />
           </button>
 
           {/* Danh sách sản phẩm */}
@@ -123,25 +123,25 @@ export default function HomePage() {
             <div
               key={product._id}
               onClick={() => handleClick(product._id, product.name)}
-              className={`transition-transform transform hover:-translate-y-1 duration-300`}
+              className={`transform transition-transform duration-300 hover:-translate-y-1`}
             >
-              <div className="w-[300px] h-[450px] relative group overflow-hidden">
+              <div className="group relative">
                 <div className="">
                   <img
                     src={product.images[0]}
                     alt=""
-                    className="hover:opacity-90 object-cover w-full h-full rounded-xl"
+                    className="h-full w-full rounded-xl object-cover hover:opacity-90"
                   />
                 </div>
-                <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center rounded-xl"></div>
+                <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-[#212529] opacity-0 transition-opacity hover:opacity-10"></div>
               </div>
-              <div className="text-center mt-5">
-                <p className="transition-colors text-[#07070780] font-bold hover:text-black ease-in-out duration-300">
+              <div className="mt-5 text-center">
+                <p className="font-bold text-[#07070780] transition-colors duration-300 ease-in-out hover:text-black">
                   {product.name}
                 </p>
-                <p className="text-[#070707] font-bold mt-5">
+                <p className="flex flex-col font-bold text-[#070707]">
                   {formatCurrency(product.price)}
-                  <span className="text-[#FF3B30] line-through font-bold ml-[10px]">
+                  <span className="font-bold text-[#FF3B30] line-through">
                     {formatCurrency(product.discount)}
                   </span>
                 </p>
@@ -151,10 +151,10 @@ export default function HomePage() {
 
           {/* Nút chuyển đến slide tiếp theo */}
           <button
-            onClick={() => handleNextSlide("NewProducts")}
-            className="w-[40px] h-[40px] absolute top-52 right-0 z-10 bg-[#070707B3] rounded-sm"
+            onClick={() => handlePrevSlide("NewProducts")}
+            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
-            <FontAwesomeIcon icon={faCaretRight} className="text-white" />
+            <FontAwesomeIcon icon={faCaretLeft} className="text-white" />
           </button>
         </div>
       </section>
@@ -165,26 +165,26 @@ export default function HomePage() {
           <img
             src="https://theme.hstatic.net/200000182297/1000887316/14/ms_banner_img3.jpg?v=1068"
             alt=""
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
       </section>
       {/* ÁO DÀI CAO CẤP */}
       <section>
-        <div className="w-[1300px] h-[54px] mx-auto mt-28 mb-8 px-[30px]">
+        <div className="mx-auto my-8 h-14 w-full">
           <h2 className="text-center">
-            <Link to="/" className="ml-[60px] font-bold text-[32px]">
+            <Link to="/" className="text-3xl font-bold">
               ÁO DÀI CAO CẤP
             </Link>
           </h2>
         </div>
-        <div className="w-[1350px] mx-auto grid grid-flow-col gap-5 cursor-pointer relative">
+        <div className="relative mx-auto grid w-5/6 cursor-pointer grid-cols-2 gap-5 md:grid-cols-4">
           {/* Nút chuyển đến slide trước */}
           <button
-            onClick={() => handlePrevSlide("PremiumDresses")}
-            className="w-[40px] h-[40px] absolute top-52 left-0 z-10 bg-[#070707B3] rounded-sm"
+            onClick={() => handlePrevSlide("NewProducts")}
+            className="absolute left-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
-            <FontAwesomeIcon icon={faCaretLeft} className="text-white " />
+            <FontAwesomeIcon icon={faCaretLeft} className="text-white" />
           </button>
 
           {/* Danh sách sản phẩm */}
@@ -192,25 +192,25 @@ export default function HomePage() {
             <div
               key={product._id}
               onClick={() => handleClick(product._id, product.name)}
-              className={`transition-transform transform hover:-translate-y-1 duration-300`}
+              className={`transform transition-transform duration-300 hover:-translate-y-1`}
             >
-              <div className="w-[300px] h-[450px] relative group overflow-hidden">
+              <div className="group relative">
                 <div className="">
                   <img
                     src={product.images[0]}
                     alt=""
-                    className="hover:opacity-90 object-cover w-full h-full rounded-xl"
+                    className="h-full w-full rounded-xl object-cover hover:opacity-90"
                   />
                 </div>
-                <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center rounded-xl"></div>
+                <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-[#212529] opacity-0 transition-opacity hover:opacity-10"></div>
               </div>
-              <div className="text-center mt-5">
-                <p className="transition-colors text-[#07070780] font-bold hover:text-black ease-in-out duration-300">
+              <div className="mt-5 text-center">
+                <p className="font-bold text-[#07070780] transition-colors duration-300 ease-in-out hover:text-black">
                   {product.name}
                 </p>
-                <p className="text-[#070707] font-bold mt-5">
+                <p className="flex flex-col font-bold text-[#070707]">
                   {formatCurrency(product.price)}
-                  <span className="text-[#FF3B30] line-through font-bold ml-[10px]">
+                  <span className="font-bold text-[#FF3B30] line-through">
                     {formatCurrency(product.discount)}
                   </span>
                 </p>
@@ -220,8 +220,8 @@ export default function HomePage() {
 
           {/* Nút chuyển đến slide tiếp theo */}
           <button
-            onClick={() => handleNextSlide("PremiumDresses")}
-            className="w-[40px] h-[40px] absolute top-52 right-0 z-10 bg-[#070707B3] rounded-sm"
+            onClick={() => handleNextSlide("NewProducts")}
+            className="absolute right-0 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 transform rounded-sm bg-[#070707B3] opacity-50 duration-300 ease-in-out hover:opacity-100 md:block"
           >
             <FontAwesomeIcon icon={faCaretRight} className="text-white" />
           </button>
