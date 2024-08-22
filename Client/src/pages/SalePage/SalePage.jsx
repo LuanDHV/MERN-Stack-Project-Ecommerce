@@ -222,7 +222,7 @@ export default function SalePage() {
                               : "translate-y-10"
                           }`}
                         >
-                          <li className="h-[30px] text-start leading-[30px]">
+                          <li className="h-auto text-start leading-[30px]">
                             <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceDefault"
@@ -234,7 +234,7 @@ export default function SalePage() {
                               <span className="ml-2">Mặc định</span>
                             </label>
                           </li>
-                          <li className="h-[30px] text-start leading-[30px]">
+                          <li className="h-auto text-start leading-[30px]">
                             <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceAscending"
@@ -246,7 +246,7 @@ export default function SalePage() {
                               <span className="ml-2">Giá tăng dần</span>
                             </label>
                           </li>
-                          <li className="h-[30px] text-start leading-[30px]">
+                          <li className="h-auto text-start leading-[30px]">
                             <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceDescending"
@@ -280,7 +280,7 @@ export default function SalePage() {
                           <div className="duration-500 ease-in-out hover:-translate-y-1">
                             <div className="group relative h-[450px] w-[300px] overflow-hidden">
                               <div className="relative">
-                                <div className="absolute right-2 top-2 h-[30px] w-[60px] rounded-full border bg-white text-center text-[12px] leading-[30px] text-red-600">
+                                <div className="absolute right-2 top-2 h-auto w-[60px] rounded-full border bg-white text-center text-[12px] leading-[30px] text-red-600">
                                   30%
                                 </div>
                               </div>

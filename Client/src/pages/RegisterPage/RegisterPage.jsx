@@ -104,7 +104,7 @@ export default function RegisterPage() {
       <section>
         <div className="mx-auto h-auto w-full">
           <h1 className="my-5 text-center text-3xl font-bold">ĐĂNG KÝ</h1>
-          <div className="mx-auto h-auto w-[420px]">
+          <div className="mx-auto h-auto w-[420px] p-5">
             <form onSubmit={handleSubmit}>
               {/* Input Username */}
               <input

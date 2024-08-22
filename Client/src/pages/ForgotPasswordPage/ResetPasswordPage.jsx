@@ -91,47 +91,45 @@ export default function ResetPasswordPage() {
         </div>
       </section>
       <section>
-        <div className="mx-auto h-[420px] w-full">
-          <div className="mx-auto h-[350px] w-[443px]">
-            <h1 className="mb-10 mr-10 text-center text-3xl font-bold">
-              ĐẶT LẠI MẬT KHẨU
-            </h1>
-            <div className="h-[100px] w-[413px]">
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Nhập email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
-                />
-                <input
-                  type="text"
-                  name="otp"
-                  placeholder="Nhập mã OTP"
-                  onChange={handleChange}
-                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
-                />
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Nhập mật khẩu mới"
-                  onChange={handleChange}
-                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
-                />
-                <input
-                  type="password"
-                  name="password2"
-                  placeholder="Nhập lại mật khẩu mới"
-                  onChange={handleChange}
-                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
-                />
-                <button className="mx-auto h-[42px] w-[413px] border bg-[#070707] text-white duration-300 ease-in-out hover:opacity-80">
-                  XÁC NHẬN
-                </button>
-              </form>
-            </div>
+        <div className="mx-auto h-auto w-full">
+          <h1 className="my-5 text-center text-3xl font-bold">
+            ĐẶT LẠI MẬT KHẨU
+          </h1>
+          <div className="h-auto w-full p-5">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="email"
+                placeholder="Nhập email"
+                value={formData.email}
+                onChange={handleChange}
+                className="mb-4 h-auto w-full border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              <input
+                type="text"
+                name="otp"
+                placeholder="Nhập mã OTP"
+                onChange={handleChange}
+                className="mb-4 h-auto w-full border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Nhập mật khẩu mới"
+                onChange={handleChange}
+                className="mb-4 h-auto w-full border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              <input
+                type="password"
+                name="password2"
+                placeholder="Nhập lại mật khẩu mới"
+                onChange={handleChange}
+                className="mb-4 h-auto w-full border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              <button className="mx-auto h-10 w-full border bg-[#070707] text-white duration-300 ease-in-out hover:opacity-80">
+                XÁC NHẬN
+              </button>
+            </form>
           </div>
         </div>
       </section>

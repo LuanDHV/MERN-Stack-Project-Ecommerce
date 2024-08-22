@@ -218,7 +218,7 @@ export default function Header() {
                     </span>
                   </Link>
                   <ul className="absolute right-3 hidden max-h-[600px] w-[320px] overflow-y-auto rounded border border-gray-300 bg-white group-hover:block">
-                    <div className="h-[30px] w-full bg-[#070707] text-white">
+                    <div className="h-auto w-full bg-[#070707] text-white">
                       <span className="p-4 text-sm leading-[30px]">
                         Giỏ Hàng Của Tôi
                       </span>

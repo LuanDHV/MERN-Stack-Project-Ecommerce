@@ -221,7 +221,7 @@ export default function DamPage() {
                               : "translate-y-10"
                           }`}
                         >
-                          <li className="h-[30px] text-start leading-[30px]">
+                          <li className="h-auto text-start leading-[30px]">
                             <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceDefault"
@@ -233,7 +233,7 @@ export default function DamPage() {
                               <span className="ml-2">Mặc định</span>
                             </label>
                           </li>
-                          <li className="h-[30px] text-start leading-[30px]">
+                          <li className="h-auto text-start leading-[30px]">
                             <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceAscending"
@@ -245,7 +245,7 @@ export default function DamPage() {
                               <span className="ml-2">Giá tăng dần</span>
                             </label>
                           </li>
-                          <li className="h-[30px] text-start leading-[30px]">
+                          <li className="h-auto text-start leading-[30px]">
                             <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceDescending"
