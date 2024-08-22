@@ -46,14 +46,14 @@ export default function ResetPasswordPage() {
       const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
       if (!passwordRegex.test(formData.password)) {
         toast.warning(
-          "Mật khẩu phải có ít nhất 6 kí tự và không chứa kí tự đặc biệt"
+          "Mật khẩu phải có ít nhất 6 kí tự và không chứa kí tự đặc biệt",
         );
         return;
       }
       // Kiểm tra OTP có khớp với OTP đã gửi đi không
       const otpMatch = await userService.verifyOTP(
         formData.email,
-        formData.otp
+        formData.otp,
       );
 
       if (!otpMatch) {
@@ -66,7 +66,7 @@ export default function ResetPasswordPage() {
         formData.email,
         formData.otp,
         formData.password,
-        formData.password2
+        formData.password2,
       );
 
       // Hiển thị thông báo thành công và chuyển hướng
@@ -81,9 +81,9 @@ export default function ResetPasswordPage() {
   return (
     <>
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> /TÀI KHOẢN</span>
@@ -91,12 +91,12 @@ export default function ResetPasswordPage() {
         </div>
       </section>
       <section>
-        <div className="w-[1330px] h-[420px] mx-auto">
-          <div className="w-[443px] h-[350px] mx-auto">
-            <h1 className="text-[32px] font-bold text-center mb-10 mr-10">
+        <div className="mx-auto h-[420px] w-full">
+          <div className="mx-auto h-[350px] w-[443px]">
+            <h1 className="mb-10 mr-10 text-center text-3xl font-bold">
               ĐẶT LẠI MẬT KHẨU
             </h1>
-            <div className="w-[413px] h-[100px]">
+            <div className="h-[100px] w-[413px]">
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
@@ -104,30 +104,30 @@ export default function ResetPasswordPage() {
                   placeholder="Nhập email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
                 />
                 <input
                   type="text"
                   name="otp"
                   placeholder="Nhập mã OTP"
                   onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
                 />
                 <input
                   type="password"
                   name="password"
                   placeholder="Nhập mật khẩu mới"
                   onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
                 />
                 <input
                   type="password"
                   name="password2"
                   placeholder="Nhập lại mật khẩu mới"
                   onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
                 />
-                <button className="w-[413px] h-[42px] mx-auto border bg-[#070707] text-white hover:opacity-80 duration-300 ease-in-out">
+                <button className="mx-auto h-[42px] w-[413px] border bg-[#070707] text-white duration-300 ease-in-out hover:opacity-80">
                   XÁC NHẬN
                 </button>
               </form>

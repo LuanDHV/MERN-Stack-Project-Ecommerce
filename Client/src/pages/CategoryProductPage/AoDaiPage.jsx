@@ -30,7 +30,7 @@ export default function AoDaiPage() {
   const endIndex = startIndex + productsPerPage;
   const displayedProducts = products
     .filter((product) =>
-      product.categories.includes("65c6000ffb866364b3105e24")
+      product.categories.includes("65c6000ffb866364b3105e24"),
     )
     .slice(startIndex, endIndex);
 
@@ -87,7 +87,7 @@ export default function AoDaiPage() {
     // Lọc sản phẩm theo màu sắc đã chọn
     if (selectedColors.length > 0) {
       filteredProducts = filteredProducts.filter((product) =>
-        product.colors.some((color) => selectedColors.includes(color))
+        product.colors.some((color) => selectedColors.includes(color)),
       );
     }
 
@@ -114,9 +114,9 @@ export default function AoDaiPage() {
   return (
     <>
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> / ÁO DÀI</span>
@@ -126,28 +126,28 @@ export default function AoDaiPage() {
           <img
             src="https://file.hstatic.net/200000182297/file/jnkk_eca605ae6c3b421cb510b2c0c2e0005e.jpg"
             alt=""
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
       </section>
       <section>
-        <div className="w-full h-auto py-[50px]">
-          <div className="w-[1360px] h-[2500px] mx-auto px-[30px]">
-            <div className="w-[1330px] h-full grid grid-flow-col">
-              <div className="w-[302px] h-[512px] pl-[30px] cursor-pointer">
+        <div className="h-auto w-full py-[50px]">
+          <div className="mx-auto h-[2500px] w-[1360px] px-[30px]">
+            <div className="grid h-full w-full grid-flow-col">
+              <div className="h-[512px] w-[302px] cursor-pointer pl-[30px]">
                 <Navbar />
               </div>
-              <div className="w-[1028px] h-[2500px] pl-[30px] grid grid-flow-row">
-                <div className="w-[967px] h-[56px] grid grid-flow-col auto-cols-max">
-                  <h1 className="w-[302px] h-[27px] font-bold text-[18px]">
+              <div className="grid h-[2500px] w-[1028px] grid-flow-row pl-[30px]">
+                <div className="grid h-[56px] w-[967px] auto-cols-max grid-flow-col">
+                  <h1 className="h-[27px] w-[302px] text-[18px] font-bold">
                     TẤT CẢ SẢN PHẨM
                   </h1>
-                  <div className="w-[664px] h-[56px] pl-[30px] grid grid-cols-4 text-[14px] place-items-end items-center">
+                  <div className="grid h-[56px] w-[664px] grid-cols-4 place-items-end items-center pl-[30px] text-sm">
                     <div className=""></div>
                     <div className=""></div>
                     {/* Menu Màu sắc */}
                     <ul className="relative">
-                      <li className="relative group">
+                      <li className="group relative">
                         <span
                           className="cursor-pointer"
                           onClick={() => toggleMenu("colorMenuOpen")}
@@ -161,13 +161,13 @@ export default function AoDaiPage() {
 
                         {/* Menu con */}
                         <ul
-                          className={`absolute left-1/2 transform -translate-x-1/2 mt-1 p-2 bg-white border border-gray-300 opacity-0 pointer-events-none origin-bottom transition-transform duration-300 ${
+                          className={`pointer-events-none absolute left-1/2 mt-1 origin-bottom -translate-x-1/2 transform border border-gray-300 bg-white p-2 opacity-0 transition-transform duration-300 ${
                             openMenu === "colorMenuOpen"
-                              ? "opacity-100 pointer-events-auto z-10 w-[300px] h-[100px] rounded-md translate-y-0 grid grid-flow-row"
+                              ? "pointer-events-auto z-10 grid h-[100px] w-[300px] translate-y-0 grid-flow-row rounded-md opacity-100"
                               : "translate-y-10"
                           }`}
                         >
-                          <div className="grid grid-cols-5 place-items-center cursor-pointer">
+                          <div className="grid cursor-pointer grid-cols-5 place-items-center">
                             {[
                               "Blue",
                               "Red",
@@ -182,7 +182,7 @@ export default function AoDaiPage() {
                             ].map((color) => (
                               <li
                                 key={color}
-                                className={`w-[28px] h-[28px] border rounded-full hover:border-black duration-300 ease-in-out flex items-center justify-center cursor-pointer `}
+                                className={`flex h-[28px] w-[28px] cursor-pointer items-center justify-center rounded-full border duration-300 ease-in-out hover:border-black`}
                                 style={{ backgroundColor: color }}
                                 onClick={() => handleColorFilter(color)}
                               >
@@ -202,7 +202,7 @@ export default function AoDaiPage() {
 
                     {/* Menu Giá */}
                     <ul className="relative">
-                      <li className="relative group">
+                      <li className="group relative">
                         <span
                           className="cursor-pointer"
                           onClick={() => toggleMenu("priceMenuOpen")}
@@ -216,14 +216,14 @@ export default function AoDaiPage() {
 
                         {/* Menu con */}
                         <ul
-                          className={`absolute right-0 mt-1 p-2 bg-white border border-gray-300 opacity-0 pointer-events-none transform origin-bottom transition-transform duration-300 ${
+                          className={`pointer-events-none absolute right-0 mt-1 origin-bottom transform border border-gray-300 bg-white p-2 opacity-0 transition-transform duration-300 ${
                             openMenu === "priceMenuOpen"
-                              ? "opacity-100 pointer-events-auto z-10 w-[130px] h-[100px] rounded-md translate-y-0"
+                              ? "pointer-events-auto z-10 h-[100px] w-[130px] translate-y-0 rounded-md opacity-100"
                               : "translate-y-10"
                           }`}
                         >
-                          <li className="h-[30px] leading-[30px] text-start">
-                            <label className="flex items-center cursor-pointer">
+                          <li className="h-[30px] text-start leading-[30px]">
+                            <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceDefault"
                                 type="radio"
@@ -234,8 +234,8 @@ export default function AoDaiPage() {
                               <span className="ml-2">Mặc định</span>
                             </label>
                           </li>
-                          <li className="h-[30px] leading-[30px] text-start">
-                            <label className="flex items-center cursor-pointer">
+                          <li className="h-[30px] text-start leading-[30px]">
+                            <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceAscending"
                                 type="radio"
@@ -246,8 +246,8 @@ export default function AoDaiPage() {
                               <span className="ml-2">Giá tăng dần</span>
                             </label>
                           </li>
-                          <li className="h-[30px] leading-[30px] text-start">
-                            <label className="flex items-center cursor-pointer">
+                          <li className="h-[30px] text-start leading-[30px]">
+                            <label className="flex cursor-pointer items-center">
                               <input
                                 id="priceDescending"
                                 type="radio"
@@ -264,37 +264,37 @@ export default function AoDaiPage() {
                     </ul>
                   </div>
                 </div>
-                <div className="w-[967px] h-[2350px] mt-[30px] grid grid-rows-4 cursor-pointer">
+                <div className="mt-[30px] grid h-[2350px] w-[967px] cursor-pointer grid-rows-4">
                   <div className="grid grid-cols-3">
                     {filteredProducts
                       .filter((product) =>
-                        product.categories.includes("65c6000ffb866364b3105e24")
+                        product.categories.includes("65c6000ffb866364b3105e24"),
                       )
                       .slice(startIndex, endIndex)
                       .map((product) => (
                         <div
                           key={product._id}
                           onClick={() => handleClick(product._id, product.name)}
-                          className="w-[300px] h-[580px]"
+                          className="h-[580px] w-[300px]"
                         >
-                          <div className="hover:-translate-y-1 duration-500 ease-in-out">
-                            <div className="w-[300px] h-[450px] relative group overflow-hidden">
+                          <div className="duration-500 ease-in-out hover:-translate-y-1">
+                            <div className="group relative h-[450px] w-[300px] overflow-hidden">
                               <div className="">
                                 <img
                                   src={product.images[0]}
                                   alt=""
-                                  className="hover:opacity-90 object-cover w-full h-full rounded-xl "
+                                  className="h-full w-full rounded-xl object-cover hover:opacity-90"
                                 />
                               </div>
-                              <div className="absolute inset-0 bg-[#212529] opacity-0 hover:opacity-10 transition-opacity flex items-center justify-center rounded-xl "></div>
+                              <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-[#212529] opacity-0 transition-opacity hover:opacity-10"></div>
                             </div>
-                            <div className="text-center mt-5">
-                              <p className="transition-colors text-[#07070780] font-bold hover:text-black ease-in-out duration-300">
+                            <div className="mt-5 text-center">
+                              <p className="font-bold text-[#07070780] transition-colors duration-300 ease-in-out hover:text-black">
                                 {product.name}
                               </p>
-                              <p className="text-[#070707] font-bold mt-5">
+                              <p className="mt-5 font-bold text-[#070707]">
                                 {formatCurrency(product.price)}
-                                <span className="text-[#FF3B30] line-through font-bold ml-[10px]">
+                                <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
                                   {formatCurrency(product.discount)}
                                 </span>
                               </p>
@@ -305,17 +305,16 @@ export default function AoDaiPage() {
                   </div>
                 </div>
 
-                <div className="w-[967px] h-[52px] group">
-                  <div className="w-[270px] h-[52px] mx-auto grid grid-cols-5 place-items-center font-bold">
+                <div className="group h-[52px] w-[967px]">
+                  <div className="mx-auto grid h-[52px] w-[270px] grid-cols-5 place-items-center font-bold">
                     {/* Tạo các nút chuyển trang */}
                     {Array.from({ length: totalPages }).map((_, index) => (
                       <div
                         key={index}
-                        className={`w-[40px] h-[40px] cursor-pointer text-center leading-[40px] border border-[#f8f8f9] rounded 
-                        ${
+                        className={`h-10 w-[40px] cursor-pointer rounded border border-[#f8f8f9] text-center ${
                           currentPage === index + 1
-                            ? "hover:text-white hover:bg-[#070707] bg-[#070707] text-white"
-                            : "hover:text-white hover:bg-[#070707] bg-[#f8f8f9] text-black"
+                            ? "bg-[#070707] text-white hover:bg-[#070707] hover:text-white"
+                            : "bg-[#f8f8f9] text-black hover:bg-[#070707] hover:text-white"
                         } `}
                         onClick={() => handlePageChange(index + 1)}
                       >

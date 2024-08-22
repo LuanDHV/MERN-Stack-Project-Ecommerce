@@ -226,24 +226,23 @@ export default function ProductsAdminPage() {
       <div
         className={`${
           isNavbarVisible ? "w-[85%] px-[5%]" : "w-full px-[10%]"
-        } h-auto float-end pt-20 bg-slate-50`}
+        } float-end h-auto bg-slate-50 pt-20`}
       >
-        <h1 className="py-10 font-bold text-[18px] text-[#474151]">
+        <h1 className="py-10 text-[18px] font-bold text-[#474151]">
           Danh Sách Sản Phẩm
         </h1>
-        <div className="w-full h-[80px] rounded-md border p-4 bg-white ">
+        <div className="h-[80px] w-full rounded-md border bg-white p-4">
           <button
-            className="w-[150px] h-[45px] rounded-md self-center float-end 
-          bg-[#10B981] text-white hover:bg-[#059669] duration-300 ease-in-out ml-4"
+            className="float-end ml-4 h-[45px] w-[150px] self-center rounded-md bg-[#10B981] text-white duration-300 ease-in-out hover:bg-[#059669]"
             onClick={handleAddButtonClick}
           >
             Thêm Sản Phẩm
           </button>
         </div>
-        <div className="w-full h-auto rounded-md border px-4 my-5 bg-white">
-          <table className="w-full text-[14px]">
+        <div className="my-5 h-auto w-full rounded-md border bg-white px-4">
+          <table className="w-full text-sm">
             <thead>
-              <tr className="grid grid-cols-9 mt-4 border p-2 place-items-center rounded-md bg-slate-50">
+              <tr className="mt-4 grid grid-cols-9 place-items-center rounded-md border bg-slate-50 p-2">
                 <th>ID SẢN PHẨM</th>
                 <th>HÌNH ẢNH</th>
                 <th>TÊN SẢN PHẨM</th>
@@ -259,14 +258,14 @@ export default function ProductsAdminPage() {
               {displayedProducts.map((product) => (
                 <tr
                   key={product._id}
-                  className="grid grid-cols-9 mt-4 p-2 place-items-center "
+                  className="mt-4 grid grid-cols-9 place-items-center p-2"
                 >
                   <th>{shortenId(product._id.toUpperCase())}</th>
                   <th className="mx-auto">
                     <img
                       src={product.images[0]}
                       alt=""
-                      className="w-[80px] h-[120px] rounded-md object-cover"
+                      className="h-[120px] w-[80px] rounded-md object-cover"
                     />
                   </th>
                   <th>{product.name}</th>
@@ -279,11 +278,11 @@ export default function ProductsAdminPage() {
                   <th> {product.countInStock}</th>
                   <th>
                     {product.countInStock === 0 ? (
-                      <span className="p-2 rounded-md text-[#FF4444] bg-[#FEE2E2]">
+                      <span className="rounded-md bg-[#FEE2E2] p-2 text-[#FF4444]">
                         Bán hết
                       </span>
                     ) : (
-                      <span className="p-2 rounded-md text-[#059669] bg-[#D1FAE5]">
+                      <span className="rounded-md bg-[#D1FAE5] p-2 text-[#059669]">
                         Đang bán
                       </span>
                     )}
@@ -291,28 +290,26 @@ export default function ProductsAdminPage() {
                   <th>
                     <FontAwesomeIcon
                       icon={faPenToSquare}
-                      className="w-4 h-4 p-4 
-                    hover:text-green-500 duration-300 ease-in-out cursor-pointer"
+                      className="h-4 w-4 cursor-pointer p-4 duration-300 ease-in-out hover:text-green-500"
                       onClick={() => handleEditButtonClick(product)}
                     />
                     <FontAwesomeIcon
                       icon={faTrashCan}
-                      className="w-4 h-4 p-4
-                  hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      className="h-4 w-4 cursor-pointer p-4 duration-300 ease-in-out hover:text-red-500"
                       onClick={() => handleDeleteButtonClick(product)}
                     />
                   </th>
                 </tr>
               ))}
-              <div className="leading-[50px] p-4 float-end cursor-pointer">
+              <div className="float-end cursor-pointer p-4 leading-[50px]">
                 {/* Tạo các nút chuyển trang */}
                 {Array.from({ length: totalPages }).map((_, index) => (
                   <p
                     key={index}
-                    className={`w-[40px] h-[40px] leading-[40px] text-center rounded-md inline-block ${
+                    className={`inline-block h-10 w-[40px] rounded-md text-center ${
                       currentPage === index + 1
-                        ? "hover:bg-[#059669] duration-300 ease-out bg-[#10B981] text-white mr-2"
-                        : "hover:bg-[#F3F4F6] duration-300 ease-out bg-[#F3F4F6] text-black mr-2"
+                        ? "mr-2 bg-[#10B981] text-white duration-300 ease-out hover:bg-[#059669]"
+                        : "mr-2 bg-[#F3F4F6] text-black duration-300 ease-out hover:bg-[#F3F4F6]"
                     } `}
                     onClick={() => handlePageChange(index + 1)}
                   >
@@ -328,67 +325,67 @@ export default function ProductsAdminPage() {
 
       {/* Add Modal */}
       {showAddModal && (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-end bg-gray-900 bg-opacity-50">
-          <div className="w-[80%] h-auto bg-white">
+        <div className="fixed left-0 top-0 flex h-full w-full justify-end bg-gray-900 bg-opacity-50">
+          <div className="h-auto w-[80%] bg-white">
             {/* Form thêm sản phẩm */}
-            <div className="w-full h-[60px] leading-[20px] p-4 border">
-              <p className="font-bold text-[20px] text-[#059669]">
+            <div className="h-[60px] w-full border p-4 leading-[20px]">
+              <p className="text-[20px] font-bold text-[#059669]">
                 Thêm Sản Phẩm
               </p>
-              <p className="text-[14px]">
+              <p className="text-sm">
                 Thêm sản phẩm của bạn và thông tin cần thiết từ đây
               </p>
             </div>
             <form className="grid grid-flow-row px-6 py-3">
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Tên Sản Phẩm</p>
+                <p className="inline-block w-[20%]">Tên Sản Phẩm</p>
                 <input
                   type="text"
                   name="name"
                   value={productData.name}
                   onChange={handleInputChange}
                   placeholder="Nhập tên sản phẩm"
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Hình ảnh</p>
+                <p className="inline-block w-[20%]">Hình ảnh</p>
                 {/* Input cho phép nhập URL 1*/}
                 <input
                   type="text"
                   name="image0"
                   value={productData.images[0]}
                   onChange={handleInputChange}
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block"
+                  className="inline-block h-[50px] w-[80%] rounded-md border p-4 outline-none"
                   placeholder="Nhập URL ảnh 1"
                 />
-                <p className="w-[20%] inline-block "></p>
+                <p className="inline-block w-[20%]"></p>
                 {/* Input cho phép nhập URL 2*/}
                 <input
                   type="text"
                   name="image1"
                   value={productData.images[1]}
                   onChange={handleInputChange}
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block mt-2"
+                  className="mt-2 inline-block h-[50px] w-[80%] rounded-md border p-4 outline-none"
                   placeholder="Nhập URL ảnh 2"
                 />
-                <p className="w-[20%] inline-block "></p>
+                <p className="inline-block w-[20%]"></p>
                 {/* Input cho phép nhập URL 3*/}
                 <input
                   type="text"
                   name="image2"
                   value={productData.images[2]}
                   onChange={handleInputChange}
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block mt-2"
+                  className="mt-2 inline-block h-[50px] w-[80%] rounded-md border p-4 outline-none"
                   placeholder="Nhập URL ảnh 3"
                 />
               </div>
-              <div className="p-2 flex items-center">
+              <div className="flex items-center p-2">
                 <p className="w-[20%]">Giá Gốc</p>
-                <div className="w-[80%] relative">
+                <div className="relative w-[80%]">
                   <FontAwesomeIcon
                     icon={faDollarSign}
-                    className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400"
                   />
                   <input
                     type="text"
@@ -396,16 +393,16 @@ export default function ProductsAdminPage() {
                     value={productData.discount}
                     onChange={handleInputChange}
                     defaultValue={0}
-                    className="w-full h-12 pl-10 pr-4 rounded-md border outline-none bg-gray-100 focus:bg-white"
+                    className="h-12 w-full rounded-md border bg-gray-100 pl-10 pr-4 outline-none focus:bg-white"
                   />
                 </div>
               </div>
-              <div className="p-2 flex items-center">
+              <div className="flex items-center p-2">
                 <p className="w-[20%]">Giá Bán</p>
-                <div className="w-[80%] relative">
+                <div className="relative w-[80%]">
                   <FontAwesomeIcon
                     icon={faDollarSign}
-                    className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400"
                   />
                   <input
                     type="text"
@@ -413,57 +410,55 @@ export default function ProductsAdminPage() {
                     value={productData.price}
                     onChange={handleInputChange}
                     defaultValue={0}
-                    className="w-full h-12 pl-10 pr-4 rounded-md border outline-none bg-gray-100 focus:bg-white"
+                    className="h-12 w-full rounded-md border bg-gray-100 pl-10 pr-4 outline-none focus:bg-white"
                   />
                 </div>
               </div>
 
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Kích Thước</p>
+                <p className="inline-block w-[20%]">Kích Thước</p>
                 <input
                   type="text"
                   name="sizes"
                   value={productData.sizes}
                   onChange={handleInputChange}
                   placeholder="Nhập kích thước ( ngăn cách bằng dấu phẩy )"
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Màu Sắc</p>
+                <p className="inline-block w-[20%]">Màu Sắc</p>
                 <input
                   type="text"
                   name="colors"
                   value={productData.colors}
                   onChange={handleInputChange}
                   placeholder="Nhập màu sắc"
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Số lượng</p>
+                <p className="inline-block w-[20%]">Số lượng</p>
                 <input
                   type="text"
                   name="countInStock"
                   value={productData.countInStock}
                   onChange={handleInputChange}
                   defaultValue={0}
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
             </form>
 
             <div className="grid grid-cols-2 px-4">
               <button
-                className="px-4 py-2 bg-gray-400 text-white rounded-md mr-4
-            hover:bg-gray-500 duration-300 ease-in-out"
+                className="mr-4 rounded-md bg-gray-400 px-4 py-2 text-white duration-300 ease-in-out hover:bg-gray-500"
                 onClick={handleCancelAdd}
               >
                 Hủy bỏ
               </button>
               <button
-                className="px-4 py-2 bg-[#10B981] text-white rounded-md 
-            hover:bg-[#059669] duration-300 ease-in-out"
+                className="rounded-md bg-[#10B981] px-4 py-2 text-white duration-300 ease-in-out hover:bg-[#059669]"
                 onClick={handleConfirmAdd}
               >
                 Xác nhận
@@ -475,18 +470,18 @@ export default function ProductsAdminPage() {
 
       {/* Edit Modal */}
       {showEditModal && (
-        <div className="fixed top-0 left-0 w-full h-full flex justify-end bg-gray-900 bg-opacity-50">
-          <div className="w-[80%] h-auto bg-white">
+        <div className="fixed left-0 top-0 flex h-full w-full justify-end bg-gray-900 bg-opacity-50">
+          <div className="h-auto w-[80%] bg-white">
             {/* Form sửa sản phẩm */}
-            <div className="w-full h-[60px] leading-[20px] p-4 border">
-              <p className="font-bold text-[20px] text-[#059669]">
+            <div className="h-[60px] w-full border p-4 leading-[20px]">
+              <p className="text-[20px] font-bold text-[#059669]">
                 Sửa Sản Phẩm
               </p>
-              <p className="text-[14px]">Thay đổi thông tin sản phẩm tại đây</p>
+              <p className="text-sm">Thay đổi thông tin sản phẩm tại đây</p>
             </div>
             <form className="grid grid-flow-row px-6 py-3">
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Tên Sản Phẩm</p>
+                <p className="inline-block w-[20%]">Tên Sản Phẩm</p>
                 <input
                   type="text"
                   value={selectedProduct.name}
@@ -497,11 +492,11 @@ export default function ProductsAdminPage() {
                     })
                   }
                   placeholder="Nhập tên sản phẩm"
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
               <div className="p-2">
-                <p className="w-[20%] inline-block">Hình ảnh</p>
+                <p className="inline-block w-[20%]">Hình ảnh</p>
                 {/* Input cho phép nhập URL */}
                 <input
                   type="text"
@@ -516,10 +511,10 @@ export default function ProductsAdminPage() {
                       ],
                     })
                   }
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block"
+                  className="inline-block h-[50px] w-[80%] rounded-md border p-4 outline-none"
                   placeholder="Nhập URL ảnh 1"
                 />
-                <p className="w-[20%] inline-block "></p>
+                <p className="inline-block w-[20%]"></p>
                 {/* Input cho phép nhập URL */}
                 <input
                   type="text"
@@ -534,10 +529,10 @@ export default function ProductsAdminPage() {
                       ],
                     })
                   }
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block mt-2"
+                  className="mt-2 inline-block h-[50px] w-[80%] rounded-md border p-4 outline-none"
                   placeholder="Nhập URL ảnh 2"
                 />
-                <p className="w-[20%] inline-block "></p>
+                <p className="inline-block w-[20%]"></p>
                 {/* Input cho phép nhập URL */}
                 <input
                   type="text"
@@ -552,17 +547,17 @@ export default function ProductsAdminPage() {
                       ],
                     })
                   }
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block mt-2"
+                  className="mt-2 inline-block h-[50px] w-[80%] rounded-md border p-4 outline-none"
                   placeholder="Nhập URL ảnh 3"
                 />
               </div>
 
-              <div className="p-2 flex items-center">
+              <div className="flex items-center p-2">
                 <p className="w-[20%]">Giá Gốc</p>
-                <div className="w-[80%] relative">
+                <div className="relative w-[80%]">
                   <FontAwesomeIcon
                     icon={faDollarSign}
-                    className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400"
                   />
                   <input
                     type="text"
@@ -573,16 +568,16 @@ export default function ProductsAdminPage() {
                         discount: e.target.value,
                       })
                     }
-                    className="w-full h-12 pl-10 pr-4 rounded-md border outline-none bg-gray-100 focus:bg-white"
+                    className="h-12 w-full rounded-md border bg-gray-100 pl-10 pr-4 outline-none focus:bg-white"
                   />
                 </div>
               </div>
-              <div className="p-2 flex items-center">
+              <div className="flex items-center p-2">
                 <p className="w-[20%]">Giá Bán</p>
-                <div className="w-[80%] relative">
+                <div className="relative w-[80%]">
                   <FontAwesomeIcon
                     icon={faDollarSign}
-                    className="absolute top-1/2 transform -translate-y-1/2 left-3 text-gray-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-400"
                   />
                   <input
                     type="text"
@@ -593,13 +588,13 @@ export default function ProductsAdminPage() {
                         price: e.target.value,
                       })
                     }
-                    className="w-full h-12 pl-10 pr-4 rounded-md border outline-none bg-gray-100 focus:bg-white"
+                    className="h-12 w-full rounded-md border bg-gray-100 pl-10 pr-4 outline-none focus:bg-white"
                   />
                 </div>
               </div>
 
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Kích Thước</p>
+                <p className="inline-block w-[20%]">Kích Thước</p>
                 <input
                   type="text"
                   value={selectedProduct.sizes}
@@ -610,11 +605,11 @@ export default function ProductsAdminPage() {
                     })
                   }
                   placeholder="Nhập kích thước (ngăn cách bằng dấu phẩy)"
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Màu Sắc</p>
+                <p className="inline-block w-[20%]">Màu Sắc</p>
                 <input
                   type="text"
                   value={selectedProduct.colors}
@@ -625,11 +620,11 @@ export default function ProductsAdminPage() {
                     })
                   }
                   placeholder="Nhập màu sắc (ngăn cách bằng dấu phẩy)"
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
               <div className="p-2">
-                <p className="w-[20%] inline-block ">Số lượng</p>
+                <p className="inline-block w-[20%]">Số lượng</p>
                 <input
                   type="text"
                   value={selectedProduct.countInStock}
@@ -639,22 +634,20 @@ export default function ProductsAdminPage() {
                       countInStock: e.target.value,
                     })
                   }
-                  className="w-[80%] h-[50px] p-4 rounded-md border outline-none inline-block bg-[#F3F4F6] focus:bg-white"
+                  className="inline-block h-[50px] w-[80%] rounded-md border bg-[#F3F4F6] p-4 outline-none focus:bg-white"
                 />
               </div>
             </form>
 
             <div className="grid grid-cols-2 px-4">
               <button
-                className="px-4 py-2 bg-gray-400 text-white rounded-md mr-4
-      hover:bg-gray-500 duration-300 ease-in-out"
+                className="mr-4 rounded-md bg-gray-400 px-4 py-2 text-white duration-300 ease-in-out hover:bg-gray-500"
                 onClick={handleCancelEdit}
               >
                 Hủy bỏ
               </button>
               <button
-                className="px-4 py-2 bg-[#10B981] text-white rounded-md 
-      hover:bg-[#059669] duration-300 ease-in-out"
+                className="rounded-md bg-[#10B981] px-4 py-2 text-white duration-300 ease-in-out hover:bg-[#059669]"
                 onClick={handleConfirmEdit}
               >
                 Xác nhận
@@ -666,18 +659,17 @@ export default function ProductsAdminPage() {
 
       {/* Delete Modal */}
       {showDeleteModal && selectedProduct && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50">
-          <div className="bg-white rounded-lg p-6">
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="rounded-lg bg-white p-6">
             <div className="text-center">
               <FontAwesomeIcon
                 icon={faTrashCan}
-                className="w-10 h-10 p-5
-            text-red-500 duration-300 ease-in-out cursor-pointer"
+                className="h-10 w-10 cursor-pointer p-5 text-red-500 duration-300 ease-in-out"
               />
             </div>
-            <p className="text-xl font-bold mb-4">
+            <p className="mb-4 text-xl font-bold">
               Bạn có chắc muốn xóa sản phẩm
-              <span className="text-red-500 ml-1">{selectedProduct.name} </span>
+              <span className="ml-1 text-red-500">{selectedProduct.name} </span>
               ?
             </p>
             <p className="mb-4">
@@ -687,15 +679,13 @@ export default function ProductsAdminPage() {
 
             <div className="flex justify-end">
               <button
-                className="px-4 py-2 bg-gray-400 text-white rounded-md mr-4
-            hover:bg-gray-500 duration-300 ease-in-out"
+                className="mr-4 rounded-md bg-gray-400 px-4 py-2 text-white duration-300 ease-in-out hover:bg-gray-500"
                 onClick={handleCancelDelete}
               >
                 Hủy bỏ
               </button>
               <button
-                className="px-4 py-2 bg-red-500 text-white rounded-md 
-            hover:bg-red-700 duration-300 ease-in-out"
+                className="rounded-md bg-red-500 px-4 py-2 text-white duration-300 ease-in-out hover:bg-red-700"
                 onClick={handleConfirmDelete}
               >
                 Xác nhận

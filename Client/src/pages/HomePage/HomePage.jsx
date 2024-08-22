@@ -91,7 +91,7 @@ export default function HomePage() {
     <>
       {/* Banner */}
       <section>
-        <div className="mt-[92px]">
+        <div className="mt-24">
           <img
             src="https://theme.hstatic.net/200000182297/1000887316/14/ms_banner_img2.jpg?v=1068"
             alt=""

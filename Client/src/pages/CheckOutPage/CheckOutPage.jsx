@@ -71,8 +71,8 @@ export default function CheckOutPage() {
   return (
     <>
       <section>
-        <div className="w-full h-screen grid grid-cols-2 ">
-          <div className="mx-auto p-[50px] text-[14px] font-light">
+        <div className="grid h-screen w-full grid-cols-2">
+          <div className="mx-auto p-[50px] text-sm font-light">
             <h1 className="py-10">
               <Link to="/">
                 <img
@@ -92,7 +92,7 @@ export default function CheckOutPage() {
               </li>
               <FontAwesomeIcon icon={faAngleRight} className="mx-2" />
               <li className="inline-block">
-                <Link className="text-black cursor-not-allowed">
+                <Link className="cursor-not-allowed text-black">
                   Thông tin vận chuyển
                 </Link>
               </li>
@@ -106,38 +106,38 @@ export default function CheckOutPage() {
                 </Link>
               </li>
             </ul>
-            <div className="w-[572px] h-[240px]">
-              <div className="h-[18px] mt-4 mb-8">
-                <h2 className="text-[#333333] text-[20px] font-normal">
+            <div className="h-[240px] w-[572px]">
+              <div className="mb-8 mt-4 h-[18px]">
+                <h2 className="text-[20px] font-normal text-[#333333]">
                   Thông tin thanh toán
                 </h2>
               </div>
-              <div className="h-[43px] mb-3">
+              <div className="mb-3 h-[43px]">
                 <input
                   type="text"
                   name="fullName"
                   placeholder="Họ và tên"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className={`w-[572px] h-[43px] border ${
+                  className={`h-[43px] w-[572px] border ${
                     inputValid.fullName
                       ? "border-[#d9d9d9]"
-                      : "border-red-500 rounded"
-                  } text-[#333333] p-4 outline-none`}
+                      : "rounded border-red-500"
+                  } p-4 text-[#333333] outline-none`}
                 />
               </div>
-              <div className="h-[43px] mb-3 grid grid-flow-col">
+              <div className="mb-3 grid h-[43px] grid-flow-col">
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-[377px] h-[43px] border ${
+                  className={`h-[43px] w-[377px] border ${
                     inputValid.email
                       ? "border-[#d9d9d9]"
-                      : "border-red-500 rounded"
-                  } text-[#333333] p-4 outline-none`}
+                      : "rounded border-red-500"
+                  } p-4 text-[#333333] outline-none`}
                 />
                 <input
                   type="text"
@@ -145,37 +145,37 @@ export default function CheckOutPage() {
                   placeholder="Số điện thoại"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  className={`w-[182px] h-[43px] border rounded ${
+                  className={`h-[43px] w-[182px] rounded border ${
                     inputValid.phoneNumber
                       ? "border-[#d9d9d9]"
                       : "border-red-500"
-                  } text-[#333333] p-4 outline-none place-self-end`}
+                  } place-self-end p-4 text-[#333333] outline-none`}
                 />
               </div>
-              <div className="h-[43px] mb-3">
+              <div className="mb-3 h-[43px]">
                 <input
                   type="text"
                   name="address"
                   placeholder="Địa chỉ"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className={`w-[572px] h-[43px] border rounded ${
+                  className={`h-[43px] w-[572px] rounded border ${
                     inputValid.address ? "border-[#d9d9d9]" : "border-red-500"
-                  } text-[#333333] p-4 outline-none`}
+                  } p-4 text-[#333333] outline-none`}
                 />
               </div>
             </div>
-            <div className="grid grid-flow-col w-[570px]">
+            <div className="grid w-[570px] grid-flow-col">
               <button className="text-start font-normal">
                 <Link
                   to="/cart"
-                  className="cursor-pointer text-[#338dbc] hover:text-[#2b78a0] px-1"
+                  className="cursor-pointer px-1 text-[#338dbc] hover:text-[#2b78a0]"
                 >
                   Giỏ hàng
                 </Link>
               </button>
               <button
-                className="w-[200px] h-[56px] bg-[#338dbc] text-white place-self-end rounded"
+                className="h-[56px] w-[200px] place-self-end rounded bg-[#338dbc] text-white"
                 onClick={handlePaymentButtonClick}
               >
                 Phương thức thanh toán
@@ -184,13 +184,13 @@ export default function CheckOutPage() {
           </div>
 
           <div className="bg-[#f6f5f5]">
-            <div className="w-[500px] h-auto mx-auto grid grid-rows-2 p-[50px] float-left">
+            <div className="float-left mx-auto grid h-auto w-full grid-rows-2 p-[50px]">
               {cart.items.map((item) => (
-                <div key={item._id} className="grid grid-cols-3 mb-4">
+                <div key={item._id} className="mb-4 grid grid-cols-3">
                   <img
                     src={item.images[0]}
                     alt={item.name}
-                    className="w-[64px] h-[100px] object-cover"
+                    className="h-[100px] w-[64px] object-cover"
                   />
                   <div className="self-center">
                     <p>{item.name}</p>
@@ -211,7 +211,7 @@ export default function CheckOutPage() {
                 <hr />
                 <span className="">Tổng tiền:</span>
                 <span className="float-end">
-                  <strong className="text-[14px] font-light mr-2">VND</strong>
+                  <strong className="mr-2 text-sm font-light">VND</strong>
                   {formatCurrency(cart.totalCartPrice)}
                 </span>
               </div>

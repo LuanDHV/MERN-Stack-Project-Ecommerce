@@ -41,7 +41,7 @@ export default function NavbarAdmin() {
 
   return (
     <>
-      <div className="w-[15%] h-screen py-4 border-r fixed bg-white">
+      <div className="fixed h-screen w-[15%] border-r bg-white py-4">
         <h1 className="h-[50px] px-5">
           <Link to="/">
             <img
@@ -51,15 +51,15 @@ export default function NavbarAdmin() {
           </Link>
         </h1>
         <div className="grid grid-flow-row">
-          <div className="font-bold px-8 py-4 text-[#6B7280] cursor-pointer">
+          <div className="cursor-pointer px-8 py-4 font-bold text-[#6B7280]">
             <ul className="">
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out">
+              <li className="py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <FontAwesomeIcon icon={faHouse} className="mr-2" />
                 <Link to="/admin">Trang chủ</Link>
               </li>
               <li className="py-4">
                 <div
-                  className="hover:text-[#10B981] duration-300 ease-in-out"
+                  className="duration-300 ease-in-out hover:text-[#10B981]"
                   onClick={toggleSubMenu}
                 >
                   <FontAwesomeIcon icon={faList} className="mr-2" />
@@ -67,46 +67,46 @@ export default function NavbarAdmin() {
                   <FontAwesomeIcon icon={faCaretRight} className="ml-2" />
                 </div>
                 {isSubMenuVisible && (
-                  <ul className="font-normal p-2 text-[14px]">
-                    <li className="py-2 hover:text-[#10B981] duration-300 ease-in-out">
+                  <ul className="p-2 text-sm font-normal">
+                    <li className="py-2 duration-300 ease-in-out hover:text-[#10B981]">
                       Danh mục 1
                     </li>
-                    <li className="py-2 hover:text-[#10B981] duration-300 ease-in-out">
+                    <li className="py-2 duration-300 ease-in-out hover:text-[#10B981]">
                       Danh mục 2
                     </li>
-                    <li className="py-2 hover:text-[#10B981] duration-300 ease-in-out">
+                    <li className="py-2 duration-300 ease-in-out hover:text-[#10B981]">
                       Danh mục 3
                     </li>
-                    <li className="py-2 hover:text-[#10B981] duration-300 ease-in-out">
+                    <li className="py-2 duration-300 ease-in-out hover:text-[#10B981]">
                       Danh mục 4
                     </li>
-                    <li className="py-2 hover:text-[#10B981] duration-300 ease-in-out">
+                    <li className="py-2 duration-300 ease-in-out hover:text-[#10B981]">
                       Danh mục 5
                     </li>
                   </ul>
                 )}
               </li>
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out">
+              <li className="py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <FontAwesomeIcon icon={faShop} className="mr-2" />
                 <Link to="/admin/danh-muc/san-pham"> Sản Phẩm</Link>
               </li>
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out">
+              <li className="py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <FontAwesomeIcon icon={faUsers} className="mr-2" />
                 <Link to="/admin/danh-muc/khach-hang">Khách hàng</Link>
               </li>
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out">
+              <li className="py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <FontAwesomeIcon icon={faCompass} className="mr-2" />
                 <Link to="/admin/danh-muc/don-hang">Đơn hàng</Link>
               </li>
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out">
+              <li className="py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <FontAwesomeIcon icon={faUserGear} className="mr-2" />
                 <Link to="/admin/danh-muc/quan-tri-vien"> Quản trị viên</Link>
               </li>
             </ul>
             {user && user.role === "admin" ? (
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out list-none">
+              <li className="list-none py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <button
-                  className="flex items-center text-white rounded-md bg-[#10B981] hover:bg-[#059669] px-4 py-2"
+                  className="flex items-center rounded-md bg-[#10B981] px-4 py-2 text-white hover:bg-[#059669]"
                   onClick={handleLogout}
                 >
                   <FontAwesomeIcon
@@ -117,8 +117,8 @@ export default function NavbarAdmin() {
                 </button>
               </li>
             ) : (
-              <li className="py-4 hover:text-[#10B981] duration-300 ease-in-out list-none">
-                <button className="flex items-center text-white rounded-md bg-[#10B981] hover:bg-[#059669] px-4 py-2">
+              <li className="list-none py-4 duration-300 ease-in-out hover:text-[#10B981]">
+                <button className="flex items-center rounded-md bg-[#10B981] px-4 py-2 text-white hover:bg-[#059669]">
                   <FontAwesomeIcon
                     icon={faArrowRightFromBracket}
                     className="mr-2"

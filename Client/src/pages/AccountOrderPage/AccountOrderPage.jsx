@@ -48,9 +48,9 @@ export default function AccountOrderPage() {
   return (
     <>
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> /TÀI KHOẢN</span>
@@ -59,13 +59,13 @@ export default function AccountOrderPage() {
       </section>
 
       <section>
-        <div className="w-[1330px] h-auto mx-auto my-10">
-          <div className=" grid grid-flow-col">
-            <div className="w-[400px] h-[200px] pl-[30px]">
+        <div className="mx-auto my-10 h-auto w-full">
+          <div className="grid grid-flow-row xl:grid-flow-col">
+            <div className="mx-auto h-auto w-5/6 text-center">
               <div className="p-4">
-                <p className="mb-5 text-[28px]">
+                <p className="mb-5 text-2xl">
                   Xin Chào
-                  <span className="block font-bold text-[32px]">
+                  <span className="block text-3xl font-bold">
                     {user.username}
                   </span>
                 </p>
@@ -80,29 +80,27 @@ export default function AccountOrderPage() {
               </div>
             </div>
 
-            <div className="w-[930px] h-auto border-l-2 p-4 mt-20">
-              <div className="pl-[30px] text-gray-600 text-[14px] h-auto">
-                <table>
+            <div className="h-auto w-full border-l-2 p-4 xl:mt-20">
+              <div className="mx-auto h-auto w-full text-sm text-gray-600">
+                <table className="w-full">
                   <thead>
-                    <tr className="border-b-2 text-black">
-                      <th className="w-[200px] h-[50px] px-6">MÃ ĐƠN HÀNG</th>
-                      <th className="w-[200px] h-[50px] px-6">NGÀY ĐẶT</th>
-                      <th className="w-[200px] h-[50px] px-6">TỔNG TIỀN</th>
-                      <th className="w-[300px] h-[50px] px-6">
-                        TRẠNG THÁI ĐƠN HÀNG
-                      </th>
+                    <tr className="grid w-full grid-cols-4 border-b-2 text-black">
+                      <th className="">MÃ ĐƠN HÀNG</th>
+                      <th className="">NGÀY ĐẶT</th>
+                      <th className="">TỔNG TIỀN</th>
+                      <th className="">TRẠNG THÁI ĐƠN HÀNG</th>
                     </tr>
                   </thead>
                   <thead>
                     {displayedOrders.map((orderItem) => (
-                      <tr key={orderItem._id}>
+                      <tr key={orderItem._id} className="grid grid-cols-4">
                         <th>#{shortenId(orderItem._id.toUpperCase())}</th>
                         <th>
                           {`${new Intl.DateTimeFormat("vi-VN", {
                             hour: "numeric",
                             minute: "numeric",
                           }).format(
-                            new Date(orderItem.createdAt)
+                            new Date(orderItem.createdAt),
                           )} ${new Intl.DateTimeFormat("vi-VN", {
                             day: "numeric",
                             month: "long",
@@ -116,19 +114,18 @@ export default function AccountOrderPage() {
                   </thead>
                 </table>
                 {/* Tạo các nút chuyển trang */}
-                <div className="w-[270px] h-auto mx-auto grid grid-cols-5 place-items-center font-bold mt-5">
+                <div className="mx-auto mt-5 flex h-auto justify-center font-bold">
                   {Array.from({ length: totalPages }).map((_, index) => (
                     <div
                       key={index}
-                      className={`w-[40px] h-[40px] cursor-pointer text-center leading-[40px] border border-[#f8f8f9] rounded
-                        ${
-                          currentPage === index + 1
-                            ? "hover:text-white hover:bg-[#070707] bg-[#070707] text-white"
-                            : "hover:text-white hover:bg-[#070707] bg-[#f8f8f9] text-black"
-                        } `}
+                      className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded border border-[#f8f8f9] ${
+                        currentPage === index + 1
+                          ? "bg-[#070707] text-white hover:bg-[#070707] hover:text-white"
+                          : "bg-[#f8f8f9] text-black hover:bg-[#070707] hover:text-white"
+                      } `}
                       onClick={() => handlePageChange(index + 1)}
                     >
-                      <span>{index + 1}</span>
+                      <span className="">{index + 1}</span>
                     </div>
                   ))}
                 </div>

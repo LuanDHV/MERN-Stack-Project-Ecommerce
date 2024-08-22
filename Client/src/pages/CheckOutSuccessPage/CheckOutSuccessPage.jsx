@@ -48,8 +48,8 @@ export default function CheckOutSuccessPage() {
   return (
     <>
       <section>
-        <div className="w-full h-screen  mx-auto grid grid-cols-2 ">
-          <div className="mx-auto p-[50px] text-[14px] font-light">
+        <div className="mx-auto grid h-screen w-full grid-cols-2">
+          <div className="mx-auto p-[50px] text-sm font-light">
             <h1 className="pt-10">
               <Link to="/">
                 <img
@@ -58,33 +58,33 @@ export default function CheckOutSuccessPage() {
                 />
               </Link>
             </h1>
-            <div className="w-[572px] h-[100px]">
-              <div className="h-[18px] mt-4">
-                <h2 className="text-[#333333] text-[20px] font-normal relative">
+            <div className="h-[100px] w-[572px]">
+              <div className="mt-4 h-[18px]">
+                <h2 className="relative text-[20px] font-normal text-[#333333]">
                   Đặt hàng thành công
                   <FontAwesomeIcon
                     icon={faCheck}
-                    className="w-12 p-2 h-12 ml-4 mt-1 absolute border rounded-full border-[#338dbc] text-[#338dbc]"
+                    className="absolute ml-4 mt-1 h-12 w-12 rounded-full border border-[#338dbc] p-2 text-[#338dbc]"
                   />
                 </h2>
                 <span className="block">Cảm ơn bạn đã mua hàng !</span>
               </div>
             </div>
-            <div className="w-[570px] h-[270px] border rounded-md mb-4 p-4">
-              <p className="font-normal text-[16px] my-2">Thông tin đơn hàng</p>
+            <div className="mb-4 h-[270px] w-[570px] rounded-md border p-4">
+              <p className="my-2 text-[16px] font-normal">Thông tin đơn hàng</p>
               <p>Thông tin vận chuyển</p>
               <p>Tên: {order.fullName}</p>
               <p>Email: {order.email}</p>
               <p>Số điện thoại: {order.phoneNumber}</p>
               <p>Địa chỉ: {order.address}</p>
-              <p className="font-normal text-[16px] my-2">
+              <p className="my-2 text-[16px] font-normal">
                 Phương thức thanh toán
               </p>
               <p>{order.payment}</p>
             </div>
-            <div className="grid grid-flow-col w-[570px]">
+            <div className="grid w-[570px] grid-flow-col">
               <button
-                className="w-[200px] h-[56px] bg-[#338dbc] text-white place-self-end rounded"
+                className="h-[56px] w-[200px] place-self-end rounded bg-[#338dbc] text-white"
                 onClick={() => {
                   // Gọi action để xóa dữ liệu giỏ hàng và đặt hàng
                   dispatch(clearCart());
@@ -99,13 +99,13 @@ export default function CheckOutSuccessPage() {
           </div>
 
           <div className="bg-[#f6f5f5]">
-            <div className="w-[500px] h-auto p-[50px] mx-auto grid grid-rows-2 float-left">
+            <div className="float-left mx-auto grid h-auto w-full grid-rows-2 p-[50px]">
               {cart.items.map((item) => (
-                <div key={item._id} className="grid grid-cols-3 mb-4">
+                <div key={item._id} className="mb-4 grid grid-cols-3">
                   <img
                     src={item.images[0]}
                     alt={item.name}
-                    className="w-[64px] h-[100px] object-cover"
+                    className="h-[100px] w-[64px] object-cover"
                   />
                   <div className="self-center">
                     <p>{item.name}</p>
@@ -126,7 +126,7 @@ export default function CheckOutSuccessPage() {
                 <hr />
                 <span className="">Tổng tiền:</span>
                 <span className="float-end">
-                  <strong className="text-[14px] font-light mr-2">VND</strong>
+                  <strong className="mr-2 text-sm font-light">VND</strong>
                   {formatCurrency(cart.totalCartPrice)}
                 </span>
               </div>

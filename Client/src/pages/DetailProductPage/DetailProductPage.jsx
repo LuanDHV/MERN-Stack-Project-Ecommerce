@@ -143,9 +143,9 @@ export default function DetailProductPage() {
       {/* Hiển thị thông báo */}
       <section>
         {/* Breadcrumbs */}
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> / SẢN PHẨM CHI TIẾT</span>
@@ -154,16 +154,16 @@ export default function DetailProductPage() {
         </div>
 
         {/* Nội dung chi tiết sản phẩm */}
-        <div className="w-full h-[1000px] mx-auto ">
-          <div className="w-[1300px] h-[1060px] mx-auto grid grid-flow-col">
+        <div className="mx-auto h-[1000px] w-full">
+          <div className="mx-auto grid h-[1060px] w-[1300px] grid-flow-col">
             {/* Danh sách ảnh sản phẩm */}
-            <div className="w-[200px] h-[930px] grid grid-rows-3 gap-y-3 cursor-pointer">
+            <div className="grid h-[930px] w-[200px] cursor-pointer grid-rows-3 gap-y-3">
               {product.images.map((image, index) => (
                 <img
                   key={index}
                   src={image}
                   alt=""
-                  className={`border cursor-pointer ${
+                  className={`cursor-pointer border ${
                     selectedImage === index ? "border-black" : ""
                   }`}
                   onClick={() => handleImageClick(index)}
@@ -172,7 +172,7 @@ export default function DetailProductPage() {
             </div>
 
             {/* Ảnh sản phẩm chính */}
-            <div className="w-[620px] h-[930px] mx-3">
+            <div className="mx-3 h-[930px] w-[620px]">
               <img
                 src={product.images[selectedImageIndex]}
                 alt=""
@@ -181,27 +181,27 @@ export default function DetailProductPage() {
             </div>
 
             {/* Thông tin sản phẩm và nút mua hàng */}
-            <div className="w-[470px] h-[630px]">
-              <div className="w-[360px] h-[630px] float-end">
+            <div className="h-[630px] w-[470px]">
+              <div className="float-end h-[630px] w-[360px]">
                 {/* Tên sản phẩm */}
-                <h1 className="h-[27px] font-bold text-[18px]">
+                <h1 className="h-[27px] text-[18px] font-bold">
                   {product.name}
                 </h1>
 
                 {/* Thông tin sản phẩm */}
-                <div className="text-[14px] font-light my-5">
+                <div className="my-5 text-sm font-light">
                   <span className="block">Thuơng hiệu: NEM</span>
                   <span className="uppercase"> Mã SP: {product._id}</span>
                 </div>
 
                 {/* Giá sản phẩm */}
-                <span className="h-[64px] font-bold text-[18px] block">
+                <span className="block h-[64px] text-[18px] font-bold">
                   {formatCurrency(product.price)}
                 </span>
 
                 {/* Kích thước sản phẩm */}
-                <div className="h-[64px] mb-5">
-                  <div className="h-[20px] font-bold text-[14px] mb-2">
+                <div className="mb-5 h-[64px]">
+                  <div className="mb-2 h-[20px] text-sm font-bold">
                     Kích thước
                   </div>
                   {product.sizes && product.sizes.length > 0 ? (
@@ -209,7 +209,7 @@ export default function DetailProductPage() {
                       {product.sizes.map((size) => (
                         <button
                           key={size}
-                          className={`w-[52px] h-[35px] text-center leading-[35px] border text-[12px] cursor-pointer focus:border-black rounded ${
+                          className={`h-[35px] w-[52px] cursor-pointer rounded border text-center text-[12px] leading-[35px] focus:border-black ${
                             selectedSize === size ? "border-black" : ""
                           }`}
                           onClick={() => handleSizeClick(size)}
@@ -225,16 +225,16 @@ export default function DetailProductPage() {
 
                 {/* Màu sắc sản phẩm */}
                 <div className="">
-                  <span className="font-bold text-[14px]">Màu sắc:</span>
+                  <span className="text-sm font-bold">Màu sắc:</span>
                   <div
-                    className="w-[35px] h-[35px] rounded-full border my-2 border-black "
+                    className="my-2 h-[35px] w-[35px] rounded-full border border-black"
                     style={colorStyle}
                   ></div>
                 </div>
 
                 {/* Nút hiển thị modal hướng dẫn chọn size */}
                 <span
-                  className="underline text-[15px] font-normal text-[#070707] cursor-pointer"
+                  className="cursor-pointer text-[15px] font-normal text-[#070707] underline"
                   onClick={openSizeGuideModal}
                 >
                   HƯỚNG DẪN CHỌN SIZE
@@ -246,7 +246,7 @@ export default function DetailProductPage() {
                     {/* Màn bao quanh */}
                     <div className="fixed inset-0 bg-black bg-opacity-80"></div>
                     {/* Nội dung modal */}
-                    <div className=" z-50 bg-white p-8 w-[1250px] h-[500px] rounded-md">
+                    <div className="z-50 h-[500px] w-[1250px] rounded-md bg-white p-8">
                       {/* Nút đóng modal */}
                       <button
                         onClick={closeSizeGuideModal}
@@ -254,31 +254,29 @@ export default function DetailProductPage() {
                       >
                         <FontAwesomeIcon
                           icon={faCircleXmark}
-                          className="w-[24px] h-[24px] "
+                          className="h-[24px] w-[24px]"
                         />
                       </button>
                       {/* Nội dung hướng dẫn chọn size */}
                       <img
                         src={Sizes}
                         alt="Hướng dẫn chọn size"
-                        className="w-full h-full object-cover"
+                        className="h-full w-full object-cover"
                       />
                     </div>
                   </div>
                 )}
 
                 {/* Nút thêm vào giỏ hàng và mua ngay */}
-                <div className="grid grid-rows-2 mt-10">
+                <div className="mt-10 grid grid-rows-2">
                   <button
-                    className="h-[40px] border border-black font-bold text-[14px] mb-2 
-                  hover:bg-gray-200 duration-300 ease-in-out rounded"
+                    className="mb-2 h-10 rounded border border-black text-sm font-bold duration-300 ease-in-out hover:bg-gray-200"
                     onClick={handleAddToCart}
                   >
                     THÊM VÀO GIỎ
                   </button>
                   <button
-                    className="h-[40px] border border-black bg-black font-bold text-[14px] text-white 
-                  hover:opacity-85 duration-300 ease-in-out rounded"
+                    className="h-10 rounded border border-black bg-black text-sm font-bold text-white duration-300 ease-in-out hover:opacity-85"
                     onClick={handleBuyNow}
                   >
                     MUA NGAY

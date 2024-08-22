@@ -43,7 +43,7 @@ export default function CheckOutPayPage() {
         phoneNumber: order.phoneNumber,
         address: order.address,
         payment: selectedPaymentMethod,
-      })
+      }),
     );
 
     navigate("/checkoutsuccess");
@@ -53,8 +53,8 @@ export default function CheckOutPayPage() {
   return (
     <>
       <section>
-        <div className="w-full h-screen mx-auto grid grid-cols-2 ">
-          <div className="mx-auto p-[50px] text-[14px] font-light">
+        <div className="mx-auto grid h-screen w-full grid-cols-2">
+          <div className="mx-auto p-[50px] text-sm font-light">
             <h1 className="py-10">
               <Link to="/">
                 <img
@@ -83,24 +83,24 @@ export default function CheckOutPayPage() {
               </li>
               <FontAwesomeIcon icon={faAngleRight} className="mx-2" />
               <li className="inline-block">
-                <Link className="cursor-not-allowed text-black ">
+                <Link className="cursor-not-allowed text-black">
                   Phương thức thanh toán
                 </Link>
               </li>
             </ul>
-            <div className="w-[572px] h-[120px] font-normal">
-              <div className="h-[18px] mt-4 mb-8">
-                <h2 className="text-[#333333] text-[20px]">
+            <div className="h-[120px] w-[572px] font-normal">
+              <div className="mb-8 mt-4 h-[18px]">
+                <h2 className="text-[20px] text-[#333333]">
                   Phương thức vận chuyển
                 </h2>
               </div>
-              <div className="h-[45px] mb-5">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <span className="w-[572px] border border-[#d9d9d9] text-[#333333] p-4">
+              <div className="mb-5 h-[45px]">
+                <label className="flex cursor-pointer items-center space-x-2">
+                  <span className="w-[572px] border border-[#d9d9d9] p-4 text-[#333333]">
                     <input
                       type="radio"
                       defaultChecked
-                      className="form-checkbox text-[#333333] border border-[#d9d9d9] p-4 mr-2 rounded"
+                      className="form-checkbox mr-2 rounded border border-[#d9d9d9] p-4 text-[#333333]"
                     />
                     Giao hàng tận nơi (phí vận chuyển tạm tính)
                     <span className="float-end">30,000₫</span>
@@ -108,20 +108,20 @@ export default function CheckOutPayPage() {
                 </label>
               </div>
             </div>
-            <div className="w-[572px] h-[250px] font-normal">
-              <div className="h-[18px] mt-4 mb-8">
-                <h2 className="text-[#333333] text-[20px]">
+            <div className="h-[250px] w-[572px] font-normal">
+              <div className="mb-8 mt-4 h-[18px]">
+                <h2 className="text-[20px] text-[#333333]">
                   Phương thức thanh toán
                 </h2>
               </div>
-              <div className="h-[45px] mb-5">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <span className="w-[572px] border border-[#d9d9d9] text-[#333333] p-4">
+              <div className="mb-5 h-[45px]">
+                <label className="flex cursor-pointer items-center space-x-2">
+                  <span className="w-[572px] border border-[#d9d9d9] p-4 text-[#333333]">
                     <input
                       type="radio"
                       name="paymentMethod"
                       value="Thanh toán tiền mặt khi nhận hàng"
-                      className="form-radio text-[#333333] border border-[#d9d9d9] p-4 mr-2 rounded"
+                      className="form-radio mr-2 rounded border border-[#d9d9d9] p-4 text-[#333333]"
                       onChange={handlePaymentMethodChange}
                     />
                     Thanh toán tiền mặt khi nhận hàng
@@ -158,7 +158,7 @@ export default function CheckOutPayPage() {
               </div> */}
             </div>
 
-            <div className="grid grid-flow-col w-[570px]">
+            <div className="grid w-[570px] grid-flow-col">
               <button className="text-start font-normal">
                 <Link
                   to="/cart"
@@ -168,7 +168,7 @@ export default function CheckOutPayPage() {
                 </Link>
               </button>
               <button
-                className="w-[200px] h-[56px] bg-[#338dbc] text-white place-self-end rounded"
+                className="h-[56px] w-[200px] place-self-end rounded bg-[#338dbc] text-white"
                 onClick={handlePaymentButtonClick}
               >
                 Đặt hàng
@@ -177,13 +177,13 @@ export default function CheckOutPayPage() {
           </div>
 
           <div className="bg-[#f6f5f5]">
-            <div className="w-[500px] h-auto mx-auto grid grid-rows-2 p-[50px] float-left">
+            <div className="float-left mx-auto grid h-auto w-full grid-rows-2 p-[50px]">
               {cart.items.map((item) => (
-                <div key={item._id} className="grid grid-cols-3 mb-4">
+                <div key={item._id} className="mb-4 grid grid-cols-3">
                   <img
                     src={item.images[0]}
                     alt={item.name}
-                    className="w-[64px] h-[100px] object-cover"
+                    className="h-[100px] w-[64px] object-cover"
                   />
                   <div className="self-center">
                     <p>{item.name}</p>
@@ -204,7 +204,7 @@ export default function CheckOutPayPage() {
                 <hr />
                 <span className="">Tổng tiền:</span>
                 <span className="float-end">
-                  <strong className="text-[14px] font-light mr-2">VND</strong>
+                  <strong className="mr-2 text-sm font-light">VND</strong>
                   {formatCurrency(cart.totalCartPrice)}
                 </span>
               </div>

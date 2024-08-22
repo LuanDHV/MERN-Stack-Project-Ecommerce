@@ -44,9 +44,9 @@ export default function ForgotPasswordPage() {
   return (
     <>
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> /TÀI KHOẢN</span>
@@ -54,12 +54,12 @@ export default function ForgotPasswordPage() {
         </div>
       </section>
       <section>
-        <div className="w-[1330px] h-[420px] mx-auto">
-          <div className="w-[443px] h-[350px] mx-auto">
-            <h1 className="text-[32px] font-bold text-center mb-10 mr-10">
+        <div className="mx-auto h-[420px] w-full">
+          <div className="mx-auto h-[350px] w-[443px]">
+            <h1 className="mb-10 mr-10 text-center text-3xl font-bold">
               KHÔI PHỤC MẬT KHẨU
             </h1>
-            <div className="w-[413px] h-[100px]">
+            <div className="h-[100px] w-[413px]">
               <form onSubmit={handleSubmit}>
                 <input
                   type="email"
@@ -67,9 +67,9 @@ export default function ForgotPasswordPage() {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4"
+                  className="mb-4 h-[30px] w-[413px] border border-[#e7e7e7] px-[10px] py-[8px] outline-none"
                 />
-                <button className="w-[413px] h-[42px] mx-auto border bg-[#070707] text-white hover:opacity-80 duration-300 ease-in-out">
+                <button className="mx-auto h-[42px] w-[413px] border bg-[#070707] text-white duration-300 ease-in-out hover:opacity-80">
                   XÁC NHẬN
                 </button>
               </form>

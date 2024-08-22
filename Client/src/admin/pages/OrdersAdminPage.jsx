@@ -106,15 +106,15 @@ export default function OrdersAdminPage() {
       <div
         className={`${
           isNavbarVisible ? "w-[85%] px-[5%]" : "w-full px-[10%]"
-        } h-auto float-end  pt-20 `}
+        } float-end h-auto pt-20`}
       >
-        <h1 className="py-5 font-bold text-[18px] text-[#474151]">
+        <h1 className="py-5 text-[18px] font-bold text-[#474151]">
           Danh Sách Đơn Hàng
         </h1>
-        <div className="w-full h-auto rounded-md border px-4 my-5 bg-white">
-          <table className="w-full text-[14px]">
+        <div className="my-5 h-auto w-full rounded-md border bg-white px-4">
+          <table className="w-full text-sm">
             <thead>
-              <tr className="grid grid-cols-7 mt-4 border p-2 place-items-center rounded-md bg-slate-50">
+              <tr className="mt-4 grid grid-cols-7 place-items-center rounded-md border bg-slate-50 p-2">
                 <th>ID ĐƠN HÀNG</th>
                 <th>THỜI GIAN ĐẶT</th>
                 <th>TÊN KHÁCH HÀNG</th>
@@ -128,7 +128,7 @@ export default function OrdersAdminPage() {
               {displayedOrders.map((order) => (
                 <tr
                   key={order._id}
-                  className="grid grid-cols-7 mt-4 p-2 place-items-center "
+                  className="mt-4 grid grid-cols-7 place-items-center p-2"
                 >
                   <th>{shortenId(order._id.toUpperCase())}</th>
                   <th>
@@ -136,7 +136,7 @@ export default function OrdersAdminPage() {
                       hour: "numeric",
                       minute: "numeric",
                     }).format(
-                      new Date(order.createdAt)
+                      new Date(order.createdAt),
                     )} ${new Intl.DateTimeFormat("vi-VN", {
                       day: "numeric",
                       month: "long",
@@ -149,28 +149,28 @@ export default function OrdersAdminPage() {
                   <th>
                     <div className="relative">
                       <button
-                        className={`w-[200px] p-2 rounded-md hover:bg-gray-300 duration-300 ease-in-out ${
+                        className={`w-[200px] rounded-md p-2 duration-300 ease-in-out hover:bg-gray-300 ${
                           order.status === "Đơn hàng đã xác nhận"
                             ? "bg-[#FEF9C3] text-[#CA8A04]"
                             : order.status === "Đơn hàng đang vận chuyển"
-                            ? "bg-[#D8EAFE] text-[#3B82F6]"
-                            : order.status === "Đơn hàng đã hoàn thành"
-                            ? "bg-[#D1FAE5] text-[#059669]"
-                            : "bg-gray-200"
+                              ? "bg-[#D8EAFE] text-[#3B82F6]"
+                              : order.status === "Đơn hàng đã hoàn thành"
+                                ? "bg-[#D1FAE5] text-[#059669]"
+                                : "bg-gray-200"
                         }`}
                         onClick={() => handleUpdateButtonClick(order)}
                       >
                         {order.status}
                       </button>
                       {showDropdown === order._id && (
-                        <ul className="absolute bg-white rounded-md shadow-lg top-10 right-0 z-10 w-full">
+                        <ul className="absolute right-0 top-10 z-10 w-full rounded-md bg-white shadow-lg">
                           <li>
                             <button
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200 duration-300 ease-in-out w-full"
+                              className="block w-full px-4 py-2 text-gray-800 duration-300 ease-in-out hover:bg-gray-200"
                               onClick={() =>
                                 handleStatusUpdate(
                                   order._id,
-                                  "Đơn hàng đã xác nhận"
+                                  "Đơn hàng đã xác nhận",
                                 )
                               }
                             >
@@ -179,11 +179,11 @@ export default function OrdersAdminPage() {
                           </li>
                           <li>
                             <button
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200 duration-300 ease-in-out w-full"
+                              className="block w-full px-4 py-2 text-gray-800 duration-300 ease-in-out hover:bg-gray-200"
                               onClick={() =>
                                 handleStatusUpdate(
                                   order._id,
-                                  "Đơn hàng đang vận chuyển"
+                                  "Đơn hàng đang vận chuyển",
                                 )
                               }
                             >
@@ -192,11 +192,11 @@ export default function OrdersAdminPage() {
                           </li>
                           <li>
                             <button
-                              className="block px-4 py-2 text-gray-800 hover:bg-gray-200 duration-300 ease-in-out w-full"
+                              className="block w-full px-4 py-2 text-gray-800 duration-300 ease-in-out hover:bg-gray-200"
                               onClick={() =>
                                 handleStatusUpdate(
                                   order._id,
-                                  "Đơn hàng đã hoàn thành"
+                                  "Đơn hàng đã hoàn thành",
                                 )
                               }
                             >
@@ -211,8 +211,7 @@ export default function OrdersAdminPage() {
                   <th>
                     <FontAwesomeIcon
                       icon={faTrashCan}
-                      className="w-4 h-4 p-4
-                  hover:text-red-500 duration-300 ease-in-out cursor-pointer"
+                      className="h-4 w-4 cursor-pointer p-4 duration-300 ease-in-out hover:text-red-500"
                       onClick={() => handleDeleteButtonClick(order)}
                     />
                   </th>
@@ -220,15 +219,15 @@ export default function OrdersAdminPage() {
               ))}
             </thead>
           </table>
-          <div className="leading-[50px] p-4 float-end cursor-pointer">
+          <div className="float-end cursor-pointer p-4 leading-[50px]">
             {/* Tạo các nút chuyển trang */}
             {Array.from({ length: totalPages }).map((_, index) => (
               <p
                 key={index}
-                className={`w-[40px] h-[40px] leading-[40px] text-center rounded-md inline-block ${
+                className={`inline-block h-10 w-[40px] rounded-md text-center ${
                   currentPage === index + 1
-                    ? "hover:bg-[#059669] duration-300 ease-out bg-[#10B981] text-white mr-2"
-                    : "hover:bg-[#F3F4F6] duration-300 ease-out bg-[#F3F4F6] text-black mr-2"
+                    ? "mr-2 bg-[#10B981] text-white duration-300 ease-out hover:bg-[#059669]"
+                    : "mr-2 bg-[#F3F4F6] text-black duration-300 ease-out hover:bg-[#F3F4F6]"
                 } `}
                 onClick={() => handlePageChange(index + 1)}
               >
@@ -242,18 +241,17 @@ export default function OrdersAdminPage() {
 
       {/* Delete Modal */}
       {showDeleteModal && selectedOrder && (
-        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50">
-          <div className="bg-white rounded-lg p-6">
+        <div className="fixed left-0 top-0 flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="rounded-lg bg-white p-6">
             <div className="text-center">
               <FontAwesomeIcon
                 icon={faTrashCan}
-                className="w-10 h-10 p-5
-            text-red-500 duration-300 ease-in-out cursor-pointer"
+                className="h-10 w-10 cursor-pointer p-5 text-red-500 duration-300 ease-in-out"
               />
             </div>
-            <p className="text-xl font-bold mb-4">
+            <p className="mb-4 text-xl font-bold">
               Bạn có chắc muốn xóa đơn hàng
-              <span className="text-red-500 ml-1">
+              <span className="ml-1 text-red-500">
                 {selectedOrder._id.toUpperCase()}
               </span>
               ?
@@ -265,15 +263,13 @@ export default function OrdersAdminPage() {
 
             <div className="flex justify-end">
               <button
-                className="px-4 py-2 bg-gray-400 text-white rounded-md mr-4
-            hover:bg-gray-500 duration-300 ease-in-out"
+                className="mr-4 rounded-md bg-gray-400 px-4 py-2 text-white duration-300 ease-in-out hover:bg-gray-500"
                 onClick={handleCancelDelete}
               >
                 Hủy bỏ
               </button>
               <button
-                className="px-4 py-2 bg-red-500 text-white rounded-md 
-            hover:bg-red-700 duration-300 ease-in-out"
+                className="rounded-md bg-red-500 px-4 py-2 text-white duration-300 ease-in-out hover:bg-red-700"
                 onClick={handleConfirmDelete}
               >
                 Xác nhận

@@ -68,10 +68,10 @@ export default function Header() {
     <>
       {/* Header */}
       <section>
-        <div className="w-full h-[92px] py-[15px] bg-white fixed top-0 z-50">
-          <div className="w-[1330px] h-[62px] mx-auto grid grid-flow-col auto-cols-max justify-between text-[#07070780]">
+        <div className="fixed top-0 z-50 h-[92px] w-full bg-white py-[15px]">
+          <div className="mx-auto grid h-[62px] w-full auto-cols-max grid-flow-col justify-between text-[#07070780]">
             {/* Logo */}
-            <h1 className="place-self-center w-[191px]">
+            <h1 className="w-[191px] place-self-center">
               <Link to="/">
                 <img
                   className="max-w-max pl-[30px]"
@@ -91,12 +91,12 @@ export default function Header() {
                     <li
                       key={category._id}
                       className={`relative group${
-                        isFirstItem ? " no-icon" : ""
+                        isFirstItem ? "no-icon" : ""
                       }`}
                     >
                       <Link
                         to={`/danh-muc/${convertToSlug(category.name)}`}
-                        className="block mr-4 hover:text-black transition duration-300 ease-in-out"
+                        className="mr-4 block transition duration-300 ease-in-out hover:text-black"
                       >
                         {category.name}
                         {!isFirstItem && (
@@ -109,21 +109,17 @@ export default function Header() {
 
                       {/* Hiển thị danh sách danh mục con */}
                       {category.children && category.children[0] !== null && (
-                        <ul
-                          className="w-[185px] absolute hidden group-hover:block bg-white border border-gray-300 rounded
-                        duration-300 ease-in-out"
-                        >
+                        <ul className="absolute hidden w-[185px] rounded border border-gray-300 bg-white duration-300 ease-in-out group-hover:block">
                           {category.children.map((subcategory) => (
                             <li
                               key={subcategory._id}
-                              className="relative group"
+                              className="group relative"
                             >
                               <Link
                                 to={`/danh-muc/${convertToSlug(
-                                  category.name
+                                  category.name,
                                 )}/${convertToSlug(subcategory.name)}`}
-                                className="block py-[15px] px-[15px] hover:bg-gray-100 hover:text-black 
-                                duration-300 ease-in-out"
+                                className="block px-[15px] py-[15px] duration-300 ease-in-out hover:bg-gray-100 hover:text-black"
                               >
                                 {subcategory.name}
                               </Link>
@@ -139,23 +135,23 @@ export default function Header() {
 
             {/*Người dùng, Giỏ hàng */}
             <div className="place-self-center text-[#070707]">
-              <ul className="flex ">
+              <ul className="flex">
                 {/* Người dùng */}
-                <li className="px-2 relative group cursor-pointer">
+                <li className="group relative cursor-pointer px-2">
                   {user ? (
                     <>
                       <span className="block">
                         <FontAwesomeIcon
                           icon={faUser}
-                          className="h-[15px] w-[15px] mr-2"
+                          className="mr-2 h-[15px] w-[15px]"
                         />
                         {user.username}
                       </span>
-                      <ul className="w-[185px] absolute hidden group-hover:block bg-white border border-gray-300 rounded">
+                      <ul className="absolute hidden w-[185px] rounded border border-gray-300 bg-white group-hover:block">
                         <li>
                           <Link
                             to="account"
-                            className="w-full block py-[15px] px-[15px] hover:bg-gray-100"
+                            className="block w-full px-[15px] py-[15px] hover:bg-gray-100"
                           >
                             Thông tin tài khoản
                           </Link>
@@ -163,7 +159,7 @@ export default function Header() {
                         <li>
                           <Link
                             to="account-order"
-                            className="w-full block py-[15px] px-[15px] hover:bg-gray-100"
+                            className="block w-full px-[15px] py-[15px] hover:bg-gray-100"
                           >
                             Đơn hàng của bạn
                           </Link>
@@ -171,7 +167,7 @@ export default function Header() {
                         <li>
                           <a
                             onClick={handleLogout}
-                            className="w-full block py-[15px] px-[15px] hover:bg-gray-100"
+                            className="block w-full px-[15px] py-[15px] hover:bg-gray-100"
                           >
                             Đăng xuất
                           </a>
@@ -183,15 +179,15 @@ export default function Header() {
                       <a className="block" href="#">
                         <FontAwesomeIcon
                           icon={faUser}
-                          className="h-[15px] w-[15px] mr-2"
+                          className="mr-2 h-[15px] w-[15px]"
                         />
                         Tài khoản
                       </a>
-                      <ul className="w-[185px] absolute hidden group-hover:block bg-white border border-gray-300 rounded">
+                      <ul className="absolute hidden w-[185px] rounded border border-gray-300 bg-white group-hover:block">
                         <li>
                           <Link
                             to="/dang-nhap"
-                            className="block py-[15px] px-[15px] hover:bg-gray-100"
+                            className="block px-[15px] py-[15px] hover:bg-gray-100"
                           >
                             Đăng nhập
                           </Link>
@@ -199,7 +195,7 @@ export default function Header() {
                         <li>
                           <Link
                             to="/dang-ky"
-                            className="block py-[15px] px-[15px] hover:bg-gray-100"
+                            className="block px-[15px] py-[15px] hover:bg-gray-100"
                           >
                             Đăng ký
                           </Link>
@@ -210,29 +206,26 @@ export default function Header() {
                 </li>
 
                 {/* Giỏ hàng */}
-                <li className="border-l border-[#7c7c7c] px-2 relative group">
+                <li className="group relative border-l border-[#7c7c7c] px-2">
                   <Link to="/cart" className="block">
                     <FontAwesomeIcon
                       icon={faCartShopping}
-                      className="h-[15px] w-[15px] mr-2"
+                      className="mr-2 h-[15px] w-[15px]"
                     />
                     Giỏ hàng
-                    <span className="ml-2 inline-block bg-black text-white px-3 rounded-full">
+                    <span className="ml-2 inline-block rounded-full bg-black px-3 text-white">
                       {cart.totalItems}
                     </span>
                   </Link>
-                  <ul
-                    className="w-[320px] absolute right-3 hidden group-hover:block bg-white border border-gray-300 rounded
-                   overflow-y-auto max-h-[600px]"
-                  >
-                    <div className="w-full h-[30px] bg-[#070707] text-white">
-                      <span className="p-4 text-[14px] leading-[30px]">
+                  <ul className="absolute right-3 hidden max-h-[600px] w-[320px] overflow-y-auto rounded border border-gray-300 bg-white group-hover:block">
+                    <div className="h-[30px] w-full bg-[#070707] text-white">
+                      <span className="p-4 text-sm leading-[30px]">
                         Giỏ Hàng Của Tôi
                       </span>
                     </div>
                     {cart.items.length === 0 ? (
                       <li>
-                        <a className="block py-[15px] px-[15px]" href="#">
+                        <a className="block px-[15px] py-[15px]" href="#">
                           Bạn chưa có sản phẩm nào trong giỏ hàng !
                         </a>
                       </li>
@@ -240,8 +233,8 @@ export default function Header() {
                       // Hiển thị danh sách sản phẩm trong giỏ hàng
                       cart.items.map((item) => (
                         <li key={item._id} className="p-4">
-                          <div className="grid grid-flow-col text-[14px]">
-                            <div className="w-[67px] h-[100px]">
+                          <div className="grid grid-flow-col text-sm">
+                            <div className="h-[100px] w-[67px]">
                               <img src={item.images[0]} alt="" />
                             </div>
                             <div className="w-[200px]">
@@ -256,7 +249,7 @@ export default function Header() {
                               <p className="cursor-default">
                                 SL: {item.quantity}
                               </p>
-                              <p className="font-bold float-end cursor-default">
+                              <p className="float-end cursor-default font-bold">
                                 <span>Tổng:</span>
                                 <span className="ml-1">
                                   {formatCurrency(item.totalPrice)}
@@ -268,8 +261,8 @@ export default function Header() {
                       ))
                     )}
                     <div className="">
-                      <li className="p-4 cursor-default">
-                        <p className="font-bold h-[20px]">
+                      <li className="cursor-default p-4">
+                        <p className="h-[20px] font-bold">
                           <span className="float-start">THÀNH TIỀN:</span>
                           <span className="float-end">
                             {formatCurrency(cart.totalCartPrice)}
@@ -278,16 +271,12 @@ export default function Header() {
                       </li>
                       <div className="p-2">
                         <button
-                          className="w-full h-[36px] bg-[#070707] text-[#ffffff] mb-2
-                        hover:opacity-85 duration-300 ease-in-out rounded"
+                          className="mb-2 h-[36px] w-full rounded bg-[#070707] text-[#ffffff] duration-300 ease-in-out hover:opacity-85"
                           onClick={handleCheckout}
                         >
                           THANH TOÁN NGAY
                         </button>
-                        <button
-                          className="w-full h-[36px] bg-[#ffffff] text-[#070707] mb-2 border border-[#070707] 
-                        hover:bg-gray-200 duration-300 ease-in-out rounded"
-                        >
+                        <button className="mb-2 h-[36px] w-full rounded border border-[#070707] bg-[#ffffff] text-[#070707] duration-300 ease-in-out hover:bg-gray-200">
                           <Link to="/cart">XEM GIỎ HÀNG</Link>
                         </button>
                       </div>
