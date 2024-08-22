@@ -4,9 +4,9 @@ export default function NotFoundPage() {
   return (
     <>
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> / KHÔNG TÌM THẤY TRANG</span>
@@ -14,12 +14,12 @@ export default function NotFoundPage() {
         </div>
       </section>
       <section>
-        <div className="w-full h-[250px] py-[50px]">
-          <div className="w-[1360px] h-[110px] px-[30px] mx-auto">
-            <h1 className="w-[1360px] h-[30px] text-[24px] font-bold mx-auto">
+        <div className="h-auto w-full py-[50px]">
+          <div className="mx-auto h-auto w-5/6">
+            <h1 className="mx-auto h-auto text-center text-2xl font-bold">
               TRANG BẠN YÊU CẦU KHÔNG CÓ !
             </h1>
-            <p className="mt-4 text-[14px]">
+            <p className="mt-4 text-center text-sm">
               Bạn có thể làm theo các hướng dẫn sau:
               <br />
               - Sử dụng thanh tìm kiếm ở đầu trang để tìm kiếm sản phẩm.

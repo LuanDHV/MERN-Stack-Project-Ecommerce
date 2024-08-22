@@ -81,6 +81,9 @@ export default function Footer() {
             />
           </div>
         </div>
+        <div className="flex h-10 w-full items-center bg-white px-10 text-sm font-bold md:px-14">
+          © 2024 - LuanDHV
+        </div>
       </section>
     </>
   );
