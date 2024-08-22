@@ -81,9 +81,9 @@ export default function LogInPage() {
 
       {/* Đường dẫn trang */}
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> / ĐĂNG NHẬP </span>
@@ -93,40 +93,36 @@ export default function LogInPage() {
 
       {/* Form Đăng Nhập */}
       <section>
-        <div className="w-[1330px] h-[420px] mx-auto">
-          <div className="w-[443px] h-[350px] mx-auto">
-            <h1 className="text-[32px] font-bold text-center mb-5">
-              ĐĂNG NHẬP
-            </h1>
-            <div className="w-[413px] h-[100px]">
-              <form onSubmit={handleSubmit}>
-                {/* Input Email */}
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4 rounded"
-                />
-                {/* Input Password */}
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Mật khẩu"
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4 rounded"
-                />
-                {/* Nút Đăng Nhập */}
-                <span className="text-blue-600 cursor-pointer mx-1 float-end mb-2">
-                  <Link to="/reset"> Quên mật khẩu </Link>
-                </span>
-                <button className="w-[413px] h-[42px] mx-auto border bg-[#070707] text-white hover:opacity-80 duration-300 ease-in-out rounded">
-                  ĐĂNG NHẬP
-                </button>
-              </form>
-            </div>
+        <div className="mx-auto h-auto w-full">
+          <h1 className="my-5 text-center text-3xl font-bold">ĐĂNG NHẬP</h1>
+          <div className="mx-auto h-auto w-[420px]">
+            <form onSubmit={handleSubmit}>
+              {/* Input Email */}
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="mb-4 h-auto w-full rounded border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              {/* Input Password */}
+              <input
+                type="password"
+                name="password"
+                placeholder="Mật khẩu"
+                value={formData.password}
+                onChange={handleChange}
+                className="mb-4 h-auto w-full rounded border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              {/* Nút Đăng Nhập */}
+              <span className="float-end mx-1 mb-2 cursor-pointer text-blue-600">
+                <Link to="/reset"> Quên mật khẩu </Link>
+              </span>
+              <button className="mx-auto h-10 w-full rounded border bg-[#070707] text-white duration-300 ease-in-out hover:opacity-80">
+                ĐĂNG NHẬP
+              </button>
+            </form>
           </div>
         </div>
       </section>
