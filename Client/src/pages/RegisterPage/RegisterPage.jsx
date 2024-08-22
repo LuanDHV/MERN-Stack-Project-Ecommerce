@@ -45,7 +45,7 @@ export default function RegisterPage() {
     const passwordRegex = /^[a-zA-Z0-9]{6,}$/;
     if (!passwordRegex.test(formData.password)) {
       toast.warning(
-        "Mật khẩu phải có ít nhất 6 kí tự và không chứa kí tự đặc biệt"
+        "Mật khẩu phải có ít nhất 6 kí tự và không chứa kí tự đặc biệt",
       );
       return;
     }
@@ -90,9 +90,9 @@ export default function RegisterPage() {
 
       {/* Phần header */}
       <section>
-        <div className="w-full h-[49px] mx-auto mt-[92px] border-t border-[#EFEFF4]">
-          <div className="text-[14px] leading-[49px] font-light px-[60px] ">
-            <Link to="/" className="ml-[60px]">
+        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+          <div className="mx-auto w-5/6 text-sm font-light">
+            <Link to="/" className="">
               TRANG CHỦ
             </Link>
             <span> / TẠO TÀI KHOẢN</span>
@@ -102,56 +102,59 @@ export default function RegisterPage() {
 
       {/* Phần form đăng ký */}
       <section>
-        <div className="w-[1330px] h-[420px] mx-auto">
-          <div className="w-[443px] h-[350px] mx-auto">
-            <h1 className="text-[32px] font-bold text-center mb-5">ĐĂNG KÝ</h1>
+        <div className="mx-auto h-auto w-full">
+          <h1 className="my-5 text-center text-3xl font-bold">ĐĂNG KÝ</h1>
+          <div className="mx-auto h-auto w-[420px]">
             <form onSubmit={handleSubmit}>
-              <div className="w-[413px] h-[250px]">
-                <input
-                  type="text"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder="Họ và tên"
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4 rounded"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email"
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4 rounded"
-                />
-                <input
-                  type="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Mật khẩu"
-                  className="w-[413px] h-[30px] border border-[#e7e7e7] py-[8px] px-[10px] outline-none mb-4 rounded"
-                />
-                <input
-                  type="checkbox"
-                  name="agreedTerms"
-                  checked={formData.agreedTerms}
-                  onChange={handleChange}
-                  className="w-[12px] h-[12px] mr-2"
-                />
-                <p className="inline-block text-[14px] font-normal">
-                  Tôi đồng ý với các
-                  <strong className="text-blue-600 cursor-pointer mx-1">
-                    điều khoản
-                  </strong>
-                  của NEM
-                </p>
-                <button
-                  type="submit"
-                  className="w-[413px] h-[42px] mx-auto border mt-5 bg-[#070707] text-white hover:opacity-80 duration-300 ease-in-out rounded"
-                >
-                  ĐĂNG KÝ
-                </button>
-              </div>
+              {/* Input Username */}
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Họ và tên"
+                className="mb-4 h-auto w-full rounded border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              {/* Input Email */}
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                className="mb-4 h-auto w-full rounded border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              {/* Input Password */}
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Mật khẩu"
+                className="mb-4 h-auto w-full rounded border border-[#e7e7e7] px-3 py-2 outline-none"
+              />
+              {/* Checkbox */}
+              <input
+                type="checkbox"
+                name="agreedTerms"
+                checked={formData.agreedTerms}
+                onChange={handleChange}
+                className="mr-2 h-3 w-3"
+              />
+              <p className="inline-block text-sm font-normal">
+                Tôi đồng ý với các
+                <strong className="mx-1 cursor-pointer text-blue-600">
+                  điều khoản
+                </strong>
+                của NEM
+              </p>
+              {/* Nút Đăng Ký */}
+              <button
+                type="submit"
+                className="mx-auto mt-5 h-10 w-full rounded border bg-[#070707] text-white duration-300 ease-in-out hover:opacity-80"
+              >
+                ĐĂNG KÝ
+              </button>
             </form>
           </div>
         </div>
