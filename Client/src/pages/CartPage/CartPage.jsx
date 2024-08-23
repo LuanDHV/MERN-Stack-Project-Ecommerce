@@ -47,7 +47,7 @@ export default function CartPage() {
     <>
       <section>
         <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
-          <div className="mx-auto w-5/6 text-sm font-light">
+          <div className="mx-auto w-5/6 text-base font-light">
             <Link to="/" className="">
               TRANG CHỦ
             </Link>
@@ -57,20 +57,20 @@ export default function CartPage() {
       </section>
 
       <section>
-        <div className="h-auto w-full py-[50px]">
-          <div className="mx-auto h-auto w-[1300px]">
-            <h1 className="h-[54px] text-3xl font-bold">GIỎ HÀNG</h1>
-            <table className="h-[78px] min-w-full">
+        <div className="h-auto w-full p-5">
+          <div className="mx-auto h-auto w-full">
+            <h1 className="h-14 text-3xl font-bold">GIỎ HÀNG</h1>
+            <table className="h-auto w-full">
               <thead>
-                <tr className="">
+                <tr className="hidden md:grid md:grid-cols-5">
                   <th className="border-y px-4 py-2 text-start"></th>
                   <th className="border-y px-4 py-2 text-start">SẢN PHẨM</th>
-                  <th className="border-y px-4 py-2">GÍA / SP</th>
+                  <th className="border-y px-4 py-2">GIÁ / SP</th>
                   <th className="border-y px-4 py-2">SỐ LƯỢNG</th>
                   <th className="border-y px-4 py-2">TỔNG</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="">
                 {cart.totalItems === 0 ? (
                   <tr>
                     <td colSpan="5">
@@ -79,54 +79,57 @@ export default function CartPage() {
                   </tr>
                 ) : (
                   cart.items.map((item) => (
-                    <tr key={item._id} className="text-center">
-                      <td className="px-4 py-2">
+                    <tr
+                      key={item._id}
+                      className="grid items-center justify-items-center text-center md:grid-cols-5"
+                    >
+                      <td className="h-full w-3/5 px-4 py-2">
                         <Link to={`/san-pham-chi-tiet/${item._id}`}>
                           <img
                             src={item.images[0]}
                             alt={item.name}
-                            className="h-[240px] w-[160px]"
+                            className="object-cover"
                           />
                         </Link>
                       </td>
                       <td className="px-4 py-2 text-start">
                         <Link
                           to={`/san-pham-chi-tiet/${item._id}`}
-                          className="text-[20px] font-bold"
+                          className="text-base font-bold"
                         >
                           {item.name}
                         </Link>
-                        <p className="text-sm font-light">
+                        <p className="text-base font-light">
                           <span>Phiên bản: </span>
                           <span>
                             {`Size ${item.selectedSize} / ${item.colors}`}
                           </span>
                         </p>
                         <button
-                          className="mt-2 h-10 w-[250px] rounded border bg-[#070707] font-bold text-white duration-300 ease-in-out hover:opacity-85"
+                          className="mt-2 h-12 w-full rounded-3xl border bg-[#070707] font-bold text-white duration-300 ease-in-out hover:opacity-85"
                           onClick={() => handleRemoveFromCart(item._id)}
                         >
                           XÓA
                         </button>
                       </td>
-                      <td className="px-4 py-2 text-[20px] font-bold">
+                      <td className="px-4 py-2 text-base font-bold">
                         {formatCurrency(item.price)}
                       </td>
-                      <td className="px-4 py-2 text-[20px] font-bold">
+                      <td className="px-4 py-2 text-base font-bold">
                         <div className="flex items-center justify-center space-x-4">
                           <button
-                            className="h-8 w-8 rounded border duration-300 ease-in-out hover:bg-slate-200"
+                            className="h-12 w-12 rounded-3xl border duration-300 ease-in-out hover:bg-slate-200"
                             onClick={() =>
                               handleQuantityChange(item._id, item.quantity - 1)
                             }
                           >
                             <FontAwesomeIcon icon={faChevronLeft} />
                           </button>
-                          <p className="w-[60px] rounded border text-lg font-semibold">
+                          <p className="flex h-12 w-12 items-center justify-center rounded-md border text-lg font-semibold">
                             {item.quantity}
                           </p>
                           <button
-                            className="h-8 w-8 rounded border duration-300 ease-in-out hover:bg-slate-200"
+                            className="h-12 w-12 rounded-3xl border duration-300 ease-in-out hover:bg-slate-200"
                             onClick={() =>
                               handleQuantityChange(item._id, item.quantity + 1)
                             }
@@ -135,7 +138,7 @@ export default function CartPage() {
                           </button>
                         </div>
                       </td>
-                      <td className="px-4 py-2 text-[20px] font-bold">
+                      <td className="hidden px-4 py-2 text-base font-bold md:block">
                         {formatCurrency(item.totalPrice)}
                       </td>
                     </tr>
@@ -148,30 +151,26 @@ export default function CartPage() {
       </section>
 
       <section>
-        <div className="mx-auto my-[50px] h-[0.8px] w-[1300px] border border-[#e7e7e7]">
-          <hr className=""></hr>
-        </div>
-        <div className="mx-auto grid h-[150px] w-full grid-flow-col">
-          <div className="h-[150px] w-[886px]">
+        <div className="grid h-auto w-full p-5 md:grid-cols-2">
+          <div className="w-full p-5">
             <p>Chú thích</p>
-            <input
-              type="text"
-              className="h-[120px] w-[886px] border outline-none"
-            />
+            <input type="text" className="w-full border p-10 outline-none" />
           </div>
-          <div className="grid h-[83px] w-[443px] grid-rows-2 place-content-end">
-            <p className="text-end text-sm">
-              THÀNH TIỀN:
-              <strong className="ml-[10px] text-[20px] font-bold">
+          <div className="grid w-full grid-rows-2 p-5">
+            <p className="flex w-full items-center justify-center gap-5 text-end text-base">
+              <p>THÀNH TIỀN:</p>
+              <strong className="text-base font-bold">
                 {formatCurrency(cart.totalCartPrice)}
               </strong>
             </p>
-            <div className="text-sm font-bold">
-              <button className="mr-2 h-[37px] w-[126px] rounded-3xl bg-[#070707] p-[10px] text-white">
-                <Link to="/">MUA THÊM</Link>
+            <div className="grid w-full grid-cols-2 items-center justify-center gap-5">
+              <button className="flex h-10 items-center justify-center rounded-3xl bg-[#070707] p-3 text-white">
+                <Link to="/" className="text-base font-bold">
+                  MUA THÊM
+                </Link>
               </button>
               <button
-                className="h-[37px] w-[126px] rounded-3xl bg-[#070707] p-[10px] text-white"
+                className="flex h-10 items-center justify-center rounded-3xl bg-[#070707] p-3 text-base font-bold text-white"
                 onClick={handleCheckout}
               >
                 THANH TOÁN
