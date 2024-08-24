@@ -48,9 +48,9 @@ export default function CheckOutSuccessPage() {
   return (
     <>
       <section>
-        <div className="mx-auto grid h-screen w-full grid-cols-2">
-          <div className="mx-auto p-[50px] text-sm font-light">
-            <h1 className="pt-10">
+        <div className="mx-auto grid h-screen w-full md:grid-cols-2">
+          <div className="mx-auto w-full p-10 text-sm font-light">
+            <h1 className="">
               <Link to="/">
                 <img
                   src="https://theme.hstatic.net/200000182297/1000887316/14/logo.png?v=1068"
@@ -58,63 +58,61 @@ export default function CheckOutSuccessPage() {
                 />
               </Link>
             </h1>
-            <div className="h-[100px] w-[572px]">
-              <div className="mt-4 h-[18px]">
+            <div className="my-5 h-auto w-full">
+              <div className="mt-4 flex justify-between">
                 <h2 className="relative text-xl font-normal text-[#333333]">
                   Đặt hàng thành công
-                  <FontAwesomeIcon
-                    icon={faCheck}
-                    className="absolute ml-4 mt-1 h-12 w-12 rounded-full border border-[#338dbc] p-2 text-[#338dbc]"
-                  />
+                  <span className="block text-sm font-light">
+                    Cảm ơn bạn đã mua hàng !
+                  </span>
                 </h2>
-                <span className="block">Cảm ơn bạn đã mua hàng !</span>
+                <FontAwesomeIcon
+                  icon={faCheck}
+                  className="h-10 w-10 rounded-full border border-[#338dbc] p-2 text-[#338dbc]"
+                />
               </div>
             </div>
-            <div className="mb-4 h-[270px] w-[570px] rounded-md border p-4">
-              <p className="my-2 text-[16px] font-normal">Thông tin đơn hàng</p>
+            <div className="mb-4 grid h-auto w-full gap-2 rounded-md border p-4">
+              <p className="my-2 font-normal">Thông tin đơn hàng</p>
               <p>Thông tin vận chuyển</p>
               <p>Tên: {order.fullName}</p>
               <p>Email: {order.email}</p>
               <p>Số điện thoại: {order.phoneNumber}</p>
               <p>Địa chỉ: {order.address}</p>
-              <p className="my-2 text-[16px] font-normal">
-                Phương thức thanh toán
-              </p>
+              <p className="my-2 font-normal">Phương thức thanh toán</p>
               <p>{order.payment}</p>
             </div>
-            <div className="grid w-[570px] grid-flow-col">
+            <div className="grid w-full grid-flow-col">
               <button
-                className="h-[56px] w-[200px] place-self-end rounded bg-[#338dbc] text-white"
+                className="h-14 w-full place-self-end rounded bg-[#338dbc] text-white"
                 onClick={() => {
                   // Gọi action để xóa dữ liệu giỏ hàng và đặt hàng
                   dispatch(clearCart());
                   dispatch(clearOrder());
-                  // Điều hướng lại trang "Tiếp tục mua hàng"
+                  // Điều hướng lại trang Trang chủ
                   navigate("/");
                 }}
               >
-                Tiếp tục mua hàng
+                Trở về trang chủ
               </button>
             </div>
           </div>
 
           <div className="bg-[#f6f5f5]">
-            <div className="float-left mx-auto grid h-auto w-full grid-rows-2 p-[50px]">
+            <div className="mx-auto grid h-auto w-full p-10">
               {cart.items.map((item) => (
                 <div key={item._id} className="mb-4 grid grid-cols-3">
                   <img
                     src={item.images[0]}
                     alt={item.name}
-                    className="h-[100px] w-[64px] object-cover"
+                    className="h-40 w-20 object-cover"
                   />
                   <div className="self-center">
                     <p>{item.name}</p>
-                    <p className="text-[12px] text-gray-400">
+                    <p className="text-sm text-gray-400">
                       {`Size ${item.selectedSize} / ${item.colors}`}
                     </p>
-                    <p className="text-[12px] text-gray-400">
-                      SL: {item.quantity}
-                    </p>
+                    <p className="text-sm text-gray-400">SL: {item.quantity}</p>
                   </div>
                   <div className="self-center text-end">
                     <p>{formatCurrency(item.price)}</p>

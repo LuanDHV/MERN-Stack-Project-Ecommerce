@@ -132,7 +132,7 @@ export default function CollectionPage() {
               <h1 className="mb-[20px] h-auto w-[750px] text-[36px] font-extrabold">
                 SẮC MÀU NGÀY TẾT
               </h1>
-              <p className="mb-[20px] h-auto w-[750px] text-justify text-[16px] leading-[21px]">
+              <p className="mb-[20px] h-auto w-[750px] text-justify leading-[21px]">
                 Tết đến - Xuân về luôn là thời điểm thích hợp để phái đẹp lựa
                 chọn khoác lên mình những bộ trang phục có màu sắc thật rạng rỡ
                 để mang tới may mắn cho năm mới. Và bộ sưu tập &#34;Sắc màu ngày
@@ -302,7 +302,7 @@ export default function CollectionPage() {
               <h1 className="mb-[20px] h-auto w-[750px] text-end text-[36px] font-extrabold">
                 XUÂN THÌ | AO DAI COLLECTION 2024
               </h1>
-              <p className="mb-[20px] h-auto w-[750px] text-justify text-[16px] leading-[21px]">
+              <p className="mb-[20px] h-auto w-[750px] text-justify leading-[21px]">
                 &#34;Xuân Thì&#34; - cái tên gợi nhắc tới một thời thanh xuân
                 rạng rỡ, là quãng thời gian đẹp nhất mà ai cũng muốn quay trở
                 lại. Đó cũng là nguồn cảm hứng để NEM chọn &#34;Xuân Thì&#34;
