@@ -80,7 +80,7 @@ function AppContent() {
         <button
           id="scrollToTopButton"
           onClick={scrollToTop}
-          className="fixed bottom-10 right-5 h-10 w-[40px] rounded-full bg-black bg-opacity-50 text-lg text-white duration-300 ease-in-out hover:bg-black"
+          className="fixed bottom-10 right-5 h-10 w-10 rounded-full bg-black bg-opacity-50 text-lg text-white duration-300 ease-in-out hover:bg-black"
         >
           <FontAwesomeIcon icon={faArrowUp} />
         </button>

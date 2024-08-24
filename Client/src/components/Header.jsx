@@ -74,7 +74,7 @@ export default function Header() {
             <h1 className="w-[191px] place-self-center">
               <Link to="/">
                 <img
-                  className="max-w-max pl-[30px]"
+                  className="max-w-max"
                   src="https://theme.hstatic.net/200000182297/1000887316/14/logo.png?v=1068"
                   alt=""
                 />

@@ -228,7 +228,7 @@ export default function ProductsAdminPage() {
           isNavbarVisible ? "w-[85%] px-[5%]" : "w-full px-[10%]"
         } float-end h-auto bg-slate-50 pt-20`}
       >
-        <h1 className="py-10 text-[18px] font-bold text-[#474151]">
+        <h1 className="py-10 text-lg font-bold text-[#474151]">
           Danh Sách Sản Phẩm
         </h1>
         <div className="h-[80px] w-full rounded-md border bg-white p-4">
@@ -306,7 +306,7 @@ export default function ProductsAdminPage() {
                 {Array.from({ length: totalPages }).map((_, index) => (
                   <p
                     key={index}
-                    className={`inline-block h-10 w-[40px] rounded-md text-center ${
+                    className={`inline-block h-10 w-10 rounded-md text-center ${
                       currentPage === index + 1
                         ? "mr-2 bg-[#10B981] text-white duration-300 ease-out hover:bg-[#059669]"
                         : "mr-2 bg-[#F3F4F6] text-black duration-300 ease-out hover:bg-[#F3F4F6]"

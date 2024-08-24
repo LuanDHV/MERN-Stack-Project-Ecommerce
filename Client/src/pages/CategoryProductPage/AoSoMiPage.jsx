@@ -131,20 +131,16 @@ export default function AoSoMiPage() {
         </div>
       </section>
       <section>
-        <div className="h-auto w-full py-[50px]">
-          <div className="mx-auto h-[2500px] w-[1360px] px-[30px]">
+        <div className="h-auto w-full py-10">
+          <div className="mx-auto h-auto w-5/6">
             <div className="grid h-full w-full grid-flow-col">
-              <div className="h-[512px] w-[302px] cursor-pointer pl-[30px]">
+              <div className="hidden h-auto w-60 cursor-pointer xl:block">
                 <Navbar />
               </div>
-              <div className="grid h-[2500px] w-[1028px] grid-flow-row pl-[30px]">
-                <div className="grid h-[56px] w-[967px] auto-cols-max grid-flow-col">
-                  <h1 className="h-[27px] w-[302px] text-[18px] font-bold">
-                    TẤT CẢ SẢN PHẨM
-                  </h1>
-                  <div className="grid h-[56px] w-[664px] grid-cols-4 place-items-end items-center pl-[30px] text-sm">
-                    <div className=""></div>
-                    <div className=""></div>
+              <div className="grid h-auto w-full grid-flow-row">
+                <div className="flex h-14 w-full items-center justify-between">
+                  <h1 className="text-lg font-bold">TẤT CẢ SẢN PHẨM</h1>
+                  <div className="flex h-14 items-center justify-end gap-5 text-sm">
                     {/* Menu Màu sắc */}
                     <ul className="relative">
                       <li className="group relative">
@@ -163,7 +159,7 @@ export default function AoSoMiPage() {
                         <ul
                           className={`pointer-events-none absolute left-1/2 mt-1 origin-bottom -translate-x-1/2 transform border border-gray-300 bg-white p-2 opacity-0 transition-transform duration-300 ${
                             openMenu === "colorMenuOpen"
-                              ? "pointer-events-auto z-10 grid h-[100px] w-[300px] translate-y-0 grid-flow-row rounded-md opacity-100"
+                              ? "pointer-events-auto z-10 grid h-[100px] w-[190px] translate-y-0 grid-flow-row rounded-md opacity-100"
                               : "translate-y-10"
                           }`}
                         >
@@ -264,8 +260,8 @@ export default function AoSoMiPage() {
                     </ul>
                   </div>
                 </div>
-                <div className="mt-[30px] grid h-[2350px] w-[967px] cursor-pointer grid-rows-4">
-                  <div className="grid grid-cols-3">
+                <div className="grid h-auto w-full cursor-pointer">
+                  <div className="grid grid-cols-2 gap-5 xl:grid-cols-4">
                     {filteredProducts
                       .filter((product) =>
                         product.categories.includes("65c6000ffb866364b3105e23"),
@@ -275,10 +271,10 @@ export default function AoSoMiPage() {
                         <div
                           key={product._id}
                           onClick={() => handleClick(product._id, product.name)}
-                          className="h-[580px] w-[300px]"
+                          className="w-full"
                         >
                           <div className="duration-500 ease-in-out hover:-translate-y-1">
-                            <div className="group relative h-[450px] w-[300px] overflow-hidden">
+                            <div className="group relative w-full">
                               <div className="">
                                 <img
                                   src={product.images[0]}
@@ -292,11 +288,11 @@ export default function AoSoMiPage() {
                               <p className="font-bold text-[#07070780] transition-colors duration-300 ease-in-out hover:text-black">
                                 {product.name}
                               </p>
-                              <p className="mt-5 font-bold text-[#070707]">
-                                {formatCurrency(product.price)}
-                                <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                              <p className="grid font-bold text-[#070707]">
+                                <span className="font-bold text-[#FF3B30] line-through">
                                   {formatCurrency(product.discount)}
                                 </span>
+                                {formatCurrency(product.price)}
                               </p>
                             </div>
                           </div>
@@ -305,21 +301,20 @@ export default function AoSoMiPage() {
                   </div>
                 </div>
 
-                <div className="group h-[52px] w-[967px]">
-                  <div className="mx-auto grid h-[52px] w-[270px] grid-cols-5 place-items-center font-bold">
-                    {/* Tạo các nút chuyển trang */}
+                <div className="group h-14 w-full">
+                  {/* Tạo các nút chuyển trang */}
+                  <div className="mx-auto mt-5 flex h-auto justify-center font-bold">
                     {Array.from({ length: totalPages }).map((_, index) => (
                       <div
                         key={index}
-                        className={`h-10 w-[40px] cursor-pointer rounded border border-[#f8f8f9] text-center ${
+                        className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded border border-[#f8f8f9] ${
                           currentPage === index + 1
                             ? "bg-[#070707] text-white hover:bg-[#070707] hover:text-white"
                             : "bg-[#f8f8f9] text-black hover:bg-[#070707] hover:text-white"
                         } `}
                         onClick={() => handlePageChange(index + 1)}
                       >
-                        {/* Hiển thị số trang*/}
-                        <span>{index + 1}</span>
+                        <span className="">{index + 1}</span>
                       </div>
                     ))}
                   </div>

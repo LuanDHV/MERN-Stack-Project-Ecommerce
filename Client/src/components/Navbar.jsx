@@ -25,17 +25,17 @@ export default function Navbar() {
 
   return (
     <>
-      <ul className="w-[302px] h-[476px]">
+      <ul className="h-auto w-full">
         {categories.map((category) => (
           <div
             key={category._id}
-            className={`my-[15px] ${
+            className={`my-4 ${
               !category.children || category.children.length === 0
-                ? "h-[84px]"
+                ? "h-auto"
                 : ""
             }`}
           >
-            <li className="w-[302px]">
+            <li className="w-full">
               <Link
                 to={`/danh-muc/${convertToSlug(category.name)}`}
                 className="font-bold"
@@ -51,14 +51,14 @@ export default function Navbar() {
                         <li key={child._id}>
                           <Link
                             to={`/danh-muc/${convertToSlug(
-                              category.name
+                              category.name,
                             )}/${convertToSlug(child.name)}`}
                             className="hover:text-[#070707]"
                           >
                             {child.name}
                           </Link>
                         </li>
-                      )
+                      ),
                   )}
                 </ul>
               )}

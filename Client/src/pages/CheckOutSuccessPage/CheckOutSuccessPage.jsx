@@ -101,7 +101,10 @@ export default function CheckOutSuccessPage() {
           <div className="bg-[#f6f5f5]">
             <div className="mx-auto grid h-auto w-full p-10">
               {cart.items.map((item) => (
-                <div key={item._id} className="mb-4 grid grid-cols-3">
+                <div
+                  key={item._id}
+                  className="mb-4 grid grid-cols-2 gap-5 xl:grid-cols-4"
+                >
                   <img
                     src={item.images[0]}
                     alt={item.name}

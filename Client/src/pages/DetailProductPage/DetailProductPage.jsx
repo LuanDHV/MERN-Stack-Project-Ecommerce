@@ -184,9 +184,7 @@ export default function DetailProductPage() {
             <div className="h-[630px] w-[470px]">
               <div className="float-end h-[630px] w-[360px]">
                 {/* Tên sản phẩm */}
-                <h1 className="h-[27px] text-[18px] font-bold">
-                  {product.name}
-                </h1>
+                <h1 className="text-lg font-bold">{product.name}</h1>
 
                 {/* Thông tin sản phẩm */}
                 <div className="my-5 text-sm font-light">
@@ -195,7 +193,7 @@ export default function DetailProductPage() {
                 </div>
 
                 {/* Giá sản phẩm */}
-                <span className="block h-[64px] text-[18px] font-bold">
+                <span className="block h-[64px] text-lg font-bold">
                   {formatCurrency(product.price)}
                 </span>
 

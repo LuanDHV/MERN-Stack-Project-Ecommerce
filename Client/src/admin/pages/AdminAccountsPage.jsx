@@ -118,7 +118,7 @@ export default function AdminAccountsPage() {
           isNavbarVisible ? "w-[85%] px-[5%]" : "w-full px-[10%]"
         } float-end h-auto pt-20`}
       >
-        <h1 className="py-5 text-[18px] font-bold text-[#474151]">
+        <h1 className="py-5 text-lg font-bold text-[#474151]">
           Danh Sách Quản Trị Viên
         </h1>
         <div className="my-5 h-auto w-full rounded-md border bg-white px-4">
@@ -198,7 +198,7 @@ export default function AdminAccountsPage() {
             {Array.from({ length: totalPages }).map((_, index) => (
               <p
                 key={index}
-                className={`inline-block h-10 w-[40px] rounded-md text-center ${
+                className={`inline-block h-10 w-10 rounded-md text-center ${
                   currentPage === index + 1
                     ? "mr-2 bg-[#10B981] text-white duration-300 ease-out hover:bg-[#059669]"
                     : "mr-2 bg-[#F3F4F6] text-black duration-300 ease-out hover:bg-[#F3F4F6]"

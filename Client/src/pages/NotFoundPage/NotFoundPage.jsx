@@ -14,7 +14,7 @@ export default function NotFoundPage() {
         </div>
       </section>
       <section>
-        <div className="h-auto w-full py-[50px]">
+        <div className="h-auto w-full py-10">
           <div className="mx-auto h-auto w-5/6">
             <h1 className="mx-auto h-auto text-center text-2xl font-bold">
               TRANG BẠN YÊU CẦU KHÔNG CÓ !

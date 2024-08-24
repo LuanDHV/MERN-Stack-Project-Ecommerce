@@ -13,7 +13,7 @@ export default function CollectionPage() {
           </div>
         </div>
         <div className="h-auto w-full">
-          <div className="mx-auto h-auto w-[1360px] px-[30px]">
+          <div className="mx-auto h-auto w-5/6">
             <img
               src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_1.png?v=1068"
               alt=""
@@ -43,9 +43,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780]">
                       ĐẦM TIỆC VAI CAPE
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -68,9 +68,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780]">
                       ĐẦM TIỆC TRỄ VAI
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -95,9 +95,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780]">
                       ĐẦM TIỆC TRẮNG VAI NƠ
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -118,9 +118,9 @@ export default function CollectionPage() {
                   </div>
                   <div className="mt-5 text-center">
                     <p className="font-bold text-[#07070780]">ĐẦM GẤM HOA</p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -168,7 +168,7 @@ export default function CollectionPage() {
           <hr className=""></hr>
         </div>
         <div className="mt-10 h-auto w-full">
-          <div className="mx-auto h-auto w-[1360px] px-[30px]">
+          <div className="mx-auto h-auto w-5/6">
             <img
               src="https://theme.hstatic.net/200000182297/1000887316/14/banner_section_coll_3.png?v=1068"
               alt=""
@@ -211,9 +211,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780]">
                       ÁO DÀI ĐÍNH HOA
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -236,9 +236,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780]">
                       ÁO DÀI ĐỎ ĐÍNH HOA NỔI
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -263,9 +263,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780] transition-colors duration-300 ease-in-out hover:text-black">
                       ÁO DÀI IN HOA
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
@@ -288,9 +288,9 @@ export default function CollectionPage() {
                     <p className="font-bold text-[#07070780]">
                       ÁO DÀI THÊU HOA SEN
                     </p>
-                    <p className="mt-5 font-bold text-[#070707]">
+                    <p className="grid font-bold text-[#070707]">
                       1.899.000đ
-                      <span className="ml-[10px] font-bold text-[#FF3B30] line-through">
+                      <span className="font-bold text-[#FF3B30] line-through">
                         2.199.000₫
                       </span>
                     </p>
