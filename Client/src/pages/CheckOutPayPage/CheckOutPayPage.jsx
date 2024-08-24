@@ -53,9 +53,9 @@ export default function CheckOutPayPage() {
   return (
     <>
       <section>
-        <div className="mx-auto grid h-screen w-full grid-cols-2">
-          <div className="mx-auto p-[50px] text-sm font-light">
-            <h1 className="py-10">
+        <div className="mx-auto grid h-screen w-full md:grid-cols-2">
+          <div className="mx-auto w-full p-10 text-sm font-light">
+            <h1 className="pb-10">
               <Link to="/">
                 <img
                   src="https://theme.hstatic.net/200000182297/1000887316/14/logo.png?v=1068"
@@ -88,35 +88,37 @@ export default function CheckOutPayPage() {
                 </Link>
               </li>
             </ul>
-            <div className="h-[120px] w-[572px] font-normal">
-              <div className="mb-8 mt-4 h-[18px]">
+            <div className="h-[120px] w-full font-normal">
+              <div className="mb-8 mt-4">
                 <h2 className="text-xl text-[#333333]">
                   Phương thức vận chuyển
                 </h2>
               </div>
-              <div className="mb-5 h-[45px]">
+              <div className="mb-5 h-10">
                 <label className="flex cursor-pointer items-center space-x-2">
-                  <span className="w-[572px] border border-[#d9d9d9] p-4 text-[#333333]">
+                  <span className="flex w-full border border-[#d9d9d9] p-4 text-[#333333]">
                     <input
                       type="radio"
                       defaultChecked
                       className="form-checkbox mr-2 rounded border border-[#d9d9d9] p-4 text-[#333333]"
                     />
-                    Giao hàng tận nơi (phí vận chuyển tạm tính)
-                    <span className="float-end">30,000₫</span>
+                    <p className="flex w-full justify-between">
+                      Giao hàng tận nơi (phí vận chuyển tạm tính)
+                      <span className="">30,000₫</span>
+                    </p>
                   </span>
                 </label>
               </div>
             </div>
-            <div className="h-[250px] w-[572px] font-normal">
-              <div className="mb-8 mt-4 h-[18px]">
+            <div className="h-auto w-full font-normal">
+              <div className="mb-8 mt-4">
                 <h2 className="text-xl text-[#333333]">
                   Phương thức thanh toán
                 </h2>
               </div>
-              <div className="mb-5 h-[45px]">
+              <div className="mb-5 h-10">
                 <label className="flex cursor-pointer items-center space-x-2">
-                  <span className="w-[572px] border border-[#d9d9d9] p-4 text-[#333333]">
+                  <span className="w-full border border-[#d9d9d9] p-4 text-[#333333]">
                     <input
                       type="radio"
                       name="paymentMethod"
@@ -128,37 +130,9 @@ export default function CheckOutPayPage() {
                   </span>
                 </label>
               </div>
-              {/* <div className="h-[45px] mb-5">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <span className="w-[572px] border border-[#d9d9d9] text-[#333333] p-4">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="Thanh toán chuyển khoản ngân hàng"
-                      className="form-radio text-[#333333] border border-[#d9d9d9] p-4 mr-2 rounded"
-                      onChange={handlePaymentMethodChange}
-                    />
-                    Thanh toán chuyển khoản ngân hàng
-                  </span>
-                </label>
-              </div> */}
-              {/* <div className="h-[45px] mb-5">
-                <label className="flex items-center space-x-2 cursor-pointer">
-                  <span className="w-[572px] border border-[#d9d9d9] text-[#333333] p-4">
-                    <input
-                      type="radio"
-                      name="paymentMethod"
-                      value="Thanh toán ví MoMo"
-                      className="form-radio text-[#333333] border border-[#d9d9d9] p-4 mr-2 rounded"
-                      onChange={handlePaymentMethodChange}
-                    />
-                    Thanh toán ví MoMo
-                  </span>
-                </label>
-              </div> */}
             </div>
 
-            <div className="grid w-[570px] grid-flow-col">
+            <div className="grid w-full grid-flow-col">
               <button className="text-start font-normal">
                 <Link
                   to="/cart"
@@ -168,7 +142,7 @@ export default function CheckOutPayPage() {
                 </Link>
               </button>
               <button
-                className="h-[56px] w-[200px] place-self-end rounded bg-[#338dbc] text-white"
+                className="h-14 w-full place-self-end rounded bg-[#338dbc] text-white"
                 onClick={handlePaymentButtonClick}
               >
                 Đặt hàng
@@ -177,22 +151,20 @@ export default function CheckOutPayPage() {
           </div>
 
           <div className="bg-[#f6f5f5]">
-            <div className="float-left mx-auto grid h-auto w-full grid-rows-2 p-[50px]">
+            <div className="mx-auto grid h-auto w-full p-10">
               {cart.items.map((item) => (
                 <div key={item._id} className="mb-4 grid grid-cols-3">
                   <img
                     src={item.images[0]}
                     alt={item.name}
-                    className="h-[100px] w-[64px] object-cover"
+                    className="h-40 w-20 object-cover"
                   />
                   <div className="self-center">
                     <p>{item.name}</p>
-                    <p className="text-[12px] text-gray-400">
+                    <p className="text-sm text-gray-400">
                       {`Size ${item.selectedSize} / ${item.colors}`}
                     </p>
-                    <p className="text-[12px] text-gray-400">
-                      SL: {item.quantity}
-                    </p>
+                    <p className="text-sm text-gray-400">SL: {item.quantity}</p>
                   </div>
                   <div className="self-center text-end">
                     <p>{formatCurrency(item.price)}</p>
