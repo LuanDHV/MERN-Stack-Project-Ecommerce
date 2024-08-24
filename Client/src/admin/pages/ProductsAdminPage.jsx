@@ -329,9 +329,7 @@ export default function ProductsAdminPage() {
           <div className="h-auto w-[80%] bg-white">
             {/* Form thêm sản phẩm */}
             <div className="h-[60px] w-full border p-4 leading-[20px]">
-              <p className="text-[20px] font-bold text-[#059669]">
-                Thêm Sản Phẩm
-              </p>
+              <p className="text-xl font-bold text-[#059669]">Thêm Sản Phẩm</p>
               <p className="text-sm">
                 Thêm sản phẩm của bạn và thông tin cần thiết từ đây
               </p>
@@ -474,9 +472,7 @@ export default function ProductsAdminPage() {
           <div className="h-auto w-[80%] bg-white">
             {/* Form sửa sản phẩm */}
             <div className="h-[60px] w-full border p-4 leading-[20px]">
-              <p className="text-[20px] font-bold text-[#059669]">
-                Sửa Sản Phẩm
-              </p>
+              <p className="text-xl font-bold text-[#059669]">Sửa Sản Phẩm</p>
               <p className="text-sm">Thay đổi thông tin sản phẩm tại đây</p>
             </div>
             <form className="grid grid-flow-row px-6 py-3">

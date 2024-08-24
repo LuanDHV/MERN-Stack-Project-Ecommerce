@@ -71,9 +71,9 @@ export default function CheckOutPage() {
   return (
     <>
       <section>
-        <div className="grid h-screen w-full grid-cols-2">
-          <div className="mx-auto p-[50px] text-sm font-light">
-            <h1 className="py-10">
+        <div className="grid h-screen w-full md:grid-cols-2">
+          <div className="mx-auto h-auto w-full p-10 text-sm font-light">
+            <h1 className="pb-10">
               <Link to="/">
                 <img
                   src="https://theme.hstatic.net/200000182297/1000887316/14/logo.png?v=1068"
@@ -106,34 +106,34 @@ export default function CheckOutPage() {
                 </Link>
               </li>
             </ul>
-            <div className="h-[240px] w-[572px]">
-              <div className="mb-8 mt-4 h-[18px]">
-                <h2 className="text-[20px] font-normal text-[#333333]">
+            <div className="h-[240px] w-full">
+              <div className="mb-8 mt-4">
+                <h2 className="text-xl font-normal text-[#333333]">
                   Thông tin thanh toán
                 </h2>
               </div>
-              <div className="mb-3 h-[43px]">
+              <div className="mb-3 h-10">
                 <input
                   type="text"
                   name="fullName"
                   placeholder="Họ và tên"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className={`h-[43px] w-[572px] border ${
+                  className={`h-10 w-full border ${
                     inputValid.fullName
                       ? "border-[#d9d9d9]"
                       : "rounded border-red-500"
                   } p-4 text-[#333333] outline-none`}
                 />
               </div>
-              <div className="mb-3 grid h-[43px] grid-flow-col">
+              <div className="mb-3 grid h-10 grid-flow-col">
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`h-[43px] w-[377px] border ${
+                  className={`h-10 w-full border ${
                     inputValid.email
                       ? "border-[#d9d9d9]"
                       : "rounded border-red-500"
@@ -145,27 +145,27 @@ export default function CheckOutPage() {
                   placeholder="Số điện thoại"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  className={`h-[43px] w-[182px] rounded border ${
+                  className={`h-10 w-full rounded border ${
                     inputValid.phoneNumber
                       ? "border-[#d9d9d9]"
                       : "border-red-500"
                   } place-self-end p-4 text-[#333333] outline-none`}
                 />
               </div>
-              <div className="mb-3 h-[43px]">
+              <div className="mb-3 h-10">
                 <input
                   type="text"
                   name="address"
                   placeholder="Địa chỉ"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className={`h-[43px] w-[572px] rounded border ${
+                  className={`h-10 w-full rounded border ${
                     inputValid.address ? "border-[#d9d9d9]" : "border-red-500"
                   } p-4 text-[#333333] outline-none`}
                 />
               </div>
             </div>
-            <div className="grid w-[570px] grid-flow-col">
+            <div className="grid w-full grid-flow-col">
               <button className="text-start font-normal">
                 <Link
                   to="/cart"
@@ -175,7 +175,7 @@ export default function CheckOutPage() {
                 </Link>
               </button>
               <button
-                className="h-[56px] w-[200px] place-self-end rounded bg-[#338dbc] text-white"
+                className="h-14 w-full place-self-end rounded bg-[#338dbc] text-white"
                 onClick={handlePaymentButtonClick}
               >
                 Phương thức thanh toán
@@ -184,13 +184,13 @@ export default function CheckOutPage() {
           </div>
 
           <div className="bg-[#f6f5f5]">
-            <div className="float-left mx-auto grid h-auto w-full grid-rows-2 p-[50px]">
+            <div className="mx-auto grid h-auto w-full p-10">
               {cart.items.map((item) => (
                 <div key={item._id} className="mb-4 grid grid-cols-3">
                   <img
                     src={item.images[0]}
                     alt={item.name}
-                    className="h-[100px] w-[64px] object-cover"
+                    className="h-40 w-20 object-cover"
                   />
                   <div className="self-center">
                     <p>{item.name}</p>
@@ -207,7 +207,7 @@ export default function CheckOutPage() {
                 </div>
               ))}
 
-              <div className="text-[20px]">
+              <div className="text-xl">
                 <hr />
                 <span className="">Tổng tiền:</span>
                 <span className="float-end">

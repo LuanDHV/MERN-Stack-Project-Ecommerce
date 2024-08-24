@@ -90,7 +90,7 @@ export default function CheckOutPayPage() {
             </ul>
             <div className="h-[120px] w-[572px] font-normal">
               <div className="mb-8 mt-4 h-[18px]">
-                <h2 className="text-[20px] text-[#333333]">
+                <h2 className="text-xl text-[#333333]">
                   Phương thức vận chuyển
                 </h2>
               </div>
@@ -110,7 +110,7 @@ export default function CheckOutPayPage() {
             </div>
             <div className="h-[250px] w-[572px] font-normal">
               <div className="mb-8 mt-4 h-[18px]">
-                <h2 className="text-[20px] text-[#333333]">
+                <h2 className="text-xl text-[#333333]">
                   Phương thức thanh toán
                 </h2>
               </div>
@@ -200,7 +200,7 @@ export default function CheckOutPayPage() {
                 </div>
               ))}
 
-              <div className="text-[20px]">
+              <div className="text-xl">
                 <hr />
                 <span className="">Tổng tiền:</span>
                 <span className="float-end">

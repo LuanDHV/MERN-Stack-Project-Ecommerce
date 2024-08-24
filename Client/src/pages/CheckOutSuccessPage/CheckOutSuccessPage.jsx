@@ -60,7 +60,7 @@ export default function CheckOutSuccessPage() {
             </h1>
             <div className="h-[100px] w-[572px]">
               <div className="mt-4 h-[18px]">
-                <h2 className="relative text-[20px] font-normal text-[#333333]">
+                <h2 className="relative text-xl font-normal text-[#333333]">
                   Đặt hàng thành công
                   <FontAwesomeIcon
                     icon={faCheck}
@@ -122,7 +122,7 @@ export default function CheckOutSuccessPage() {
                 </div>
               ))}
 
-              <div className="text-[20px]">
+              <div className="text-xl">
                 <hr />
                 <span className="">Tổng tiền:</span>
                 <span className="float-end">
