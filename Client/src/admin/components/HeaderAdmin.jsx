@@ -18,27 +18,26 @@ export default function HeaderAdmin({ isNavbarVisible, toggleNavbar }) {
   return (
     <>
       <div
-        className={`h-[65px] border-b cursor-pointer fixed right-0 bg-white
-        ${headerWidthClass}`}
+        className={`fixed right-0 h-[65px] cursor-pointer border-b bg-white ${headerWidthClass}`}
       >
         <FontAwesomeIcon
           icon={faBars}
-          className="p-6 hover:text-[#10B981] duration-300 ease-in-out pl-[10%]"
+          className="p-5 pl-[10%] duration-300 ease-in-out hover:text-[#10B981]"
           onClick={() => {
             toggleNavbar(!isNavbarVisible);
             toggleHeaderWidth();
           }}
         />
-        {user && user.role === 'admin' ? (
-          <span className="p-6 hover:text-[#10B981] duration-300 ease-in-out pr-[10%] float-end">
+        {user && user.role === "admin" ? (
+          <span className="float-end p-5 pr-[10%] duration-300 ease-in-out hover:text-[#10B981]">
             <FontAwesomeIcon icon={faUser} className="mr-2" />
             {user.username}
           </span>
-          ) : (      
+        ) : (
           <FontAwesomeIcon
-          icon={faUser}
-          className="p-6 hover:text-[#10B981] duration-300 ease-in-out pr-[10%] float-end"
-        />
+            icon={faUser}
+            className="float-end p-5 pr-[10%] duration-300 ease-in-out hover:text-[#10B981]"
+          />
         )}
       </div>
 

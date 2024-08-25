@@ -110,120 +110,115 @@ export default function HomeAdminPage() {
       />
       <div
         className={`${
-          isNavbarVisible ? "w-[85%] px-[5%]" : "w-full px-[10%]"
-        } float-end h-auto bg-slate-50 pt-20`}
+          isNavbarVisible ? "ml-auto w-5/6" : "w-full"
+        } h-auto overflow-hidden bg-slate-50 px-5 pt-20`}
       >
-        <h1 className="py-10 text-lg font-bold text-[#474151]">
+        <h1 className="py-5 text-lg font-bold text-[#474151]">
           Trang Chủ ADMIN
         </h1>
-        <div className="mb-10 grid grid-flow-col place-items-center">
-          <div className="h-[190px] w-[280px] rounded-md bg-[#0D9488] p-6">
+        <div className="grid gap-5 md:grid-cols-5">
+          <div className="h-auto w-full rounded-md bg-[#0D9488] p-6">
             <div className="text-center text-white">
               <FontAwesomeIcon icon={faMoneyCheckDollar} className="h-8 w-8" />
               <p className="my-5">Doanh Thu Hôm Nay</p>
-              <p className="text-[24px] font-bold">
-                {formatCurrency(todayTotal)}
-              </p>
+              <p className="text-2xl font-bold">{formatCurrency(todayTotal)}</p>
             </div>
           </div>
-          <div className="h-[190px] w-[280px] rounded-md bg-[#FB923C] p-6">
+          <div className="h-auto w-full rounded-md bg-[#FB923C] p-6">
             <div className="text-center text-white">
               <FontAwesomeIcon icon={faMoneyCheckDollar} className="h-8 w-8" />
               <p className="my-5">Doanh Thu Hôm Trước</p>
-              <p className="text-[24px] font-bold">
+              <p className="text-2xl font-bold">
                 {formatCurrency(yesterdayTotal)}
               </p>
             </div>
           </div>
-          <div className="h-[190px] w-[280px] rounded-md bg-[#3B82F6] p-6">
+          <div className="h-auto w-full rounded-md bg-[#3B82F6] p-6">
             <div className="text-center text-white">
               <FontAwesomeIcon icon={faCartShopping} className="h-8 w-8" />
               <p className="my-5">Doanh Thu Tháng Này</p>
-              <p className="text-[24px] font-bold">
+              <p className="text-2xl font-bold">
                 {formatCurrency(thisMonthTotal)}
               </p>
             </div>
           </div>
-          <div className="h-[190px] w-[280px] rounded-md bg-[#0891B2] p-6">
+          <div className="h-auto w-full rounded-md bg-[#0891B2] p-6">
             <div className="text-center text-white">
               <FontAwesomeIcon icon={faCreditCard} className="h-8 w-8" />
               <p className="my-5">Doanh Thu Tháng Trước</p>
-              <p className="text-[24px] font-bold">
+              <p className="text-2xl font-bold">
                 {formatCurrency(lastMonthTotal)}
               </p>
             </div>
           </div>
-          <div className="h-[190px] w-[250px] rounded-md bg-[#059669] p-6">
+          <div className="h-auto w-full rounded-md bg-[#059669] p-6">
             <div className="text-center text-white">
               <FontAwesomeIcon icon={faCreditCard} className="h-8 w-8" />
               <p className="my-5">Tổng Doanh Thu</p>
-              <p className="text-[24px] font-bold">
+              <p className="text-2xl font-bold">
                 {formatCurrency(totalRevenue)}
               </p>
             </div>
           </div>
         </div>
-        <div className="mb-5 grid grid-flow-col place-items-center">
-          <div className="grid h-[90px] grid-flow-col rounded-md border bg-white">
-            <div className="w-[80px] self-center pl-5">
+        <div className="my-10 grid gap-5 md:grid-cols-4">
+          <div className="grid h-auto grid-flow-col rounded-md border bg-white">
+            <div className="w-full self-center pl-5">
               <p className="h-12 w-12 rounded-full bg-[#FFEDD5]">
                 <FontAwesomeIcon
                   icon={faCartShopping}
-                  className="p-[16px] text-red-400"
+                  className="p-4 text-red-400"
                 />
               </p>
             </div>
             <div className="w-[260px] p-3">
               <span className="block">Đã đặt hàng, đợi xác nhận</span>
-              <span className="block text-[24px] font-bold">
+              <span className="block text-2xl font-bold">
                 {unconfirmedOrdersCount}
               </span>
             </div>
           </div>
-          <div className="grid h-[90px] grid-flow-col rounded-md border bg-white">
-            <div className="w-[80px] self-center pl-5">
+          <div className="grid h-auto grid-flow-col rounded-md border bg-white">
+            <div className="w-full self-center pl-5">
               <p className="h-12 w-12 rounded-full bg-[#DBEAFE]">
                 <FontAwesomeIcon
                   icon={faRotate}
-                  className="p-[16px] text-slate-500"
+                  className="p-4 text-slate-500"
                 />
               </p>
             </div>
             <div className="w-[260px] p-3">
               <span className="block">Đơn hàng đã xác nhận</span>
-              <span className="block text-[24px] font-bold">
+              <span className="block text-2xl font-bold">
                 {confirmedOrdersCount}
               </span>
             </div>
           </div>
-          <div className="grid h-[90px] grid-flow-col rounded-md border bg-white">
-            <div className="w-[80px] self-center pl-5">
+          <div className="grid h-auto grid-flow-col rounded-md border bg-white">
+            <div className="w-full self-center pl-5">
               <p className="h-12 w-12 rounded-full bg-[#CCFBF1]">
-                <FontAwesomeIcon
-                  icon={faTruck}
-                  className="p-[16px] text-teal-600"
-                />
+                <FontAwesomeIcon icon={faTruck} className="p-4 text-teal-600" />
               </p>
             </div>
             <div className="w-[260px] p-3">
               <span className="block">Đơn hàng đang vận chuyển</span>
-              <span className="block text-[24px] font-bold">
+              <span className="block text-2xl font-bold">
                 {inTransitOrdersCount}
               </span>
             </div>
           </div>
-          <div className="grid h-[90px] grid-flow-col rounded-md border bg-white">
-            <div className="w-[80px] self-center pl-5">
+          <div className="grid h-auto grid-flow-col rounded-md border bg-white">
+            <div className="w-full self-center pl-5">
               <p className="h-12 w-12 rounded-full bg-[#D1FED5]">
                 <FontAwesomeIcon
                   icon={faCheck}
-                  className="p-[16px] text-green-700"
+                  className="p-4 text-green-700"
                 />
               </p>
             </div>
             <div className="w-[260px] p-3">
               <span className="block">Đơn hàng đã hoàn thành</span>
-              <span className="block text-[24px] font-bold">
+              <span className="block text-2xl font-bold">
                 {completedOrdersCount}
               </span>
             </div>
