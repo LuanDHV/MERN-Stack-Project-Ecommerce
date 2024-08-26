@@ -115,8 +115,8 @@ export default function AdminAccountsPage() {
       />
       <div
         className={`${
-          isNavbarVisible ? "w-[85%] px-[5%]" : "w-full px-[10%]"
-        } float-end h-auto pt-20`}
+          isNavbarVisible ? "ml-auto w-5/6" : "w-full"
+        } h-auto overflow-hidden bg-slate-50 px-5 pt-20`}
       >
         <h1 className="py-5 text-lg font-bold text-[#474151]">
           Danh Sách Quản Trị Viên

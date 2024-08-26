@@ -52,12 +52,14 @@ export default function NavbarAdmin() {
           </Link>
         </h1>
         <div className="grid grid-flow-row">
-          <div className="grid cursor-pointer justify-items-center gap-5 font-bold text-[#6B7280] md:justify-items-start md:px-5">
-            <ul className="">
+          <div className="mt-5 grid cursor-pointer justify-items-center font-bold text-[#6B7280] md:px-5">
+            <ul className="grid gap-5">
               <li className="flex py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <Link to="/admin" className="flex items-center">
-                  <FontAwesomeIcon icon={faShop} className="mr-2" />
-                  <span className="hidden md:block"> Trang chủ</span>
+                  <FontAwesomeIcon icon={faHouse} />
+                  <span className="ml-2 hidden text-lg md:block">
+                    Trang chủ
+                  </span>
                 </Link>
               </li>
               <li className="flex py-4 duration-300 ease-in-out hover:text-[#10B981]">
@@ -65,18 +67,19 @@ export default function NavbarAdmin() {
                   to="/admin/danh-muc/san-pham"
                   className="flex items-center"
                 >
-                  <FontAwesomeIcon icon={faShop} className="mr-2" />
-                  <span className="hidden md:block">Sản Phẩm</span>
+                  <FontAwesomeIcon icon={faShop} />
+                  <span className="ml-2 hidden text-lg md:block">Sản Phẩm</span>
                 </Link>
               </li>
-
               <li className="flex py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <Link
                   to="/admin/danh-muc/khach-hang"
                   className="flex items-center"
                 >
-                  <FontAwesomeIcon icon={faUsers} className="mr-2" />
-                  <span className="hidden md:block">Khách hàng</span>
+                  <FontAwesomeIcon icon={faUsers} />
+                  <span className="ml-2 hidden text-lg md:block">
+                    Khách hàng
+                  </span>
                 </Link>
               </li>
 
@@ -85,8 +88,8 @@ export default function NavbarAdmin() {
                   to="/admin/danh-muc/don-hang"
                   className="flex items-center"
                 >
-                  <FontAwesomeIcon icon={faCompass} className="mr-2" />
-                  <span className="hidden md:block">Đơn hàng</span>
+                  <FontAwesomeIcon icon={faCompass} />
+                  <span className="ml-2 hidden text-lg md:block">Đơn hàng</span>
                 </Link>
               </li>
 
@@ -95,20 +98,22 @@ export default function NavbarAdmin() {
                   to="/admin/danh-muc/quan-tri-vien"
                   className="flex items-center"
                 >
-                  <FontAwesomeIcon icon={faUserGear} className="mr-2" />
-                  <span className="hidden md:block">Quản trị viên</span>
+                  <FontAwesomeIcon icon={faUserGear} />
+                  <span className="ml-2 hidden text-lg md:block">
+                    Quản trị viên
+                  </span>
                 </Link>
               </li>
             </ul>
 
             {user && user.role === "admin" ? (
-              <li className="list-none py-4 duration-300 ease-in-out hover:text-[#10B981]">
+              <li className="absolute bottom-0 mx-auto list-none py-4 duration-300 ease-in-out hover:text-[#10B981]">
                 <button
                   className="flex items-center rounded-md bg-[#10B981] px-4 py-2 text-white hover:bg-[#059669]"
                   onClick={handleLogout}
                 >
                   <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                  <p className="ml-2 hidden md:block"> Đăng xuất</p>
+                  <p className="ml-2 hidden text-lg md:block"> Đăng xuất</p>
                 </button>
               </li>
             ) : null}
