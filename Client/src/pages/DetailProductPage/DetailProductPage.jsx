@@ -143,7 +143,7 @@ export default function DetailProductPage() {
       {/* Hiển thị thông báo */}
       <section>
         {/* Breadcrumbs */}
-        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+        <div className="mx-auto mt-20 h-12 w-full border-t border-[#EFEFF4]">
           <div className="mx-auto w-5/6 text-sm font-light">
             <Link to="/" className="">
               TRANG CHỦ
@@ -154,10 +154,10 @@ export default function DetailProductPage() {
         </div>
 
         {/* Nội dung chi tiết sản phẩm */}
-        <div className="mx-auto h-[1000px] w-full">
-          <div className="mx-auto grid h-[1060px] w-[1300px] grid-flow-col">
+        <div className="mx-auto h-auto w-full">
+          <div className="mx-auto flex h-auto w-full gap-5 px-5 xl:w-5/6 xl:px-0">
             {/* Danh sách ảnh sản phẩm */}
-            <div className="grid h-[930px] w-[200px] cursor-pointer grid-rows-3 gap-y-3">
+            <div className="flex h-auto w-1/6 cursor-pointer flex-col items-center">
               {product.images.map((image, index) => (
                 <img
                   key={index}
@@ -172,114 +172,108 @@ export default function DetailProductPage() {
             </div>
 
             {/* Ảnh sản phẩm chính */}
-            <div className="mx-3 h-[930px] w-[620px]">
+            <div className="w-3/6">
               <img
                 src={product.images[selectedImageIndex]}
                 alt=""
                 className="object-cover"
               />
             </div>
-
             {/* Thông tin sản phẩm và nút mua hàng */}
-            <div className="h-[630px] w-[470px]">
-              <div className="float-end h-[630px] w-[360px]">
-                {/* Tên sản phẩm */}
-                <h1 className="text-lg font-bold">{product.name}</h1>
+            <div className="w-2/6">
+              {/* Tên sản phẩm */}
+              <h1 className="text-lg font-bold">{product.name}</h1>
 
-                {/* Thông tin sản phẩm */}
-                <div className="my-5 text-sm font-light">
-                  <span className="block">Thuơng hiệu: NEM</span>
-                  <span className="uppercase"> Mã SP: {product._id}</span>
-                </div>
-
-                {/* Giá sản phẩm */}
-                <span className="block h-[64px] text-lg font-bold">
-                  {formatCurrency(product.price)}
+              {/* Thông tin sản phẩm */}
+              <div className="my-5 text-sm font-light">
+                <span className="block">Thuơng hiệu: NEM</span>
+                <span className="hidden uppercase xl:block">
+                  Mã SP: {product._id}
                 </span>
+              </div>
 
-                {/* Kích thước sản phẩm */}
-                <div className="mb-5 h-[64px]">
-                  <div className="mb-2 h-[20px] text-sm font-bold">
-                    Kích thước
-                  </div>
-                  {product.sizes && product.sizes.length > 0 ? (
-                    <div className="grid grid-flow-col gap-1">
-                      {product.sizes.map((size) => (
-                        <button
-                          key={size}
-                          className={`h-[35px] w-[52px] cursor-pointer rounded border text-center text-[12px] leading-[35px] focus:border-black ${
-                            selectedSize === size ? "border-black" : ""
-                          }`}
-                          onClick={() => handleSizeClick(size)}
-                        >
-                          Size {size}
-                        </button>
-                      ))}
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                </div>
+              {/* Giá sản phẩm */}
+              <span className="block text-lg font-bold">
+                {formatCurrency(product.price)}
+              </span>
 
-                {/* Màu sắc sản phẩm */}
-                <div className="">
-                  <span className="text-sm font-bold">Màu sắc:</span>
-                  <div
-                    className="my-2 h-[35px] w-[35px] rounded-full border border-black"
-                    style={colorStyle}
-                  ></div>
-                </div>
-
-                {/* Nút hiển thị modal hướng dẫn chọn size */}
-                <span
-                  className="cursor-pointer text-[15px] font-normal text-[#070707] underline"
-                  onClick={openSizeGuideModal}
-                >
-                  HƯỚNG DẪN CHỌN SIZE
-                </span>
-
-                {/* Modal hướng dẫn chọn size */}
-                {isSizeGuideModalOpen && (
-                  <div className="fixed inset-0 flex items-center justify-center">
-                    {/* Màn bao quanh */}
-                    <div className="fixed inset-0 bg-black bg-opacity-80"></div>
-                    {/* Nội dung modal */}
-                    <div className="z-50 h-[500px] w-[1250px] rounded-md bg-white p-8">
-                      {/* Nút đóng modal */}
+              {/* Kích thước sản phẩm */}
+              <div className="my-5">
+                <div className="mb-2 h-5 text-sm font-bold">Kích thước</div>
+                {product.sizes && product.sizes.length > 0 ? (
+                  <div className="flex flex-wrap gap-1">
+                    {product.sizes.map((size) => (
                       <button
-                        onClick={closeSizeGuideModal}
-                        className="float-end"
+                        key={size}
+                        className={`h-10 w-14 cursor-pointer rounded border text-center text-sm focus:border-black ${
+                          selectedSize === size ? "border-black" : ""
+                        }`}
+                        onClick={() => handleSizeClick(size)}
                       >
-                        <FontAwesomeIcon
-                          icon={faCircleXmark}
-                          className="h-[24px] w-[24px]"
-                        />
+                        Size {size}
                       </button>
-                      {/* Nội dung hướng dẫn chọn size */}
-                      <img
-                        src={Sizes}
-                        alt="Hướng dẫn chọn size"
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
+                    ))}
                   </div>
+                ) : (
+                  <></>
                 )}
+              </div>
 
-                {/* Nút thêm vào giỏ hàng và mua ngay */}
-                <div className="mt-10 grid grid-rows-2">
-                  <button
-                    className="mb-2 h-10 rounded border border-black text-sm font-bold duration-300 ease-in-out hover:bg-gray-200"
-                    onClick={handleAddToCart}
-                  >
-                    THÊM VÀO GIỎ
-                  </button>
-                  <button
-                    className="h-10 rounded border border-black bg-black text-sm font-bold text-white duration-300 ease-in-out hover:opacity-85"
-                    onClick={handleBuyNow}
-                  >
-                    MUA NGAY
-                  </button>
+              {/* Màu sắc sản phẩm */}
+              <div className="">
+                <span className="text-sm font-bold">Màu sắc:</span>
+                <div
+                  className="my-2 h-10 w-10 rounded-full border border-black"
+                  style={colorStyle}
+                ></div>
+              </div>
+
+              {/* Nút hiển thị modal hướng dẫn chọn size */}
+              <span
+                className="cursor-pointer text-sm font-normal text-[#070707] underline"
+                onClick={openSizeGuideModal}
+              >
+                Hướng dẫn chọn size
+              </span>
+
+              {/* Modal hướng dẫn chọn size */}
+              {isSizeGuideModalOpen && (
+                <div className="fixed inset-0 flex items-center justify-center">
+                  {/* Màn bao quanh */}
+                  <div className="fixed inset-0 bg-black bg-opacity-80"></div>
+                  {/* Nội dung modal */}
+                  <div className="z-50 h-[500px] w-full rounded-md bg-white">
+                    {/* Nút đóng modal */}
+                    <button onClick={closeSizeGuideModal} className="float-end">
+                      <FontAwesomeIcon
+                        icon={faCircleXmark}
+                        className="h-6 w-6"
+                      />
+                    </button>
+                    {/* Nội dung hướng dẫn chọn size */}
+                    <img
+                      src={Sizes}
+                      alt="Hướng dẫn chọn size"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
                 </div>
+              )}
+
+              {/* Nút thêm vào giỏ hàng và mua ngay */}
+              <div className="mt-10 grid grid-rows-2">
+                <button
+                  className="mb-2 h-10 rounded border border-black text-sm font-bold duration-300 ease-in-out hover:bg-gray-200"
+                  onClick={handleAddToCart}
+                >
+                  THÊM VÀO GIỎ
+                </button>
+                <button
+                  className="h-10 rounded border border-black bg-black text-sm font-bold text-white duration-300 ease-in-out hover:opacity-85"
+                  onClick={handleBuyNow}
+                >
+                  MUA NGAY
+                </button>
               </div>
             </div>
           </div>

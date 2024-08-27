@@ -48,7 +48,7 @@ export default function AccountOrderPage() {
   return (
     <>
       <section>
-        <div className="mx-auto mt-24 h-12 w-full border-t border-[#EFEFF4]">
+        <div className="mx-auto mt-20 h-12 w-full border-t border-[#EFEFF4]">
           <div className="mx-auto w-5/6 text-sm font-light">
             <Link to="/" className="">
               TRANG CHỦ
