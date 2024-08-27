@@ -81,7 +81,7 @@ export default function LogInPage() {
 
       {/* Đường dẫn trang */}
       <section>
-        <div className="mx-auto mt-20 h-12 w-full border-t border-[#EFEFF4]">
+        <div className="mx-auto mt-20 h-12 w-full overflow-x-hidden border-t border-[#EFEFF4]">
           <div className="mx-auto w-5/6 text-sm font-light">
             <Link to="/" className="">
               TRANG CHỦ

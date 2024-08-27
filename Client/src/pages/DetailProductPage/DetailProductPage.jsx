@@ -157,7 +157,7 @@ export default function DetailProductPage() {
         <div className="mx-auto h-auto w-full">
           <div className="mx-auto flex h-auto w-full gap-5 px-5 xl:w-5/6 xl:px-0">
             {/* Danh sách ảnh sản phẩm */}
-            <div className="flex h-auto w-1/6 cursor-pointer flex-col items-center">
+            <div className="hidden h-auto w-1/6 cursor-pointer flex-col items-center xl:flex">
               {product.images.map((image, index) => (
                 <img
                   key={index}
@@ -180,7 +180,7 @@ export default function DetailProductPage() {
               />
             </div>
             {/* Thông tin sản phẩm và nút mua hàng */}
-            <div className="w-2/6">
+            <div className="w-3/6 xl:w-2/6">
               {/* Tên sản phẩm */}
               <h1 className="text-lg font-bold">{product.name}</h1>
 
