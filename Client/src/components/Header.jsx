@@ -5,8 +5,9 @@ import {
   faCartShopping,
   faUser,
   faCaretDown,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCategories } from "../features/category/categorySlice";
 import { logoutUser } from "../features/user/userSlice";
@@ -32,6 +33,13 @@ export default function Header() {
 
   // Định dạng tiền tệ
   const { formatCurrency } = useCurrencyFormatter();
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuOpen = () => {
+    setMenuOpen(!menuOpen);
+    console.log(menuOpen);
+  };
 
   // Xử lý đăng xuất
   const handleLogout = () => {
@@ -69,16 +77,59 @@ export default function Header() {
       {/* Header */}
       <section>
         <div className="fixed top-0 z-50 h-20 w-full bg-white py-[15px]">
-          <div className="flex h-full w-full items-center justify-between px-5 text-[#07070780]">
-            {/* Logo */}
-
-            <Link to="/" className="flex items-center object-cover">
-              <img
-                className="w-full object-cover"
-                src="https://theme.hstatic.net/200000182297/1000887316/14/logo.png?v=1068"
-                alt=""
+          <div className="flex h-full w-full items-center justify-between gap-5 px-5 text-[#07070780]">
+            <div className="flex gap-5">
+              <FontAwesomeIcon
+                icon={faBars}
+                className="h-6 w-6 cursor-pointer xl:hidden"
+                onClick={handleMenuOpen}
               />
-            </Link>
+              <Link to="/">
+                {/* Logo */}
+                <img
+                  className="w-full object-cover"
+                  src="https://theme.hstatic.net/200000182297/1000887316/14/logo.png?v=1068"
+                  alt=""
+                />
+              </Link>
+            </div>
+
+            {!menuOpen ? (
+              <>
+                <div className="fixed left-0 top-20 h-full w-1/2 border bg-white p-5">
+                  {categories.map((category) => {
+                    return (
+                      <div key={category._id} className="mb-4">
+                        <Link
+                          to={`/danh-muc/${convertToSlug(category.name)}`}
+                          className="mb-2 block font-bold text-black"
+                        >
+                          {category.name}
+                        </Link>
+
+                        {/* Hiển thị danh sách danh mục con */}
+                        {category.children && category.children[0] !== null && (
+                          <ul className="ml-4">
+                            {category.children.map((subcategory) => (
+                              <li key={subcategory._id} className="mb-2">
+                                <Link
+                                  to={`/danh-muc/${convertToSlug(
+                                    category.name,
+                                  )}/${convertToSlug(subcategory.name)}`}
+                                  className="block px-2 py-1 text-gray-700 hover:bg-gray-200"
+                                >
+                                  {subcategory.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            ) : null}
 
             {/* Danh mục */}
             <ul className="hidden font-bold xl:flex">
