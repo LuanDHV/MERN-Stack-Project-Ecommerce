@@ -96,7 +96,7 @@ export default function Header() {
 
             {!menuOpen ? (
               <>
-                <div className="fixed left-0 top-20 h-full w-1/2 border bg-white p-5">
+                <div className="fixed left-0 top-20 h-full w-1/2 border bg-white p-5 md:hidden">
                   {categories.map((category) => {
                     return (
                       <div key={category._id} className="mb-4">
