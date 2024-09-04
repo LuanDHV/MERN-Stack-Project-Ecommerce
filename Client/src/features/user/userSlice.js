@@ -7,8 +7,12 @@ export const userSlice = createSlice({
   name: "user",
   initialState: {
     users: [],
-    userId: null, // Thông tin userId
-    user: null, // Thông tin người dùng (nếu đã đăng nhập)
+    userId: localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user")).userId
+      : null, // Thông tin userId
+    user: localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user"))
+      : null, // Thông tin người dùng (nếu đã đăng nhập)
     loading: false, // Trạng thái loading khi thực hiện các thao tác async
     error: null, // Lưu lỗi khi có lỗi xảy ra
   },
@@ -17,14 +21,15 @@ export const userSlice = createSlice({
     logoutUser: (state) => {
       state.user = null;
       state.userId = null;
-      // Xóa token từ Local Storage
-      localStorage.removeItem("token");
+      // Xóa thông tin người dùng khỏi localStorage khi đăng xuất
+      localStorage.removeItem("user");
     },
-
     // Action đồng bộ để cập nhật thông tin người dùng
     setUser: (state, action) => {
       state.user = action.payload;
-      state.userId = action.payload.userId; // Lưu userId từ action vào state
+      state.userId = action.payload.userId;
+      // Cập nhật thông tin người dùng trong localStorage
+      localStorage.setItem("user", JSON.stringify(action.payload));
     },
     // Thêm reducers cho chức năng Thêm, Sửa, Xóa người dùng
     addUser: (state, action) => {
@@ -33,7 +38,7 @@ export const userSlice = createSlice({
     updateUser: (state, action) => {
       const updatedUser = action.payload;
       const index = state.users.findIndex(
-        (user) => user.userId === updatedUser.userId
+        (user) => user.userId === updatedUser.userId,
       );
       if (index !== -1) {
         state.users[index] = updatedUser;
@@ -61,14 +66,10 @@ export const userSlice = createSlice({
       // Xử lý khi action đăng ký người dùng hoàn thành
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        //Lưu token và thông tin người dùng vào localStorage.
-        localStorage.setItem("token", action.payload.token);
       })
       // Xử lý khi action đăng nhập người dùng hoàn thành
       .addCase(loginUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        //Lưu token và thông tin người dùng vào localStorage.
-        localStorage.setItem("token", action.payload.token);
       })
       // Xử lý các action fulfilled của Thêm, Sửa, Xóa người dùng
       .addCase(addUser.fulfilled, (state, action) => {
@@ -77,7 +78,7 @@ export const userSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         const updatedUser = action.payload;
         const index = state.users.findIndex(
-          (user) => user.userId === updatedUser.userId
+          (user) => user.userId === updatedUser.userId,
         );
         if (index !== -1) {
           state.users[index] = updatedUser;
@@ -92,7 +93,7 @@ export const userSlice = createSlice({
         (action) => action.type.endsWith("/rejected"),
         (state, action) => {
           state.error = action.payload;
-        }
+        },
       );
   },
 });
@@ -113,7 +114,7 @@ export const addUser = createAsyncThunk("users/addUser", async (userData) => {
   try {
     const response = await axios.post(
       "http://localhost:8000/api/users/register",
-      userData
+      userData,
     );
     return response.data;
   } catch (error) {
@@ -129,14 +130,18 @@ export const updateUser = createAsyncThunk(
     try {
       const response = await axios.put(
         `http://localhost:8000/api/users/${userData._id}`,
-        userData
+        userData,
       );
+      const user = response.data.loginData;
+
+      // Lưu thông tin người dùng vào localStorage
+      localStorage.setItem("user", JSON.stringify(user));
       return response.data;
     } catch (error) {
       console.error("Error updating user:", error);
       throw error;
     }
-  }
+  },
 );
 
 // Action async để xóa người dùng
@@ -150,7 +155,7 @@ export const deleteUser = createAsyncThunk(
       console.error("Error deleting user:", error);
       throw error;
     }
-  }
+  },
 );
 
 // Action async để đăng ký người dùng
@@ -160,14 +165,14 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8000/api/users/register",
-        userData
+        userData,
       );
       return response.data;
     } catch (error) {
       console.error("Lỗi từ máy chủ:", error.response.data);
       return rejectWithValue(error.response.data);
     }
-  }
+  },
 );
 
 // Action async để đăng nhập người dùng
@@ -177,14 +182,19 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8000/api/users/login",
-        loginData
+        loginData,
       );
-      return response.data.loginData;
+      const user = response.data.loginData;
+
+      // Lưu thông tin người dùng vào localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+
+      return user;
     } catch (error) {
       console.error("Lỗi từ máy chủ:", error.response.data);
       return rejectWithValue(error.response.data);
     }
-  }
+  },
 );
 
 // Export các action và reducer
