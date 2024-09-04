@@ -95,7 +95,7 @@ export default function LogInPage() {
       <section>
         <div className="mx-auto h-auto w-full">
           <h1 className="my-5 text-center text-3xl font-bold">ĐĂNG NHẬP</h1>
-          <div className="mx-auto h-auto w-[420px] p-5">
+          <div className="mx-auto h-auto w-full p-5 md:w-[420px]">
             <form onSubmit={handleSubmit}>
               {/* Input Email */}
               <input
