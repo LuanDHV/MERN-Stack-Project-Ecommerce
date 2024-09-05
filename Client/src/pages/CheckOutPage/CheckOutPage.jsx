@@ -14,7 +14,7 @@ export default function CheckOutPage() {
 
   // Định dạng tiền tệ
   const { formatCurrency } = useCurrencyFormatter();
-
+  const user = useSelector((state) => state.user.user);
   const cart = useSelector((state) => state.cart);
   const order = useSelector(selectOrder);
 
@@ -55,8 +55,12 @@ export default function CheckOutPage() {
 
   const handlePaymentButtonClick = (e) => {
     e.preventDefault(); // Ngăn chặn hành vi mặc định của nút submit
-
     const inputsAreValid = validateInputs();
+
+    if (!user) {
+      toast.warning("Vui lòng đăng nhập");
+      return;
+    }
 
     if (inputsAreValid) {
       // Dispatch the updateOrderInfo action with the updated form data

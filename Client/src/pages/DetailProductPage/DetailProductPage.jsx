@@ -20,7 +20,7 @@ export default function DetailProductPage() {
 
   const product = useSelector(selectSelectedProduct);
   const status = useSelector((state) => state.productDetails.status);
-  const user = useSelector((state) => state.user.user);
+  // const user = useSelector((state) => state.user.user);
 
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -39,10 +39,10 @@ export default function DetailProductPage() {
 
   const handleAddToCart = async () => {
     try {
-      if (!user) {
-        toast.warning("Vui lòng đăng nhập");
-        return;
-      }
+      // if (!user) {
+      //   toast.warning("Vui lòng đăng nhập");
+      //   return;
+      // }
 
       // Kiểm tra xem đã chọn size chưa
       if (!selectedSize) {
@@ -64,10 +64,10 @@ export default function DetailProductPage() {
 
   const handleBuyNow = async () => {
     try {
-      if (!user) {
-        toast.warning("Vui lòng đăng nhập");
-        return;
-      }
+      // if (!user) {
+      //   toast.warning("Vui lòng đăng nhập");
+      //   return;
+      // }
 
       // Kiểm tra xem đã chọn size chưa
       if (!selectedSize) {

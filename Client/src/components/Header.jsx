@@ -304,14 +304,16 @@ export default function Header() {
                     </li>
                     <div className="p-2">
                       <button
-                        className="mb-2 h-[36px] w-full rounded bg-[#070707] text-[#ffffff] duration-300 ease-in-out hover:opacity-85"
+                        className="mb-2 h-10 w-full rounded bg-[#070707] text-[#ffffff] duration-300 ease-in-out hover:opacity-85"
                         onClick={handleCheckout}
                       >
                         THANH TOÁN NGAY
                       </button>
-                      <button className="mb-2 h-[36px] w-full rounded border border-[#070707] bg-[#ffffff] text-[#070707] duration-300 ease-in-out hover:bg-gray-200">
-                        <Link to="/cart">XEM GIỎ HÀNG</Link>
-                      </button>
+                      <Link to="/cart">
+                        <button className="mb-2 h-10 w-full rounded border border-[#070707] bg-[#ffffff] text-[#070707] duration-300 ease-in-out hover:bg-gray-200">
+                          XEM GIỎ HÀNG
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </ul>
