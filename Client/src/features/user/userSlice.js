@@ -65,7 +65,7 @@ export const userSlice = createSlice({
       })
       // Xử lý khi action đăng ký người dùng hoàn thành
       .addCase(registerUser.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        // state.user = action.payload.user;
       })
       // Xử lý khi action đăng nhập người dùng hoàn thành
       .addCase(loginUser.fulfilled, (state, action) => {
@@ -167,7 +167,11 @@ export const registerUser = createAsyncThunk(
         "http://localhost:8000/api/users/register",
         userData,
       );
-      return response.data;
+      const user = response.data;
+      // Lưu thông tin người dùng vào localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+
+      return user;
     } catch (error) {
       console.error("Lỗi từ máy chủ:", error.response.data);
       return rejectWithValue(error.response.data);

@@ -95,7 +95,7 @@ export default function ResetPasswordPage() {
           <h1 className="my-5 text-center text-3xl font-bold">
             ĐẶT LẠI MẬT KHẨU
           </h1>
-          <div className="h-auto w-full p-5">
+          <div className="mx-auto h-auto w-full p-5 md:w-[420px]">
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
