@@ -39,7 +39,7 @@ const orderSlice = createSlice({
     updateOrder: (state, action) => {
       const updatedOrder = action.payload;
       const index = state.orders.findIndex(
-        (order) => order._id === updatedOrder._id
+        (order) => order._id === updatedOrder._id,
       );
       if (index !== -1) {
         state.orders[index] = updatedOrder;
@@ -83,7 +83,7 @@ const orderSlice = createSlice({
       .addCase(updateOrder.fulfilled, (state, action) => {
         const updatedOrder = action.payload;
         const index = state.orders.findIndex(
-          (order) => order._id === updatedOrder._id
+          (order) => order._id === updatedOrder._id,
         );
         if (index !== -1) {
           state.orders[index] = updatedOrder;
@@ -98,7 +98,7 @@ const orderSlice = createSlice({
         (state, action) => {
           state.status = "failed";
           state.error = action.error.message;
-        }
+        },
       );
   },
 });
@@ -110,14 +110,14 @@ export const fetchUserOrders = createAsyncThunk(
     const userId = getState().user.userId;
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/orders?userId=${userId}`
+        `http://localhost:8000/api/orders?userId=${userId}`,
       );
       return response.data;
     } catch (error) {
       console.error("Error fetching user orders:", error);
       throw error;
     }
-  }
+  },
 );
 
 // Async thunk để lấy danh sách đơn hàng của người dùng từ máy chủ
@@ -138,14 +138,14 @@ export const addOrder = createAsyncThunk(
     try {
       const response = await axios.post(
         "http://localhost:8000/api/orders",
-        orderData
+        orderData,
       );
       return response.data;
     } catch (error) {
       console.error("Error adding order:", error);
       throw error;
     }
-  }
+  },
 );
 
 // Async thunk để cập nhật đơn hàng
@@ -155,14 +155,14 @@ export const updateOrder = createAsyncThunk(
     try {
       const response = await axios.put(
         `http://localhost:8000/api/orders/${orderData._id}`,
-        orderData
+        orderData,
       );
       return response.data;
     } catch (error) {
       console.error("Error updating order:", error);
       throw error;
     }
-  }
+  },
 );
 
 // Async thunk để xóa đơn hàng
@@ -176,7 +176,7 @@ export const deleteOrder = createAsyncThunk(
       console.error("Error deleting order:", error);
       throw error;
     }
-  }
+  },
 );
 
 // Async thunk để gửi dữ liệu order lên API
@@ -187,14 +187,14 @@ export const postOrderToAPI = createAsyncThunk(
       // Gửi yêu cầu POST đến API để tạo order
       const response = await axios.post(
         "http://localhost:8000/api/orders",
-        orderData
+        orderData,
       );
       return response.data;
     } catch (error) {
       console.error("Error posting order to API:", error);
       throw error;
     }
-  }
+  },
 );
 
 export const { updateOrderInfo, clearOrder } = orderSlice.actions;
