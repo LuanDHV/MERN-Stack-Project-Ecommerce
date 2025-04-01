@@ -1,10 +1,10 @@
 # MERN Stack Project E-commerce
 
-Welcome to the **MERN Stack Project E-commerce**! This project demonstrates the implementation of a full-stack e-commerce application using **Tailwind CSS**, **React**, **Node.js**, **MongoDB** and **Express.js**.
+Welcome to the **MERN Stack Project E-commerce**! This project demonstrates the implementation of a full-stack e-commerce application using **Tailwind CSS**, **React**, **Redux Toolkit** **Node.js**, **MongoDB**, **Express.js** and **Nodemailer** .
 
 ## Project Overview
 
-This is a fully functional e-commerce platform with both user and admin functionalities.
+This is a fully functional e-commerce platform with comprehensive user and admin functionalities. The project focuses on providing a wide range of office wear fashion, offering a seamless shopping experience. It was developed to enhance both frontend and backend skills, integrating modern web technologies to create a responsive, user-friendly design.
 
 ### User Features:
 
