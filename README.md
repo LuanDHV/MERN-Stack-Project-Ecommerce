@@ -97,7 +97,7 @@ npm install
 npm run dev
 ```
 
-2. Install server dependencies:\*\*
+2. **Install server dependencies:**
 
 ```bash
 cd server
