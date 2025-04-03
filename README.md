@@ -1,6 +1,6 @@
 # MERN Stack Project E-commerce
 
-Welcome to the **MERN Stack Project E-commerce!** This project demonstrates the implementation of a full-stack e-commerce application using **Tailwind CSS**, **React**, **Redux Toolkit** **Node.js**, **MongoDB**, **Express.js** and **Nodemailer**.
+Welcome to the **MERN Stack Project E-commerce!** This project demonstrates the implementation of a full-stack e-commerce application using **JavaScript**, **Tailwind CSS**, **React**, **Redux Toolkit**, **Node.js**, **Express.js**, **MongoDB** and **Nodemailer**.
 
 ## Project Overview
 
