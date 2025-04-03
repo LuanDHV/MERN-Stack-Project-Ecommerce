@@ -79,7 +79,7 @@ Follow these steps to generate an App Password for Gmail:
 - From the dropdown, select **Mail** as the app and choose the device you are using (e.g., Windows Computer).
 
 2. **Update the .env file:**
-   Copy the generated App Password and paste it into the .env file in the server directory for the EMAIL_PASSWORD variable.
+   Copy the generated App Password and paste it into the .env file in the server directory for the **EMAIL_PASSWORD** variable.
 
 ### Running the Project
 
