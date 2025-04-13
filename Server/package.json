@@ -5,7 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "seed": "node src/seed/seedData.js",
+    "delete": "node src/seed/deleteData.js"
   },
   "keywords": [],
   "author": "",
