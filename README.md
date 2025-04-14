@@ -83,7 +83,7 @@ Follow these steps to generate an App Password for Gmail:
 
 ### Running the Project
 
-1. **Install client dependencies:**
+1. **Install client dependencies and start the client**
 
 ```bash
 cd client
@@ -97,7 +97,9 @@ npm install
 npm run dev
 ```
 
-2. **Install server dependencies:**
+This will start the client at **http://localhost:3000**
+
+2. **Install server dependencies, seed the database, and start the server:**
 
 ```bash
 cd server
@@ -108,7 +110,31 @@ npm install
 ```
 
 ```bash
+npm run seed
+```
+
+```bash
 npm start
 ```
 
-Once this is done, the application will start running. You can now access the client at **http://localhost:3000** and interact with the server at **http://localhost:8000**.
+This will seed your database with sample data and start the backend server at **http://localhost:8000**
+
+**If you need to clear the database before reseeding, you can run:**
+
+```bash
+npm run delete
+```
+
+### Test Accounts
+
+You can use the following accounts to test the application:
+
+**User Account**
+**Email:** user@example.com
+**Password:** 123456
+
+**Admin Account**
+**Email:** admin@example.com
+**Password:** 123456
+
+The password for all seed users is 123456. Passwords are hashed in the database. New user registrations will automatically hash their password.
