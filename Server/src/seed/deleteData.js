@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import User from "../models/userModel.js";
-import Category from "../models/categoryModel.js";
-import Product from "../models/productModel.js";
+import userModel from "../models/userModel.js";
+import categoryModel from "../models/categoryModel.js";
+import productModel from "../models/productModel.js";
 
 dotenv.config();
 
@@ -12,13 +12,13 @@ const deleteData = async () => {
     await mongoose.connect(`${process.env.MONGODB_URI}`);
     console.log("MongoDB connected");
 
-    await User.deleteMany();
+    await userModel.deleteMany();
     console.log("Deleted users");
 
-    await Category.deleteMany();
+    await categoryModel.deleteMany();
     console.log("Deleted categories");
 
-    await Product.deleteMany();
+    await productModel.deleteMany();
     console.log("Deleted products");
 
     console.log("All data deleted successfully!");

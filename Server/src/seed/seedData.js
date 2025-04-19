@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
-import users from "../seed/usersData.js";
-import categories from "../seed/categoriesData.js";
-import products from "../seed/productsData.js";
+import usersData from "../seed/usersData.js";
+import categoriesData from "../seed/categoriesData.js";
+import productsData from "../seed/productsData.js";
 
-import User from "../models/userModel.js";
-import Category from "../models/categoryModel.js";
-import Product from "../models/productModel.js";
+import userModel from "../models/userModel.js";
+import categoryModel from "../models/categoryModel.js";
+import productModel from "../models/productModel.js";
 
 dotenv.config();
 
@@ -16,13 +16,13 @@ const seedData = async () => {
     await mongoose.connect(`${process.env.MONGODB_URI}`);
     console.log("MongoDB connected");
 
-    await User.insertMany(users);
+    await userModel.insertMany(usersData);
     console.log("Seeded users");
 
-    await Category.insertMany(categories);
+    await categoryModel.insertMany(categoriesData);
     console.log("Seeded categories");
 
-    await Product.insertMany(products);
+    await productModel.insertMany(productsData);
     console.log("Seeded products");
 
     console.log("All data seeded successfully!");
